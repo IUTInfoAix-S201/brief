@@ -1,6 +1,6 @@
 # Règles métier
 
-Les 24 règles métier du modèle conceptuel. Chaque règle a un identifiant ancré (`#r1` à `#r24`) qui sert de point de référence depuis le reste du dossier (parcours, stories, maquettes).
+Les règles métier du modèle conceptuel. Chaque règle a un identifiant ancré (`#r1` à `#r28`) qui sert de point de référence depuis le reste du dossier (parcours, stories, maquettes).
 
 ## Site, point, passage
 
@@ -12,6 +12,12 @@ Les 24 règles métier du modèle conceptuel. Chaque règle a un identifiant anc
     L'application **alerte sans bloquer** si l'utilisateur déclare un passage hors fenêtre. Sur les sites en mode **`PointFixeRecherche`** (dates personnalisées pour des besoins recherche), cette règle est **muette** : aucune alerte n'est générée.
 - **R4**{ #r4 } : sur les sites en mode **`PointFixeStandard`**, intervalle conseillé entre les deux passages d'un même site : **≥ 1 mois**. Idéalement, dates « anniversaires » (±10 j) d'une année à l'autre. Sur les sites en mode **`PointFixeRecherche`**, cette règle est également **muette** (l'utilisateur enregistre à la fréquence qui convient à son protocole, y compris plusieurs nuits successives).
 - **R5**{ #r5 } : le triplet `(Site, Point, Année, n° de passage)` est **unique** : un même point ne peut pas avoir deux passages avec le même n° dans la même année.
+- **R25**{ #r25 } : un n° de carré est **unique par utilisateur** : un même utilisateur ne peut pas déclarer deux fois le même carré (alerte bloquante à la création ou au renommage d'un site ; la vérification exclut le site courant, pour qu'un simple renommage ne se bloque pas lui-même).
+
+## Géographie des carrés et des points
+
+- **R26**{ #r26 } : un point d'écoute appartient à un **carré de 2 km de côté** du **carroyage national Vigie-Chiro** (« carrenat »). Ses coordonnées GPS doivent tomber **dans l'emprise de ce carré**. À l'édition cartographique des positions, le marqueur est **contraint (clampé) au bord de la maille** : on ne peut pas glisser un point hors de son carré. L'emprise du carré est déduite du **centroïde officiel** de la maille (référentiel `carrenat` embarqué, ≈ 137 000 mailles couvrant la France métropolitaine), avec un **repli** : si le carré est hors référentiel, l'emprise est reconstruite autour des points **géolocalisés** du site.
+- **R27**{ #r27 } : un point dont les coordonnées GPS ne sont **pas (encore) saisies** est tout de même situé, **au centre de son carré** (position **approchée**, distinguée visuellement d'une position mesurée). Si plusieurs points d'un même carré sont sans GPS, ils sont **répartis en éventail** autour du centre pour ne pas se superposer. Un point n'est **non plaçable** que si son carré est hors référentiel **et** qu'aucun point du site n'est géolocalisé (centre inconnu).
 
 ## Convention de nommage des fichiers
 
@@ -49,6 +55,10 @@ Les 24 règles métier du modèle conceptuel. Chaque règle a un identifiant anc
     - `null` : aucune validation n'a encore été effectuée (l'observation conserve uniquement les colonnes `tadarida_*`, cf. [R17](#r17)).
 
     Ce mode est tracé en BD et restituable dans l'export `_Vu.csv` (colonne optionnelle, à activer selon attentes Vigie-Chiro). Sa principale utilité : permettre à un évaluateur scientifique de distinguer ce qui a été réellement vérifié à l'oreille de ce qui a été propagé sur confiance.
+
+## Suppression de sites et de points
+
+- **R28**{ #r28 } : un **point d'écoute** ou un **site** qui **porte des passages** ne peut pas être supprimé (garde-fou contre la perte de données rattachées). La suppression est **bloquée** tant qu'au moins un passage y est rattaché ; l'interface l'indique (action désactivée avec info-bulle explicative, ou message au clic). Pour supprimer, il faut d'abord retirer les passages concernés.
 
 ## Données
 
