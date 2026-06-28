@@ -41,6 +41,7 @@ L'écran présente, pour le passage courant, un **bilan technique** de la nuit :
     .footer-txt { font: 12px sans-serif; fill: #4a6785; }
   </style>
 
+  <rect x="0" y="0" width="1000" height="660" fill="#f7f9fb"/>
   <rect x="0" y="0" width="1000" height="44" class="chrome"/>
   <text x="20" y="28" class="chrometxt">VigieChiro PR Companion</text>
   <text x="210" y="28" class="crumb">Accueil  ›  Mes sites  ›  Carré 640380  ›  Passage N° 2  ›  </text>
@@ -126,6 +127,7 @@ Si la sonde est absente ou défaillante, la section climat **n'est pas masquée*
     .banner-txt { font: 13px sans-serif; fill: #5d4e00; }
     .sub-grey { font: 12px sans-serif; fill: #6a737d; }
   </style>
+  <rect x="0" y="0" width="1000" height="200" fill="#f7f9fb"/>
   <text x="30" y="38" class="pagetitle">🩺 Diagnostic matériel</text>
   <text x="30" y="60" class="pagesub">PR 1925492</text>
   <rect x="30" y="78" width="640" height="40" rx="4" class="banner"/>
