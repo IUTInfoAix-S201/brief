@@ -20,7 +20,7 @@
 
 - [ ] La vue arborescente présente un nœud racine par site (libellé : `Carré XXXXXX - <nom convivial>`).
 - [ ] Chaque site se déplie en ses points d'écoute (libellé : `<code point> - N passages cette saison`).
-- [ ] Chaque point se déplie en ses passages (libellé : `Passage N (date)` avec badge de statut workflow).
+- [ ] Chaque point se déplie en ses passages (libellé : `Passage N (date)` avec badge de statut d'avancement).
 - [ ] Au niveau site, un méta-libellé indique la **date du dernier passage importé** (« dernier passage il y a 2 jours »).
 - [ ] Au niveau point, on voit le nombre de passages **à vérifier** (statut `Transformé`, sans verdict) en évidence visuelle (badge orange).
 - [ ] Le clic sur un passage ouvre directement sa fiche détail.
@@ -45,11 +45,11 @@
 **Critères d'acceptation** :
 
 - [ ] Une bascule permet de basculer entre la vue arborescente ([E5.S1](#e5s1)) et la vue tabulaire.
-- [ ] La vue tabulaire affiche une ligne par passage avec colonnes : Site (n° carré + nom), Point, Année, N° passage, Date de session d'enregistrement, Statut workflow, Verdict, Date de dépôt.
+- [ ] La vue tabulaire affiche une ligne par passage avec colonnes : Site (n° carré + nom), Point, Année, N° passage, Date de session d'enregistrement, Statut d'avancement, Verdict, Date de dépôt.
 - [ ] Toutes les colonnes sont **triables** (clic sur l'en-tête).
 - [ ] Chaque colonne propose un **filtre rapide** :
     - colonnes textuelles : input texte avec match partiel (Site, Point)
-    - colonnes énumérées : multi-sélection (Statut workflow, Verdict)
+    - colonnes énumérées : multi-sélection (Statut d'avancement, Verdict)
     - colonnes dates : sélecteur de plage
 - [ ] Le tableau reste réactif jusqu'à au moins 500 lignes (cf. [O5](../../Objectifs%20qualités/Objectifs%20qualités/O5.md)) - pas de freeze IHM en tri/filtre.
 - [ ] Le clic sur une ligne ouvre la fiche détail du passage.
@@ -74,7 +74,7 @@
 **Critères d'acceptation** :
 
 - [ ] Un bouton « Filtres avancés » ouvre un panneau de composition de filtres avec une logique ET entre les critères, OU à l'intérieur d'une même catégorie.
-- [ ] Les critères disponibles couvrent : site (multi-select), point (multi-select), année, plage de n° de passage, plage de dates d'enregistrement, plage de dates de dépôt, statut workflow (multi-select), verdict (multi-select), enregistreur (par n° de série).
+- [ ] Les critères disponibles couvrent : site (multi-select), point (multi-select), année, plage de n° de passage, plage de dates d'enregistrement, plage de dates de dépôt, statut d'avancement (multi-select), verdict (multi-select), enregistreur (par n° de série).
 - [ ] Un compteur en bas de panneau indique « N passages correspondent à ces critères ».
 - [ ] Bouton « Appliquer » : la vue tabulaire ([E5.S2](#e5s2)) se rafraîchit avec les résultats filtrés.
 - [ ] Bouton « Sauvegarder cette vue » : permet de nommer le jeu de filtres et de le retrouver dans un menu de « Vues sauvegardées ».

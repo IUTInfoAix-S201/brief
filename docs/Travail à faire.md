@@ -2,7 +2,7 @@
 
 !!! note "Genèse pédagogique - au passé"
     Cette page documente la **méthode de travail** prévue pour la SAE 2.01 (organisation des équipes,
-    écrans à construire, workflow Git). Elle est conservée **pour mémoire** ; elle décrit le **point de
+    écrans à construire, processus Git). Elle est conservée **pour mémoire** ; elle décrit le **point de
     départ** remis aux équipes, pas l'application finie.
 
 Cette page donnait la **vue d'ensemble** de ce que les équipes avaient à produire et de la **méthode**
@@ -82,11 +82,11 @@ chapeau** donne la vue d'ensemble de l'écran, puis les issues « fichier » dé
 On garde `passage` (l'écran pivot) **pour la fin** : une fois construit, il relie tous les écrans et
 le fil rouge complet passe au vert.
 
-## Le workflow de livraison
+## Le processus de livraison
 
 Une tâche = une **branche** → une **Pull Request** → une **revue** par un binôme → un **merge** (CI
 verte). Les conventions (Git Flow, Conventional Commits, revue obligatoire) sont détaillées dans les
-[Consignes générales](Consignes%20générales.md#conventions-git-et-workflow).
+[Consignes générales](Consignes%20générales.md#conventions-git-et-flux-de-travail).
 
 !!! warning "Définition de « terminé » (Definition of Done)"
     Une tâche n'est **finie** que si : le test d'acceptation concerné est **vert**, la suite **ne

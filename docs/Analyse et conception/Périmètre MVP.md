@@ -49,7 +49,7 @@ Les fondations BD minimales pour que toutes les autres stories puissent s'appuye
 
 - [E0.S1 - Initialiser le schéma SQLite et les DAO génériques](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s1) ★★★★
 - [E0.S2 - Persister les sites de suivi et points d'écoute](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s2) ★★
-- [E0.S3 - Persister les passages avec leurs statuts workflow](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s3) ★★★
+- [E0.S3 - Persister les passages avec leurs statuts d'avancement](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s3) ★★★
 - [E0.S4 - Persister les sélections d'écoute et leurs séquences](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s4) ★★
 - [E0.S5 - Persister les observations Tadarida importées](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s5) ★★★
 
@@ -147,7 +147,7 @@ Vue exhaustive des 50 stories. Tri par épopée puis par n°.
 |---|---|--:|:--:|---|
 | [E0.S1](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s1) | Schéma SQLite + DAO génériques | ★★★★ | ✅ MUST | Socle sans lequel rien n'est livrable. |
 | [E0.S2](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s2) | Persister sites et points | ★★ | ✅ MUST | Sert E1 (MUST). |
-| [E0.S3](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s3) | Persister passages et workflow | ★★★ | ✅ MUST | Sert E2/E3/E4 (MUST). |
+| [E0.S3](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s3) | Persister passages et cycle de vie | ★★★ | ✅ MUST | Sert E2/E3/E4 (MUST). |
 | [E0.S4](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s4) | Persister sélections d'écoute | ★★ | ✅ MUST | Sert E3 (MUST). |
 | [E0.S5](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s5) | Persister observations Tadarida | ★★★ | ✅ MUST | Sert E7 (cible étirable principale). |
 | [E0.S6](Story%20mapping/E0%20-%20Fondations%20de%20persistance.md#e0s6) | Reprendre un import interrompu | ★★★★ | 🟠 SHOULD | Robustesse - un import qui crash sans reprise reste corrigible à la main. |

@@ -189,7 +189,7 @@ Cette vue présente **un site et tout ce qui s'y rattache** : sa fiche d'identit
 
 - **Bandeau d'infos clés** : la fiche d'identité du site (n° de carré, département déduit des 2 premiers chiffres du carré [R1](../Modèle%20conceptuel/Règles%20métier.md#r1), protocole, date de création, dernière nuit importée, total passages de l'année).
 - **Cartes points d'écoute** : pour A1 et B2 (géolocalisés), le lien vert **« ✓ GPS - voir sur la carte »** ouvre la carte multi-sites centrée sur le point. Pour C3 (sans GPS), le lien ambré **« ⚠ GPS manquant - placer sur la carte »** ouvre la carte sur le carré, **mode édition actif**, pour glisser le point à sa position ([R26](../Modèle%20conceptuel/Règles%20métier.md#r26), [R27](../Modèle%20conceptuel/Règles%20métier.md#r27)). Chaque carte indique le nombre de passages rattachés ; une carte qui en porte ne peut pas être supprimée ([R28](../Modèle%20conceptuel/Règles%20métier.md#r28)).
-- **Tableau passages** : colonnes Date, Point, N° de passage, Statut, Verdict, Enregistreur, Déposé le. Le **statut** suit le workflow `Importé → Transformé → Vérifié → Prêt à déposer → Déposé` (couleur dérivée du statut).
+- **Tableau passages** : colonnes Date, Point, N° de passage, Statut, Verdict, Enregistreur, Déposé le. Le **statut** suit le cycle `Importé → Transformé → Vérifié → Prêt à déposer → Déposé` (couleur dérivée du statut).
 
 ### Interactions clés
 
@@ -328,4 +328,4 @@ Si on tente de supprimer un point qui porte des passages, l'opération est **blo
 
 - La **fiche d'identité** et le **tableau des passages** sont calculés par le service (agrégation par site).
 - Le **tableau** supporte de nombreuses lignes sans pagination (un site très actif sur la saison) ; le tri se fait par en-tête de colonne.
-- Le **statut workflow** affiché est l'attribut persisté ; la couleur du badge en est **dérivée**, pas stockée.
+- Le **statut d'avancement** affiché est l'attribut persisté ; la couleur du badge en est **dérivée**, pas stockée.

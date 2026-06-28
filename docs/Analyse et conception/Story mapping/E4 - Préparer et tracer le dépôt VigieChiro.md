@@ -68,7 +68,7 @@
 
 **Je veux** pouvoir confirmer à l'application que j'ai effectivement déposé le lot sur Vigie-Chiro, avec mémorisation de la date de dépôt
 
-**Afin de** clôturer ce passage dans mon workflow et le distinguer des passages encore en attente de dépôt
+**Afin de** clôturer ce passage dans mon suivi et le distinguer des passages encore en attente de dépôt
 
 **Critères d'acceptation** :
 
@@ -87,7 +87,7 @@
 
 ---
 
-## E4.S4 - Visualiser le statut workflow et la chronologie d'un passage { #e4s4 }
+## E4.S4 - Visualiser le statut d'avancement et la chronologie d'un passage { #e4s4 }
 
 **En tant que** [Karim](../Personas/Karim.md) ou [Samuel](../Personas/Samuel.md) (qui jongle entre plusieurs dizaines de passages à différents stades)
 
@@ -97,7 +97,7 @@
 
 **Critères d'acceptation** :
 
-- [ ] La fiche détail d'un passage affiche **clairement** le statut workflow courant (badge coloré).
+- [ ] La fiche détail d'un passage affiche **clairement** le statut d'avancement courant (badge coloré).
 - [ ] Un mini-bandeau visuel (type indicateur d’étapes horizontal) montre les **5 statuts du cycle** avec le statut courant mis en évidence et les précédents marqués comme franchis.
 - [ ] Pour chaque transition franchie, on voit **la date** de la transition (ex. « Importé le 15/06, Transformé le 15/06, Vérifié le 16/06 avec verdict OK, Déposé le 17/06 »).
 - [ ] Si le passage est bloqué (verdict `À jeter`, vérifications échouées en [E4.S1](#e4s1)), un indicateur explicite signale la raison du blocage.
