@@ -9,7 +9,7 @@ Cette vue affiche un **rapport de cohérence** (toutes les vérifications préal
 ## Wireframe principal - vérifications passent, lot prêt à déposer
 
 <div markdown="0">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Maquette M-Lot - Préparation du lot à déposer" style="max-width: 100%; height: auto; border: 1px solid #d0d7de; border-radius: 6px; background: #fafbfc;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-label="Maquette M-Lot - Préparation du lot à déposer" style="max-width: 100%; height: auto; border: 1px solid #d0d7de; border-radius: 6px; background: #fafbfc;">
   <style>
     .frame { fill: #ffffff; stroke: #2c3e50; stroke-width: 1.5; }
     .chrome { fill: #3f51b5; }
@@ -55,7 +55,7 @@ Cette vue affiche un **rapport de cohérence** (toutes les vérifications préal
     .footer-txt { font: 11px sans-serif; fill: #6a737d; }
   </style>
 
-  <rect x="10" y="10" width="1180" height="780" rx="4" class="frame"/>
+  <rect x="10" y="10" width="1180" height="800" rx="4" class="frame"/>
   <!-- Bandeau du chrome : titre + fil d'Ariane (emplacement complet du passage) + recherche -->
   <rect x="10" y="10" width="1180" height="44" rx="4" class="chrome"/>
   <rect x="10" y="26" width="1180" height="28" class="chrome"/>
@@ -123,32 +123,31 @@ Cette vue affiche un **rapport de cohérence** (toutes les vérifications préal
   <text x="540" y="605" class="lot-detail">conforme protocole Vigie-Chiro</text>
 
   <!-- Chemin du dossier + bouton ouvrir -->
-  <text x="780" y="553" class="lot-label">EMPLACEMENT SUR DISQUE</text>
-  <rect x="780" y="563" width="290" height="32" rx="3" class="path-display"/>
-  <text x="790" y="585" class="path-mono">~/VigieChiroCompanion/data/...</text>
-  <rect x="1080" y="563" width="65" height="32" rx="3" class="btn-secondary"/>
-  <text x="1112" y="585" class="btn-txt-dark" text-anchor="middle" font-size="14">📋</text>
-  <text x="780" y="615" class="lot-detail">→ Car640380-2026-Pass2-A1/</text>
+  <text x="760" y="553" class="lot-label">EMPLACEMENT SUR DISQUE</text>
+  <rect x="760" y="563" width="320" height="32" rx="3" class="path-display"/>
+  <text x="772" y="585" class="path-mono">&lt;Documents&gt;/VigieChiro-Companion/</text>
+  <rect x="1090" y="563" width="60" height="32" rx="3" class="btn-secondary"/>
+  <text x="1120" y="585" class="btn-txt-dark" text-anchor="middle" font-size="14">📋</text>
+  <text x="760" y="615" class="lot-detail">→ Car640380-2026-Pass2-A1/</text>
 
-  <rect x="40" y="650" width="240" height="34" rx="4" class="btn-primary"/>
-  <text x="160" y="671" class="btn-txt" text-anchor="middle">📂 Ouvrir le dossier dans l'explorateur</text>
+  <rect x="40" y="650" width="300" height="34" rx="4" class="btn-primary"/>
+  <text x="190" y="671" class="btn-txt" text-anchor="middle">📂 Ouvrir le dossier dans l'explorateur</text>
 
   <!-- ============ Étape 3 : Téléversement et confirmation ============ -->
   <circle cx="62" cy="715" r="16" class="step-num"/>
   <text x="62" y="720" class="step-num-txt" text-anchor="middle">3</text>
   <text x="92" y="712" class="section-title">Téléverser sur Vigie-Chiro, puis confirmer</text>
 
-  <!-- 3 lignes côte à côte -->
-  <rect x="40" y="730" width="1120" height="35" rx="4" class="upload-warn-box"/>
-  <text x="60" y="753" class="upload-warn-txt">⚠ L'application ne dialogue pas avec Vigie-Chiro. Sélectionnez les fichiers dans l'explorateur ouvert ci-dessus et téléversez-les manuellement sur</text>
-  <text x="60" y="753" class="btn-txt-link" dx="900">vigiechiro.herokuapp.com 🔗</text>
+  <rect x="40" y="730" width="880" height="48" rx="4" class="upload-warn-box"/>
+  <text x="58" y="750" class="upload-warn-txt">⚠ L'application ne dialogue pas avec Vigie-Chiro : sélectionnez les fichiers dans l'explorateur</text>
+  <text x="58" y="768" class="upload-warn-txt">ouvert ci-dessus et téléversez-les manuellement sur <tspan class="btn-txt-link">vigiechiro.herokuapp.com 🔗</tspan></text>
 
-  <rect x="940" y="710" width="220" height="40" rx="4" class="btn-primary-big"/>
-  <text x="1050" y="735" class="btn-txt-big" text-anchor="middle">✓ J'ai déposé le lot</text>
+  <rect x="940" y="734" width="220" height="40" rx="4" class="btn-primary-big"/>
+  <text x="1050" y="759" class="btn-txt-big" text-anchor="middle">✓ J'ai déposé le lot</text>
 
   <!-- Footer -->
-  <rect x="10" y="770" width="1180" height="20" class="footer"/>
-  <text x="40" y="785" class="footer-txt">Statut actuel : Vérifié (verdict OK) · prêt à passer au statut Déposé après confirmation</text>
+  <rect x="10" y="790" width="1180" height="20" class="footer"/>
+  <text x="40" y="805" class="footer-txt">Statut actuel : Vérifié (verdict OK) · prêt à passer au statut Déposé après confirmation</text>
 </svg>
 </div>
 
