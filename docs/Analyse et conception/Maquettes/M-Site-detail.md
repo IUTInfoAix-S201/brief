@@ -6,7 +6,7 @@
 
 Cette vue présente **un site et tout ce qui s'y rattache** : sa fiche d'identité (n° de carré, département, protocole, dates), ses points d'écoute (coordonnées GPS optionnelles) et l'historique des passages enregistrés sur ce site. C'est aussi depuis cet écran qu'on **modifie le site** (ajout/retrait de points, mise à jour des coordonnées GPS) et qu'on lance un import.
 
-## Wireframe principal - site avec 3 points et plusieurs passages
+## Maquette principale - site avec 3 points et plusieurs passages
 
 <div markdown="0">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-label="Maquette M-Site-detail - Détail d'un site de suivi" style="max-width: 100%; height: auto; border: 1px solid #d0d7de; border-radius: 6px; background: #fafbfc;">

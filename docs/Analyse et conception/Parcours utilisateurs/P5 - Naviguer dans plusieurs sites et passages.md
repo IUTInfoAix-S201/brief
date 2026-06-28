@@ -1,6 +1,6 @@
 # P5 - Naviguer dans plusieurs sites et passages 🗂
 
-[← Retour au hub des parcours](index.md) · **Section B - Chaîne de production**
+[← Retour au sommaire des parcours](index.md) · **Section B - Chaîne de production**
 
 > **Persona principal** : Karim / Samuel. **Objectifs qualité visés** : [O5 Capacité d'affichage](../../Objectifs%20qualités/Objectifs%20qualités/O5.md), [O6 Modularité](../../Objectifs%20qualités/Objectifs%20qualités/O6.md).
 

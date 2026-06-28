@@ -1,6 +1,6 @@
 # E0 - 🗄️ Fondations de persistance
 
-[← Retour au hub story mapping](index.md) · **Épopée transverse** · ✅ MUST socle (S1-S5) · 🟠 SHOULD (S6-S7) · ⚪ COULD (S8)
+[← Retour au sommaire story mapping](index.md) · **Épopée transverse** · ✅ MUST socle (S1-S5) · 🟠 SHOULD (S6-S7) · ⚪ COULD (S8)
 
 **Portée** : tout le travail base de données (schéma SQLite, DAO, persistance des entités cœur, mécanismes de reprise sur erreur). Cette épopée n'est rattachée à **aucun parcours** spécifique car elle **sert toutes les autres épopées** : sans elle, aucune story métier n'est livrable.
 
