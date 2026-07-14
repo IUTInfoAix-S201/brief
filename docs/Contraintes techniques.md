@@ -38,11 +38,12 @@ d'architecture** qui structurent son code.
   rendu), `SelecteurFichier` (la désignation d'un fichier). Chaque écran en détient une instance
   remplaçable, que ses tests substituent par un double.
 
-  La raison est concrète et vous la rencontrerez : un `showAndWait()` **fige** un test d'IHM
-  *headless*. Une action qui ouvre un dialogue en dur est donc **impossible à cliquer dans un test** -
-  vous ne pourrez vérifier que le **grisage** de son bouton, jamais son **effet**. Et il suffit d'en
-  oublier **un seul** (l'alerte finale, ou le sélecteur de fichier initial) pour que le geste entier
-  redevienne intestable.
+  La contrainte est mécanique : un `showAndWait()` **fige** un test d'IHM *headless*. Une action qui
+  ouvre un dialogue en dur est donc **impossible à déclencher dans un test** - seul le **grisage** de
+  son bouton reste vérifiable, jamais son **effet**. Et il suffit d'en oublier **un seul** (l'alerte
+  finale, ou le sélecteur de fichier initial) pour que le geste entier redevienne intestable. C'est ce
+  qui privait les gestes **irréversibles** du produit (purger les originaux, restaurer la base,
+  supprimer une nuit, réimporter par-dessus des validations) de tout test de leur effet.
 
 ## Outillage et cycle de vie
 
