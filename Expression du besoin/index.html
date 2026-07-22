@@ -1,0 +1,3096 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dossier de conception de VigieChiro Companion : besoin, modèle de données, parcours utilisateurs, maquettes et story mapping.">
+      
+      
+      
+        <link rel="canonical" href="https://brief.echonuit.fr/Expression%20du%20besoin/">
+      
+      
+        <link rel="prev" href="../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC4/">
+      
+      
+        <link rel="next" href="../Analyse%20et%20conception/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>4. Expression du besoin - VigieChiro Companion · Brief projet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#expression-du-besoin" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href=".." title="VigieChiro Companion · Brief projet" class="md-header__button md-logo" aria-label="VigieChiro Companion · Brief projet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VigieChiro Companion · Brief projet
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Expression du besoin
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/echonuit/vigiechiro-pr-companion" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    echonuit/vigiechiro-pr-companion
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="VigieChiro Companion · Brief projet" class="md-nav__button md-logo" aria-label="VigieChiro Companion · Brief projet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VigieChiro Companion · Brief projet
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/echonuit/vigiechiro-pr-companion" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    echonuit/vigiechiro-pr-companion
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pr%C3%A9sentation%20du%20projet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Présentation du projet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Contraintes%20techniques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Stack technique et architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Objectifs%20qualit%C3%A9s/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    3. Objectifs qualités
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Objectifs qualités
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Cat%C3%A9gorie%20de%20qualit%C3%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Catégories ISO 25010
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Crit%C3%A8re%20de%20qualit%C3%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critères ISO 25010
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Objectifs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Objectifs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O1 - Portabilité multi-OS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O2 - Facilité d'apprentissage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O3 - Tenue dans la durée
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O4 - Exactitude lecture audio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O5 - Capacité CSV
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O6 - Modularité protocoles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O7 - Intégrité annotations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O8 - Confidentialité identifiants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Scénarios
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Scénarios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SC1 - Onboarding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SC2 - Aucune fuite d'identifiants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SC3 - Ajout d'un protocole
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SC4 - Internationalisation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    4. Expression du besoin
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    4. Expression du besoin
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#donnees-fournies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Données fournies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctionnalites-attendues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fonctionnalités attendues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fonctionnalités attendues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#must-chaine-fil-rouge-remplace-lupasrename-kaleidoscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      MUST (chaîne fil rouge - remplace LupasRename + Kaléidoscope)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-utilite-reconnue" class="md-nav__link">
+    <span class="md-ellipsis">
+      SHOULD (utilité reconnue)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#could-idees-dextension-productivite-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      COULD (idées d'extension, productivité avancée)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wont-hors-perimetre-de-cette-premiere-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      WON'T (hors périmètre de cette première version)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#et-apres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Et après ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Analyse%20et%20conception/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    5. Analyse et conception
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Analyse et conception
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Modèle conceptuel
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modèle conceptuel
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C1%20-%20Utilisateur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C1 - Utilisateur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C2%20-%20Site%20de%20suivi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C2 - Site de suivi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C3%20-%20Point%20d%27%C3%A9coute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C3 - Point d'écoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C4%20-%20Enregistreur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C4 - Enregistreur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C4bis%20-%20Micro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C4bis - Micro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C5%20-%20Passage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C5 - Passage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C6%20-%20Session%20d%27enregistrement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C6 - Session d'enregistrement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C7%20-%20Enregistrement%20original/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C7 - Enregistrement original
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C8%20-%20S%C3%A9quence%20d%27%C3%A9coute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C8 - Séquence d'écoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C9%20-%20Journal%20du%20capteur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C9 - Journal du capteur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C10%20-%20Relev%C3%A9%20climatique/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C10 - Relevé climatique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C11%20-%20S%C3%A9lection%20d%27%C3%A9coute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C11 - Sélection d'écoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C12%20-%20R%C3%A9sultats%20d%27identification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C12 - Résultats d'identification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C13%20-%20Observation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C13 - Observation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C14%20-%20Taxon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C14 - Taxon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C15%20-%20Groupe%20taxonomique/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C15 - Groupe taxonomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/Cardinalit%C3%A9s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cardinalités
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Règles métier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/Glossaire%20m%C3%A9tier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossaire métier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/Glossaire%20outils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossaire outils
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/Diagramme%20-%20plein%20%C3%A9cran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Diagramme plein écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Analyse%20et%20conception/Personas/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Personas
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Personas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Personas/Marie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Marie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Personas/Karim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Karim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Personas/Samuel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Samuel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Parcours utilisateurs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Parcours utilisateurs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P0%20-%20Premi%C3%A8re%20nuit%20de%20Marie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P0 - Première nuit de Marie (fil rouge)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P0%20-%20plein%20%C3%A9cran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P0 plein écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P1%20-%20D%C3%A9clarer%20un%20site%20de%20suivi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P1 - Déclarer un site de suivi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P2%20-%20Importer%20une%20nuit%20d%27enregistrement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P2 - Importer une nuit d'enregistrement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P3 - Vérifier l'enregistrement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P4 - Préparer le lot à déposer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P5%20-%20Naviguer%20dans%20plusieurs%20sites%20et%20passages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P5 - Naviguer multi-sites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P6 - Diagnostiquer le matériel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P7 - Valider les résultats Tadarida
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P8%20-%20Rechercher%20globalement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P8 - Rechercher globalement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P9%20-%20Regrouper%20les%20nuits%20successives%20par%20point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P9 - Regrouper les nuits par point
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P10%20-%20Exporter%20une%20biblioth%C3%A8que%20de%20sons%20de%20r%C3%A9f%C3%A9rence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P10 - Exporter sons de référence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P11%20-%20Inventaire%20des%20esp%C3%A8ces%20d%C3%A9tect%C3%A9es/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P11 - Inventaire des espèces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P12%20-%20R%C3%A9cup%C3%A9rer%20une%20nuit%20d%C3%A9pos%C3%A9e%20sur%20VigieChiro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P12 - Récupérer une nuit déposée
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/Topologie%20-%20plein%20%C3%A9cran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topologie plein écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Analyse%20et%20conception/Story%20mapping/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Story mapping
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Story mapping
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E0%20-%20Fondations%20de%20persistance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E0 - Fondations de persistance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E1%20-%20G%C3%A9rer%20ses%20sites%20et%20points%20de%20suivi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E1 - Gérer ses sites et points de suivi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E2%20-%20Importer%20et%20transformer%20une%20nuit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E2 - Importer et transformer une nuit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E3%20-%20V%C3%A9rifier%20la%20qualit%C3%A9%20d%27enregistrement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E3 - Vérifier la qualité d'enregistrement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E4%20-%20Pr%C3%A9parer%20et%20tracer%20le%20d%C3%A9p%C3%B4t%20VigieChiro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E4 - Préparer et tracer le dépôt VigieChiro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E5%20-%20Naviguer%20dans%20le%20volume%20multi-sites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E5 - Naviguer dans le volume multi-sites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E6 - Diagnostiquer le matériel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E7 - Valider les résultats Tadarida
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Story%20mapping/E8%20-%20Productivit%C3%A9%20avanc%C3%A9e%20Tadarida/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E8 - Productivité avancée Tadarida
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Analyse%20et%20conception/Maquettes/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Maquettes
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            Maquettes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Accueil/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Sites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Sites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Site-detail/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Site-detail
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Import/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Import
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Passage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Passage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Qualification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Qualification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-SonsValidation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-SonsValidation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Lot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Lot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-MultiSite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-MultiSite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Diagnostic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Diagnostic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Analyse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Analyse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyse%20et%20conception/Maquettes/M-Recherche/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Recherche
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#contexte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#donnees-fournies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Données fournies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctionnalites-attendues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fonctionnalités attendues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fonctionnalités attendues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#must-chaine-fil-rouge-remplace-lupasrename-kaleidoscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      MUST (chaîne fil rouge - remplace LupasRename + Kaléidoscope)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-utilite-reconnue" class="md-nav__link">
+    <span class="md-ellipsis">
+      SHOULD (utilité reconnue)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#could-idees-dextension-productivite-avancee" class="md-nav__link">
+    <span class="md-ellipsis">
+      COULD (idées d'extension, productivité avancée)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wont-hors-perimetre-de-cette-premiere-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      WON'T (hors périmètre de cette première version)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#et-apres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Et après ?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/echonuit/vigiechiro-pr-companion/edit/main/brief/docs/Expression du besoin.md" title="Editer cette page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/echonuit/vigiechiro-pr-companion/raw/main/brief/docs/Expression du besoin.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="expression-du-besoin">Expression du besoin<a class="headerlink" href="#expression-du-besoin" title="Permanent link">&para;</a></h1>
+<h2 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h2>
+<p><em>VigieChiro Companion</em> est un <strong>compagnon logiciel</strong> destiné aux possesseurs de Passive Recorder, né d'un besoin exprimé par un chercheur du CEREMA. Aujourd'hui, ces utilisateurs jonglent entre l'explorateur de fichiers, un tableur, un lecteur audio et la plateforme web VigieChiro pour gérer leurs campagnes - et passent un temps important en manipulations répétitives à chaque nuit traitée.</p>
+<p>Plusieurs scripts ad hoc circulent dans la communauté (Python, R), et il existe des outils commerciaux comme <a href="https://www.wildlifeacoustics.com/products/kaleidoscope-pro">Kaleidoscope Pro</a>, mais aucune application gratuite et open-source dédiée au pipeline VigieChiro / PR Teensy n'est disponible. C'est cette lacune que <em>VigieChiro Companion</em> comble - un logiciel libre que la communauté peut reprendre et faire évoluer.</p>
+<h2 id="donnees-fournies">Données fournies<a class="headerlink" href="#donnees-fournies" title="Permanent link">&para;</a></h2>
+<p>Un jeu de données réel issu d'une session d'enregistrement nocturne (PR n° 1925492, nuit du 22 au 23 avril 2026, point fixe en zone Z1 de la carrée 640380 du protocole Vigie-Chiro Carré) est fourni comme jeu de test de référence. Il existe en deux variantes :</p>
+<ul>
+<li><strong>Échantillon</strong> versionné dans le dépôt <a href="https://github.com/IUTInfoAix-S201/vigiechiro-pr-companion-exemple-nuit"><code>vigiechiro-pr-companion-exemple-nuit</code></a> : sous-ensemble représentatif (audio réduit, observations complètes sur tous les taxa principaux). Disponible immédiatement après <code>git clone</code> de ce dépôt.</li>
+<li><strong><code>data/</code></strong> (~4,2 Go zippés / ~11 Go décompressés, à télécharger depuis Zenodo, gitignored) : full dataset (1572 WAV bruts + 2109 WAV redécoupés + 4031 observations). Nécessaire pour valider la volumétrie. Cf. l'<a href="../#donnees-dexemple-fournies">accueil</a>.</li>
+</ul>
+<p>Le tableau ci-dessous décrit la structure du <strong>full dataset</strong>, conforme à <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r22">R22</a> ; l'échantillon suit la même arborescence avec un sous-ensemble des fichiers audio.</p>
+<table>
+<thead>
+<tr>
+<th>Fichier / dossier</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LogPR1925492.txt</code></td>
+<td>Log technique du PR : démarrage, paramètres d'acquisition (<code>Acquisi. 20:25-07:47, Fe384kHz, FL N, FPH 00, S. R. 16dB 1dt. GN0, Bd. Freq. 8-120kHz, Wav 2-30s SD 99%</code>), tensions batterie, mises en veille, alarmes wakeup. Une ligne par évènement, format <code>JJ/MM/AA - HH:MM:SS PR&lt;sn&gt; &lt;message&gt;</code>. <strong>Note</strong> : la place sur le PR étant limitée, le log écrase de l'information au fur et à mesure quand la SD sature - l'ordre exact d'éviction reste à confirmer auprès du concepteur du firmware.</td>
+</tr>
+<tr>
+<td><code>PaRecPR1925492_THLog.csv</code></td>
+<td>Log température / hygrométrie produit par la sonde embarquée. Une mesure toutes les 600 s, colonnes <code>Date;Hour;Temperature;Humidity</code>.</td>
+</tr>
+<tr>
+<td><code>bruts/</code></td>
+<td>1572 fichiers WAV originaux (<a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C7%20-%20Enregistrement%20original/">C7</a>), format <code>Car&lt;carre&gt;-&lt;annee&gt;-&lt;passage&gt;-&lt;zone&gt;-PaRecPR&lt;sn&gt;_&lt;AAAAMMJJ&gt;_&lt;HHMMSS&gt;.wav</code> (ex. <code>Car640380-2026-Pass2-Z1-PaRecPR1925492_20260422_202623.wav</code>). Mono 16 bits 384 kHz. Durée variable (2 à 30 s, déclenchement sur seuil).</td>
+</tr>
+<tr>
+<td><code>transformes/</code></td>
+<td>2109 séquences d'écoute (<a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C8%20-%20S%C3%A9quence%20d%27%C3%A9coute/">C8</a>) : les WAV bruts <strong>renommés, découpés en séquences de 5 s et ralentis ×10</strong> (suffixe <code>_000</code>, <code>_001</code>...) + 2 CSV d'observations Tadarida (<a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/C12%20-%20R%C3%A9sultats%20d%27identification/">C12</a>, cf. <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r23">R23</a>). C'est cette version, prête au dépôt sur Vigie-Chiro, que Tadarida analyse.</td>
+</tr>
+<tr>
+<td><code>transformes/8a4fa…-observations.csv</code></td>
+<td>CSV des observations brutes Tadarida. Colonnes : <code>nom du fichier;temps_debut;temps_fin;frequence_mediane;tadarida_taxon;tadarida_probabilite;tadarida_taxon_autre;observateur_taxon;observateur_probabilite;validateur_taxon;validateur_probabilite</code>. ~4031 lignes. Champs <code>observateur_*</code> et <code>validateur_*</code> vides au départ. Les champs <code>observateur_*</code> sont ceux que l'application aide à remplir. Les champs <code>validateur_*</code>, eux, sont <strong>réservés à un expert du MNHN</strong> : la plateforme refuse (403) qu'un compte <code>Observateur</code> les pose. L'application les <strong>lit</strong> - elle affiche le verdict de l'expert à côté de la correction de l'observateur - mais ne les écrit jamais. Sur une séquence de 5 s, <strong>plusieurs lignes peuvent coexister</strong> (1 ligne par espèce distincte identifiée), avec timing début/fin précis dans la séquence.</td>
+</tr>
+<tr>
+<td><code>transformes/…-observations_Vu.csv</code></td>
+<td>Même format que ci-dessus, mais avec encodage CSV légèrement différent (séparateur <code>;</code> sans guillemets, doubles guillemets vides <code>""""</code> pour les champs nuls). Format réinjectable par la plateforme VigieChiro.</td>
+</tr>
+</tbody>
+</table>
+<p>Distribution des classifications Tadarida sur cette session, à titre indicatif. Cette distribution donne <strong>l'identification la plus probable</strong> d'un des sons ou d'une des séquences détectées dans la séquence ralentie de 5 s, mais <strong>des erreurs sont possibles dans tous les sens</strong> (faux positifs, faux négatifs) et plusieurs espèces ou natures de sons peuvent cohabiter dans une même séquence :</p>
+<table>
+<thead>
+<tr>
+<th>Taxon</th>
+<th style="text-align: right;">Effectif</th>
+<th style="text-align: right;">%</th>
+<th>Nature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>noise</code></td>
+<td style="text-align: right;">2102</td>
+<td style="text-align: right;">52 %</td>
+<td>Bruit ambiant (vent, mécanique, éclats)</td>
+</tr>
+<tr>
+<td><code>piaf</code></td>
+<td style="text-align: right;">649</td>
+<td style="text-align: right;">16 %</td>
+<td>Oiseau (toutes espèces confondues)</td>
+</tr>
+<tr>
+<td><code>Pippip</code></td>
+<td style="text-align: right;">638</td>
+<td style="text-align: right;">16 %</td>
+<td><em>Pipistrellus pipistrellus</em> (Pipistrelle commune)</td>
+</tr>
+<tr>
+<td><code>Nyclei</code></td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">3 %</td>
+<td><em>Nyctalus leisleri</em> (Noctule de Leisler)</td>
+</tr>
+<tr>
+<td><code>Tadten</code></td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">2 %</td>
+<td><em>Tadarida teniotis</em> (Molosse de Cestoni)</td>
+</tr>
+<tr>
+<td><code>Rhihip</code></td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">2 %</td>
+<td><em>Rhinolophus hipposideros</em> (Petit rhinolophe)</td>
+</tr>
+<tr>
+<td><code>Tetvir</code></td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">2 %</td>
+<td><em>Tettigonia viridissima</em> (Sauterelle, oui ça siffle aussi en ultrason)</td>
+</tr>
+<tr>
+<td>autres</td>
+<td style="text-align: right;">~268</td>
+<td style="text-align: right;">7 %</td>
+<td>20+ taxons rares, dont <em>Phanan</em>, <em>Rhifer</em>, <em>Phogri</em>, <em>Pipkuh</em>, <em>Leppun</em>, <em>Myomys</em>, <em>Eptser</em>, etc.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📚 La nomenclature des taxons utilisée par Tadarida est un code à 6 lettres (3 + 3) : trois premières lettres du genre + trois premières lettres de l'espèce. La correspondance complète est documentée par le MNHN.</p>
+</blockquote>
+<h2 id="fonctionnalites-attendues">Fonctionnalités attendues<a class="headerlink" href="#fonctionnalites-attendues" title="Permanent link">&para;</a></h2>
+<p>L'application <strong>doit</strong> offrir les fonctionnalités suivantes (priorité MUST). Les fonctionnalités SHOULD et COULD sont soumises à arbitrage selon les priorités.</p>
+<h3 id="must-chaine-fil-rouge-remplace-lupasrename-kaleidoscope">MUST (chaîne fil rouge - remplace LupasRename + Kaléidoscope)<a class="headerlink" href="#must-chaine-fil-rouge-remplace-lupasrename-kaleidoscope" title="Permanent link">&para;</a></h3>
+<p>La chaîne minimale livrable est la <strong>chaîne fil rouge</strong> : depuis la récupération de la carte SD jusqu'au dépôt sur Vigie-Chiro, sans aucun outil tiers.</p>
+<ul>
+<li><strong>Déclarer un site de suivi</strong> dans l'application : n° de carré (6 chiffres) et codes des points d'écoute (1 lettre + 1 chiffre). Le site doit avoir été créé en amont sur le portail Vigie-Chiro pour récupérer ces identifiants.</li>
+<li><strong>Importer une nuit d'enregistrement</strong> depuis un dossier (typiquement la carte SD) : détection automatique du <code>LogPR*.txt</code>, du <code>PaRec*_THLog.csv</code> et des WAV bruts ; <strong>copie protégée</strong> des fichiers (aucune écriture sur la SD source) ; <strong>renommage</strong> automatique avec le préfixe <code>CarXXXXXX-AAAA-PassN-YY-</code> ; <strong>transformation</strong> de chaque WAV brut en séquences de 5 s ralenties ×10 (expansion temporelle).</li>
+<li><strong>Vérifier l'enregistrement par échantillonnage</strong> : sound check avant dépôt. L'application propose automatiquement une dizaine de séquences réparties sur la nuit, l'utilisateur en écoute quelques-unes pour confirmer que la qualité est exploitable, et saisit un <strong>verdict global</strong> (<code>OK</code>, <code>Utilisable</code>, <code>Inexploitable</code>).</li>
+<li><strong>Préparer le dépôt</strong> : vérification de cohérence (préfixes conformes, journal et climat présents, etc.), affichage du chemin du dossier, ouverture dans l'explorateur natif pour téléversement manuel via navigateur sur Vigie-Chiro. L'application <strong>ne dialogue pas</strong> directement avec la plateforme.</li>
+<li><strong>Tracer le dépôt</strong> : marquer le passage comme <code>Déposé</code> avec date de dépôt, pour distinguer ce qui a été livré de ce qui reste à traiter.</li>
+</ul>
+<h3 id="should-utilite-reconnue">SHOULD (utilité reconnue)<a class="headerlink" href="#should-utilite-reconnue" title="Permanent link">&para;</a></h3>
+<p>Une fois la chaîne fil rouge livrée, ces capacités étendent la valeur en cas de marge :</p>
+<ul>
+<li><strong>Naviguer dans plusieurs sites et passages</strong> via une vue tabulaire performante avec tri, filtres et actions de masse. <strong>Devient MUST de fait</strong> dès qu'on dépasse 3-4 sites (cas Karim et Samuel).</li>
+<li><strong>Diagnostiquer le matériel</strong> : visualiser les courbes de température et d'hygrométrie de la nuit, les niveaux de batterie début/fin, la liste des évènements anormaux du <code>LogPR*.txt</code> (réveils non programmés, erreurs SD, redémarrages).</li>
+<li><strong>Vérifier la cohérence des horaires astronomiques</strong> : le PR doit s'allumer 30 min avant le coucher du soleil et s'éteindre 30 min après son lever. L'application calcule localement ces heures d'après les coordonnées GPS du point et les compare avec celles loguées dans le <code>LogPR*.txt</code>. (Idée Samuel mai 2026.)</li>
+<li><strong>Valider les résultats Tadarida</strong> (cible étirable principale, filet de sécurité au-delà du fil rouge) : charger le CSV de résultats récupéré depuis Vigie-Chiro 24-48 h après le dépôt, parcourir les observations avec sonogramme + spectrogramme + zoom, valider ou corriger la classification, exporter un CSV <code>*_Vu.csv</code> réinjectable par la plateforme.</li>
+<li><strong>Filtrer</strong> les observations Tadarida par taxon, par groupe taxonomique (Pipistrelles, Murins, Noctules), par seuil de probabilité, par plage horaire.</li>
+<li><strong>Annoter</strong> une nuit avec un commentaire libre (contexte météo, intervention humaine, problème matériel) ainsi qu'avec les <strong>données météo structurées</strong> attendues par Vigie-Chiro (température début/fin de nuit, couverture nuageuse, vent).</li>
+</ul>
+<h3 id="could-idees-dextension-productivite-avancee">COULD (idées d'extension, productivité avancée)<a class="headerlink" href="#could-idees-dextension-productivite-avancee" title="Permanent link">&para;</a></h3>
+<p>À engager uniquement si la chaîne MUST et les SHOULD sont solides :</p>
+<ul>
+<li><strong>Modifier rétroactivement</strong> le rattachement (site / point / année / n° passage) d'un passage déjà importé, avec re-renommage automatique de tous les fichiers.</li>
+<li><strong>Regrouper les nuits successives</strong> d'un même point pour valider en un coup les espèces communes (productivité Samuel).</li>
+<li><strong>Mode inventaire vs activité</strong> pour la validation Tadarida : inventaire = liste des espèces présentes (valider une fois), activité = quantifier toutes les détections.</li>
+<li><strong>Exporter une bibliothèque de sons de référence</strong> : sélection des observations validées de très bonne qualité, export par espèce sous forme de dossiers WAV nommés, utile pour transmettre des cas-types aux débutants.</li>
+<li><strong>Statistiques globales</strong> sur l'ensemble des sessions (nombre d'espèces détectées, courbe d'activité par heure, comparaison entre points fixes).</li>
+<li><strong>Filtres avancés multi-critères</strong> avec sauvegarde de vues nommées.</li>
+<li><strong>Reprise sur erreur</strong> : un import ou une validation interrompus peuvent être repris au démarrage suivant.</li>
+</ul>
+<h3 id="wont-hors-perimetre-de-cette-premiere-version">WON'T (hors périmètre de cette première version)<a class="headerlink" href="#wont-hors-perimetre-de-cette-premiere-version" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Pas</strong> de communication directe avec la plateforme VigieChiro (les échanges se font par téléversement / téléchargement de fichiers).</li>
+<li><strong>Pas</strong> de gestion multi-utilisateur, pas de comptes, pas de synchronisation cloud.</li>
+<li><strong>Pas</strong> de calcul propre de classification automatique (Tadarida fait son travail en amont, l'application l'exploite).</li>
+<li><strong>Pas</strong> de déploiement web ou mobile.</li>
+</ul>
+<h2 id="et-apres">Et après ?<a class="headerlink" href="#et-apres" title="Permanent link">&para;</a></h2>
+<p>Le présent document est l'<strong>expression brute du besoin</strong>, telle qu'elle pourrait être recueillie auprès du commanditaire. Il est décliné en un <strong>dossier d'analyse et de conception</strong> dans <a href="../Analyse%20et%20conception/"><code>Analyse et conception/</code></a> :</p>
+<ul>
+<li>le <a href="../Analyse%20et%20conception/Mod%C3%A8le%20conceptuel/">modèle conceptuel</a> - vocabulaire et données</li>
+<li>3 <a href="../Analyse%20et%20conception/Personas/">personas</a> représentatifs des utilisateurs cibles</li>
+<li>les <a href="../Analyse%20et%20conception/Parcours%20utilisateurs/">parcours utilisateurs</a> attendus</li>
+<li>les <a href="../Analyse%20et%20conception/Maquettes/">maquettes</a> des écrans</li>
+<li>une <a href="../Analyse%20et%20conception/Story%20mapping/">cartographie des histoires utilisateurs</a> (épopées, stories et critères d'acceptation)</li>
+</ul>
+<p>Le présent document reste utile pour comprendre <strong>d'où viennent</strong> les choix actés dans ce dossier.</p>
+<p>Quelques points d'inspiration ergonomique à explorer si besoin :</p>
+<ul>
+<li>Les outils d'analyse audio scientifique : <a href="https://www.audacityteam.org/">Audacity</a>, <a href="https://www.ravensoundsoftware.com/software/raven-lite/">Raven Lite</a>, <a href="https://www.wildlifeacoustics.com/products/kaleidoscope-pro">Kaleidoscope Pro</a>.</li>
+<li>L'interface web actuelle de VigieChiro (à découvrir si vous avez un compte test).</li>
+<li>Les conventions ergonomiques d'un client mail ou d'un explorateur de photos (liste à gauche, détail à droite, navigation clavier).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC4/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: SC4 - Internationalisation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                SC4 - Internationalisation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Analyse%20et%20conception/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Vue d&#39;ensemble">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Vue d'ensemble
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>

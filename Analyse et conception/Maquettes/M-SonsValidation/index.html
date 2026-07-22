@@ -1,0 +1,3354 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dossier de conception de VigieChiro Companion : besoin, modèle de données, parcours utilisateurs, maquettes et story mapping.">
+      
+      
+      
+        <link rel="canonical" href="https://brief.echonuit.fr/Analyse%20et%20conception/Maquettes/M-SonsValidation/">
+      
+      
+        <link rel="prev" href="../M-Qualification/">
+      
+      
+        <link rel="next" href="../M-Lot/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>M-SonsValidation - VigieChiro Companion · Brief projet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#m-sonsvalidation-sons-validation" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="VigieChiro Companion · Brief projet" class="md-header__button md-logo" aria-label="VigieChiro Companion · Brief projet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VigieChiro Companion · Brief projet
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              M-SonsValidation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-orange"  aria-label="Mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/echonuit/vigiechiro-pr-companion" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    echonuit/vigiechiro-pr-companion
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="VigieChiro Companion · Brief projet" class="md-nav__button md-logo" aria-label="VigieChiro Companion · Brief projet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    VigieChiro Companion · Brief projet
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/echonuit/vigiechiro-pr-companion" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    echonuit/vigiechiro-pr-companion
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Pr%C3%A9sentation%20du%20projet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Présentation du projet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contraintes%20techniques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Stack technique et architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Objectifs%20qualit%C3%A9s/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    3. Objectifs qualités
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Objectifs qualités
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Cat%C3%A9gorie%20de%20qualit%C3%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Catégories ISO 25010
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Crit%C3%A8re%20de%20qualit%C3%A9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Critères ISO 25010
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Objectifs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Objectifs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O1 - Portabilité multi-OS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O2 - Facilité d'apprentissage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O3 - Tenue dans la durée
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O4 - Exactitude lecture audio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O5 - Capacité CSV
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O6 - Modularité protocoles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O7 - Intégrité annotations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O8 - Confidentialité identifiants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Scénarios
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Scénarios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SC1 - Onboarding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SC2 - Aucune fuite d'identifiants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SC3 - Ajout d'un protocole
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SC4 - Internationalisation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Expression%20du%20besoin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Expression du besoin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    5. Analyse et conception
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Analyse et conception
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Mod%C3%A8le%20conceptuel/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Modèle conceptuel
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Modèle conceptuel
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C1%20-%20Utilisateur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C1 - Utilisateur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C2%20-%20Site%20de%20suivi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C2 - Site de suivi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C3%20-%20Point%20d%27%C3%A9coute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C3 - Point d'écoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C4%20-%20Enregistreur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C4 - Enregistreur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C4bis%20-%20Micro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C4bis - Micro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C5%20-%20Passage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C5 - Passage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C6%20-%20Session%20d%27enregistrement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C6 - Session d'enregistrement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C7%20-%20Enregistrement%20original/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C7 - Enregistrement original
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C8%20-%20S%C3%A9quence%20d%27%C3%A9coute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C8 - Séquence d'écoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C9%20-%20Journal%20du%20capteur/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C9 - Journal du capteur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C10%20-%20Relev%C3%A9%20climatique/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C10 - Relevé climatique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C11%20-%20S%C3%A9lection%20d%27%C3%A9coute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C11 - Sélection d'écoute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C12%20-%20R%C3%A9sultats%20d%27identification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C12 - Résultats d'identification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C13%20-%20Observation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C13 - Observation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C14%20-%20Taxon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C14 - Taxon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C15%20-%20Groupe%20taxonomique/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C15 - Groupe taxonomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/Cardinalit%C3%A9s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cardinalités
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Règles métier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/Glossaire%20m%C3%A9tier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossaire métier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/Glossaire%20outils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossaire outils
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/Diagramme%20-%20plein%20%C3%A9cran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Diagramme plein écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Personas/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Personas
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Personas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personas/Marie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Marie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personas/Karim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Karim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personas/Samuel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Samuel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Parcours%20utilisateurs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Parcours utilisateurs
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Parcours utilisateurs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P0%20-%20Premi%C3%A8re%20nuit%20de%20Marie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P0 - Première nuit de Marie (fil rouge)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P0%20-%20plein%20%C3%A9cran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P0 plein écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P1%20-%20D%C3%A9clarer%20un%20site%20de%20suivi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P1 - Déclarer un site de suivi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P2%20-%20Importer%20une%20nuit%20d%27enregistrement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P2 - Importer une nuit d'enregistrement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P3 - Vérifier l'enregistrement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P4 - Préparer le lot à déposer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P5%20-%20Naviguer%20dans%20plusieurs%20sites%20et%20passages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P5 - Naviguer multi-sites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P6 - Diagnostiquer le matériel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P7 - Valider les résultats Tadarida
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P8%20-%20Rechercher%20globalement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P8 - Rechercher globalement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P9%20-%20Regrouper%20les%20nuits%20successives%20par%20point/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P9 - Regrouper les nuits par point
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P10%20-%20Exporter%20une%20biblioth%C3%A8que%20de%20sons%20de%20r%C3%A9f%C3%A9rence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P10 - Exporter sons de référence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P11%20-%20Inventaire%20des%20esp%C3%A8ces%20d%C3%A9tect%C3%A9es/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P11 - Inventaire des espèces
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/P12%20-%20R%C3%A9cup%C3%A9rer%20une%20nuit%20d%C3%A9pos%C3%A9e%20sur%20VigieChiro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P12 - Récupérer une nuit déposée
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Parcours%20utilisateurs/Topologie%20-%20plein%20%C3%A9cran/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Topologie plein écran
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../Story%20mapping/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Story mapping
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Story mapping
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E0%20-%20Fondations%20de%20persistance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E0 - Fondations de persistance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E1%20-%20G%C3%A9rer%20ses%20sites%20et%20points%20de%20suivi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E1 - Gérer ses sites et points de suivi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E2%20-%20Importer%20et%20transformer%20une%20nuit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E2 - Importer et transformer une nuit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E3%20-%20V%C3%A9rifier%20la%20qualit%C3%A9%20d%27enregistrement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E3 - Vérifier la qualité d'enregistrement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E4%20-%20Pr%C3%A9parer%20et%20tracer%20le%20d%C3%A9p%C3%B4t%20VigieChiro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E4 - Préparer et tracer le dépôt VigieChiro
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E5%20-%20Naviguer%20dans%20le%20volume%20multi-sites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E5 - Naviguer dans le volume multi-sites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E6 - Diagnostiquer le matériel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E7 - Valider les résultats Tadarida
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Story%20mapping/E8%20-%20Productivit%C3%A9%20avanc%C3%A9e%20Tadarida/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    E8 - Productivité avancée Tadarida
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Maquettes
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            Maquettes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Accueil/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Sites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Sites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Site-detail/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Site-detail
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Import/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Import
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Passage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Passage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Qualification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Qualification
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    M-SonsValidation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    M-SonsValidation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#maquette-principale-source-passage-validation-tadarida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maquette principale - source « passage » (validation Tadarida)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maquette principale - source « passage » (validation Tadarida)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactions-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactions clés
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variante-source-references-sons-de-reference-ex-bibliotheque" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variante - source « références » (Sons de référence, ex-bibliothèque)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-un-ecran-quatre-manieres-de-louvrir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources - un écran, quatre manières de l'ouvrir
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sources - un écran, quatre manières de l'ouvrir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes-pour-limplementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes pour l'implémentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Lot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Lot
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-MultiSite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-MultiSite
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Diagnostic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Diagnostic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Analyse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Analyse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M-Recherche/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    M-Recherche
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#maquette-principale-source-passage-validation-tadarida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maquette principale - source « passage » (validation Tadarida)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maquette principale - source « passage » (validation Tadarida)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Annotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactions-cles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactions clés
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variante-source-references-sons-de-reference-ex-bibliotheque" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variante - source « références » (Sons de référence, ex-bibliothèque)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sources-un-ecran-quatre-manieres-de-louvrir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sources - un écran, quatre manières de l'ouvrir
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sources - un écran, quatre manières de l'ouvrir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes-pour-limplementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes pour l'implémentation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/echonuit/vigiechiro-pr-companion/edit/main/brief/docs/Analyse et conception/Maquettes/M-SonsValidation.md" title="Editer cette page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/echonuit/vigiechiro-pr-companion/raw/main/brief/docs/Analyse et conception/Maquettes/M-SonsValidation.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="m-sonsvalidation-sons-validation">M-SonsValidation - Sons &amp; validation<a class="headerlink" href="#m-sonsvalidation-sons-validation" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Type</strong> : vue plein écran (écran <strong>« Sons &amp; validation »</strong>, patron <em>liste + écoute</em>). Un <strong>seul écran</strong> atteint de <strong>quatre manières</strong> (sources) : depuis un passage, depuis l'accueil, depuis l'inventaire des espèces et depuis la carte multi-sites.
+<strong>Persona principal</strong> : <a href="../../Personas/Karim/">Karim</a>, <a href="../../Personas/Samuel/">Samuel</a> (validation, constitution d'une réothèque) ; <a href="../../Personas/Marie/">Marie</a> ponctuellement.
+<strong>Parcours couverts</strong> : <a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7 - Valider les résultats Tadarida</a>, <a href="../../Parcours%20utilisateurs/P10%20-%20Exporter%20une%20biblioth%C3%A8que%20de%20sons%20de%20r%C3%A9f%C3%A9rence/">P10 - Exporter une bibliothèque de sons de référence</a>.</p>
+</blockquote>
+<p>Cet écran <strong>unifie</strong> la validation taxonomique (post-Tadarida) et la bibliothèque de sons de référence : c'est <strong>le même écran</strong> qui écoute un spectrogramme, décide d'un taxon et marque des références. Il se <strong>décline selon sa source</strong> : le contexte affiché (fil d'Ariane, colonnes) et les actions disponibles (import/export) changent, mais le squelette reste identique.</p>
+<blockquote>
+<p><strong>Patron partagé</strong> : ce « lieu d'écoute » partage son squelette (liste ↔ panneau d'écoute <code>AudioView</code>) avec <a href="../M-Qualification/">M-Qualification</a> (mode <strong>Vérification par échantillonnage</strong>). Les deux écrans sont les <strong>deux manières</strong> d'écouter les enregistrements : <em>valider une observation</em> (ici) et <em>vérifier la qualité d'une nuit</em> (M-Qualification). Il n’y a donc qu’<strong>un seul</strong> composant d’écoute à implémenter, réutilisé dans les deux.</p>
+</blockquote>
+<h2 id="maquette-principale-source-passage-validation-tadarida">Maquette principale - source « passage » (validation Tadarida)<a class="headerlink" href="#maquette-principale-source-passage-validation-tadarida" title="Permanent link">&para;</a></h2>
+<div markdown="0">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" role="img" aria-label="Maquette M-SonsValidation - ecran Sons et validation, source passage" style="max-width: 100%; height: auto; border: 1px solid #d0d7de; border-radius: 6px; background: #fafbfc;">
+  <style>
+    .frame { fill: #ffffff; stroke: #2c3e50; stroke-width: 1.5; }
+    .chrome { fill: #3f51b5; }
+    .chrometxt { fill: #ffffff; font: 600 14px sans-serif; }
+    .crumb-link { fill: #c5cae9; font: 400 13px sans-serif; }
+    .crumb-active { fill: #ffffff; font: 600 13px sans-serif; }
+    .search { fill: #ffffff; stroke: #c5cae9; stroke-width: 1; }
+    .search-txt { fill: #9aa0b3; font: 13px sans-serif; }
+    .toolbar { fill: #ffffff; stroke: #e1e4e8; stroke-width: 1; }
+    .field { fill: #ffffff; stroke: #6a737d; stroke-width: 1; }
+    .field-ph { font: 13px sans-serif; fill: #9aa0b3; }
+    .btn-sec { fill: #ffffff; stroke: #2c3e50; stroke-width: 1; }
+    .btn-txt-dark { fill: #2c3e50; font: 600 12px sans-serif; }
+    .chip { fill: #e8eaf6; stroke: #c5cae9; stroke-width: 1; }
+    .chip-txt { font: 12px sans-serif; fill: #3f51b5; }
+    .menu { fill: #ffffff; stroke: #2c3e50; stroke-width: 1; }
+    .table-head { fill: #eef2f5; stroke: #2c3e50; stroke-width: 1; }
+    .col-head { font: 600 11px sans-serif; fill: #2c3e50; }
+    .row { fill: #ffffff; stroke: #d0d7de; stroke-width: 0.5; }
+    .row-alt { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 0.5; }
+    .row-sel { fill: #e8eefc; stroke: #4a90d9; stroke-width: 1.2; }
+    .cell { font: 12px sans-serif; fill: #2c3e50; }
+    .cell-sec { font: 12px sans-serif; fill: #6a737d; }
+    .cell-mono { font: 11px monospace; fill: #2c3e50; }
+    .badge-revoir { fill: #fef3e2; stroke: #b9770e; stroke-width: 1; }
+    .badge-revoir-txt { font: 11px sans-serif; fill: #7e5109; }
+    .badge-validee { fill: #e6f4ea; stroke: #1e8449; stroke-width: 1; }
+    .badge-validee-txt { font: 11px sans-serif; fill: #14532d; }
+    .badge-corrigee { fill: #e8eefc; stroke: #2563a3; stroke-width: 1; }
+    .badge-corrigee-txt { font: 11px sans-serif; fill: #1a3a5c; }
+    .badge-val-accord { fill: #e6f4ea; stroke: #1e8449; stroke-width: 1; }
+    .badge-val-accord-txt { font: 11px sans-serif; fill: #14532d; }
+    .badge-val-desaccord { fill: #fdecea; stroke: #c0392b; stroke-width: 1.4; }
+    .badge-val-desaccord-txt { font: 600 11px sans-serif; fill: #7b241c; }
+    .star { font: 13px sans-serif; fill: #e8a838; }
+    .star-off { font: 13px sans-serif; fill: #c8ced4; }
+    .comment { font: 13px sans-serif; fill: #4a90d9; }
+    .fil { font: 11px sans-serif; fill: #8e44ad; }
+    .panel { fill: #ffffff; stroke: #2c3e50; stroke-width: 1; }
+    .panel-head { fill: #eef2f5; stroke: #2c3e50; stroke-width: 1; }
+    .panel-title { font: 600 12px sans-serif; fill: #2c3e50; }
+    .bulle-eux { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 1; }
+    .bulle-moi { fill: #e8eefc; stroke: #4a90d9; stroke-width: 1; }
+    .bulle-qui { font: 600 10px sans-serif; fill: #6a737d; }
+    .bulle-qui-moi { font: 600 10px sans-serif; fill: #2563a3; }
+    .bulle-txt { font: 12px sans-serif; fill: #2c3e50; }
+    .btn-envoyer { fill: #4a90d9; stroke: #2563a3; stroke-width: 1; }
+    .avert { font: 10px sans-serif; fill: #c0392b; }
+    .audio { fill: #0e0e0e; }
+    .audio-bar { fill: #1c2530; }
+    .audio-ctrl { fill: #ffffff; font: 14px sans-serif; }
+    .audio-time { fill: #bdc3c7; font: 11px monospace; }
+    .audio-cri { fill: #2c3e50; opacity: 0.45; }
+    .audio-seek { stroke: #e8a838; stroke-width: 1.5; }
+    .audio-note { fill: #8a949e; font: 11px sans-serif; }
+    .btn-valider { fill: #1e8449; stroke: #14532d; stroke-width: 1; }
+    .btn-corriger { fill: #4a90d9; stroke: #2563a3; stroke-width: 1; }
+    .btn-ref { fill: #8e44ad; stroke: #5e2d75; stroke-width: 1; }
+    .btn-white { fill: #ffffff; font: 600 12px sans-serif; }
+    .combo { fill: #ffffff; stroke: #6a737d; stroke-width: 1; }
+    .combo-txt { font: 12px sans-serif; fill: #2c3e50; }
+    .status { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 0.5; }
+    .status-txt { font: 12px sans-serif; fill: #4a6785; }
+    .status-kbd { font: 11px sans-serif; fill: #6a737d; }
+  </style>
+
+  <rect x="10" y="10" width="1180" height="710" rx="4" class="frame"/>
+
+  <!-- Chrome -->
+  <rect x="10" y="10" width="1180" height="44" rx="4" class="chrome"/>
+  <rect x="10" y="26" width="1180" height="28" class="chrome"/>
+  <text x="28" y="38" class="chrometxt">VigieChiro Companion</text>
+  <text x="230" y="38" class="crumb-link">Accueil  ›  Mes sites  ›  Carré 640380  ›  Passage N° 2  ›  </text>
+  <text x="628" y="38" class="crumb-active">Sons &amp; validation</text>
+  <rect x="940" y="22" width="220" height="22" rx="11" class="search"/>
+  <text x="956" y="38" class="search-txt">🔍  Rechercher (Ctrl+F)</text>
+
+  <!-- Barre de filtres (à la Notion) -->
+  <rect x="40" y="66" width="1120" height="42" rx="4" class="toolbar"/>
+  <rect x="52" y="74" width="290" height="26" rx="3" class="field"/>
+  <text x="66" y="91" class="field-ph">🔍  Rechercher (fichier, espèce, commentaire)</text>
+  <rect x="352" y="74" width="86" height="26" rx="3" class="btn-sec"/>
+  <text x="395" y="91" class="btn-txt-dark" text-anchor="middle">+ Filtre</text>
+  <rect x="450" y="74" width="146" height="26" rx="13" class="chip"/>
+  <text x="464" y="91" class="chip-txt">Statut : À revoir  ✕</text>
+  <rect x="606" y="74" width="176" height="26" rx="13" class="chip"/>
+  <text x="620" y="91" class="chip-txt">Groupe : Chiroptères  ✕</text>
+  <rect x="792" y="74" width="132" height="26" rx="13" class="chip"/>
+  <text x="806" y="91" class="chip-txt">Proba ≥ 50 %  ✕</text>
+  <rect x="1114" y="74" width="34" height="26" rx="3" class="menu"/>
+  <text x="1131" y="92" class="btn-txt-dark" text-anchor="middle">☰</text>
+
+  <!-- Table des observations (colonnes de contexte masquées : source = passage unique) -->
+  <rect x="40" y="120" width="1120" height="28" class="table-head"/>
+  <text x="54" y="139" class="col-head">FICHIER</text>
+  <text x="196" y="139" class="col-head">PROP. TADARIDA</text>
+  <text x="330" y="139" class="col-head">PROBA.</text>
+  <text x="392" y="139" class="col-head">VOTRE TAXON</text>
+  <text x="556" y="139" class="col-head">AVIS DU VALIDATEUR</text>
+  <text x="762" y="139" class="col-head">FRÉQ.</text>
+  <text x="838" y="139" class="col-head">STATUT</text>
+  <text x="1058" y="139" class="col-head" text-anchor="middle">⭐</text>
+  <text x="1098" y="139" class="col-head" text-anchor="middle">💬</text>
+  <text x="1138" y="139" class="col-head" text-anchor="middle">🗣</text>
+
+  <rect x="40" y="148" width="1120" height="30" class="row"/>
+  <text x="54" y="167" class="cell-mono">…Pass2-000.wav</text>
+  <text x="196" y="167" class="cell">Pippip</text>
+  <text x="330" y="167" class="cell">0,94</text>
+  <text x="392" y="167" class="cell-sec">- (non revue)</text>
+  <text x="556" y="167" class="cell-sec">- (pas encore d'avis)</text>
+  <text x="762" y="167" class="cell">45 kHz</text>
+  <rect x="838" y="153" width="80" height="20" rx="10" class="badge-revoir"/>
+  <text x="878" y="167" class="badge-revoir-txt" text-anchor="middle">À revoir</text>
+  <text x="1058" y="168" class="star-off" text-anchor="middle">☆</text>
+  <text x="1098" y="168" class="comment" text-anchor="middle">💬</text>
+
+  <rect x="40" y="178" width="1120" height="30" class="row-alt"/>
+  <text x="54" y="197" class="cell-mono">…Pass2-001.wav</text>
+  <text x="196" y="197" class="cell">Nyclei</text>
+  <text x="330" y="197" class="cell">0,88</text>
+  <text x="392" y="197" class="cell">Noctule de Leisler</text>
+  <rect x="556" y="183" width="176" height="20" rx="10" class="badge-val-accord"/>
+  <text x="644" y="197" class="badge-val-accord-txt" text-anchor="middle">✓ Noctule de Leisler</text>
+  <text x="762" y="197" class="cell">27 kHz</text>
+  <rect x="838" y="183" width="80" height="20" rx="10" class="badge-validee"/>
+  <text x="878" y="197" class="badge-validee-txt" text-anchor="middle">Validée</text>
+  <text x="1058" y="198" class="star" text-anchor="middle">⭐</text>
+
+  <!-- Ligne sélectionnée : le validateur CONTREDIT l'observateur. C'est le cas qui justifie l'écran. -->
+  <rect x="40" y="208" width="1120" height="30" class="row-sel"/>
+  <text x="54" y="227" class="cell-mono">…Pass2-002.wav</text>
+  <text x="196" y="227" class="cell">Pipkuh</text>
+  <text x="330" y="227" class="cell">0,61</text>
+  <text x="392" y="227" class="cell">Pipistrelle commune</text>
+  <rect x="556" y="213" width="176" height="20" rx="10" class="badge-val-desaccord"/>
+  <text x="644" y="227" class="badge-val-desaccord-txt" text-anchor="middle">⚠ Pipistrelle de Kuhl</text>
+  <text x="762" y="227" class="cell">46 kHz</text>
+  <rect x="838" y="213" width="80" height="20" rx="10" class="badge-corrigee"/>
+  <text x="878" y="227" class="badge-corrigee-txt" text-anchor="middle">Corrigée</text>
+  <text x="1098" y="228" class="comment" text-anchor="middle">💬</text>
+  <text x="1138" y="228" class="fil" text-anchor="middle">🗣 2</text>
+
+  <rect x="40" y="238" width="1120" height="30" class="row-alt"/>
+  <text x="54" y="257" class="cell-mono">…Pass2-003.wav</text>
+  <text x="196" y="257" class="cell">Rhihip</text>
+  <text x="330" y="257" class="cell">0,79</text>
+  <text x="392" y="257" class="cell-sec">- (non revue)</text>
+  <text x="556" y="257" class="cell-sec">- (pas encore d'avis)</text>
+  <text x="762" y="257" class="cell">108 kHz</text>
+  <rect x="838" y="243" width="80" height="20" rx="10" class="badge-revoir"/>
+  <text x="878" y="257" class="badge-revoir-txt" text-anchor="middle">À revoir</text>
+
+  <rect x="40" y="268" width="1120" height="30" class="row"/>
+  <text x="54" y="287" class="cell-mono">…Pass2-004.wav</text>
+  <text x="196" y="287" class="cell-sec">bruit</text>
+  <text x="330" y="287" class="cell">0,55</text>
+  <text x="392" y="287" class="cell-sec">- (non revue)</text>
+  <text x="556" y="287" class="cell-sec">- (pas encore d'avis)</text>
+  <text x="762" y="287" class="cell-sec">-</text>
+  <rect x="838" y="273" width="80" height="20" rx="10" class="badge-revoir"/>
+  <text x="878" y="287" class="badge-revoir-txt" text-anchor="middle">À revoir</text>
+
+  <text x="54" y="316" class="cell-sec">… 13 autres observations (colonnes FME, Fréq. term., Début, Durée, Votre certitude, Certitude du validateur masquables via ☰ Colonnes ; contexte Date/Heure/Passage/Carré/Point masqué ici).</text>
+
+  <!-- Séparateur (SplitPane vertical) -->
+  <line x1="40" y1="330" x2="1160" y2="330" stroke="#c4ccd4" stroke-width="1"/>
+
+  <!-- Panneau d'écoute : AudioView, et à sa droite le fil de discussion de l'observation sélectionnée -->
+  <rect x="40" y="344" width="756" height="240" class="audio"/>
+  <rect x="40" y="344" width="756" height="34" class="audio-bar"/>
+  <text x="60" y="366" class="audio-ctrl">⏮  ⏯  ⏭</text>
+  <text x="140" y="366" class="audio-time">0,00 / 5,00 s</text>
+  <text x="786" y="366" class="audio-note" text-anchor="end">×10  ·  🔊  ·  🔁</text>
+  <line x1="40" y1="461" x2="796" y2="461" stroke="#2c3e50" stroke-width="1"/>
+  <rect x="330" y="388" width="120" height="66" class="audio-cri"/>
+  <line x1="380" y1="378" x2="380" y2="584" class="audio-seek"/>
+  <text x="60" y="576" class="audio-note">sonogramme (haut) / spectrogramme (bas)  -  cri sélectionné surligné</text>
+
+  <!-- Fil de discussion avec le validateur (lecture #1417, écriture #1418) -->
+  <rect x="808" y="344" width="352" height="240" rx="4" class="panel"/>
+  <rect x="808" y="344" width="352" height="28" class="panel-head"/>
+  <text x="822" y="363" class="panel-title">🗣  Discussion avec le validateur</text>
+
+  <rect x="818" y="382" width="264" height="48" rx="6" class="bulle-eux"/>
+  <text x="830" y="399" class="bulle-qui">Validateur (MNHN)  ·  12/07</text>
+  <text x="830" y="416" class="bulle-txt">FME trop basse pour un Pipkuh.</text>
+
+  <rect x="886" y="438" width="264" height="48" rx="6" class="bulle-moi"/>
+  <text x="898" y="455" class="bulle-qui-moi">Vous  ·  12/07</text>
+  <text x="898" y="472" class="bulle-txt">Corrigé, merci.</text>
+
+  <rect x="818" y="500" width="240" height="26" rx="3" class="field"/>
+  <text x="830" y="517" class="field-ph">Votre réponse…</text>
+  <rect x="1066" y="500" width="84" height="26" rx="4" class="btn-envoyer"/>
+  <text x="1108" y="518" class="btn-white" text-anchor="middle">Envoyer</text>
+
+  <text x="818" y="548" class="avert">⚠  Un message envoyé ne peut plus être retiré :</text>
+  <text x="818" y="564" class="avert">la confirmation cite le texte avant de l'envoyer.</text>
+
+  <!-- Barre d'actions -->
+  <rect x="40" y="600" width="150" height="28" rx="4" class="combo"/>
+  <text x="54" y="618" class="combo-txt">Mode : Activité  ▾</text>
+  <rect x="200" y="600" width="96" height="28" rx="4" class="btn-valider"/>
+  <text x="248" y="618" class="btn-white" text-anchor="middle">✔ Valider</text>
+  <rect x="320" y="600" width="180" height="28" rx="4" class="combo"/>
+  <text x="334" y="618" class="combo-txt">Choisir un taxon…  ▾</text>
+  <rect x="510" y="600" width="100" height="28" rx="4" class="btn-corriger"/>
+  <text x="560" y="618" class="btn-white" text-anchor="middle">✎ Corriger</text>
+  <rect x="984" y="600" width="176" height="28" rx="4" class="btn-ref"/>
+  <text x="1072" y="618" class="btn-white" text-anchor="middle">⭐ Marquer référence</text>
+
+  <!-- Barre de statut -->
+  <rect x="10" y="686" width="1180" height="34" class="status"/>
+  <text x="30" y="707" class="status-txt">18 observation(s)  ·  5 / 18 revues</text>
+  <text x="1170" y="707" class="status-kbd" text-anchor="end">⌨  Entrée valider  ·  R référence  ·  N suivante à revoir  ·  ↑ ↓ naviguer</text>
+</svg>
+</div>
+
+<h3 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Barre de filtres (« à la Notion »)</strong> : un champ de <strong>recherche libre</strong> (fichier, espèce, commentaire) et un bouton <strong>« + Filtre »</strong> qui ajoute une <strong>puce</strong> parmi six critères combinés en ET : <em>Statut</em> (À revoir / Validée / Corrigée), <em>Groupe</em>, <em>Espèce</em>, <em>Références</em>, <em>Probabilité</em> (curseur), <em>Heure</em> (plage horaire de la nuit). Le tri et les filtres sont <strong>mémorisés</strong> d'une réouverture à l'autre.</li>
+<li><strong>Menu ☰</strong> (coin haut-droit) : actions selon la source. Source <strong>passage</strong> : <code>📥 Importer un CSV Tadarida…</code> (ou <code>🔁 Réimporter…</code>), <code>📤 Exporter _Vu…</code>, option <em>Inclure le mode de validation à l'export</em>. Source <strong>références</strong> : <code>📤 Exporter la bibliothèque…</code>. Toujours : <code>Colonnes…</code>, <code>🔊 Lecture automatique à la sélection</code>, <code>🔁 Lecture en boucle</code>.</li>
+<li><strong>Table des observations</strong> : une ligne par observation ; colonnes <strong>Fichier</strong>, <strong>Proposition Tadarida</strong> (verrouillée visible), <strong>Proba.</strong>, <strong>Votre taxon</strong> (« - » tant que non revue), <strong>Avis du validateur</strong>, <strong>Fréquence</strong>, <strong>Statut</strong>, <strong>⭐ référence</strong>, <strong>💬 commentaire</strong> (clic = édition en popup), <strong>🗣 fil</strong> (nombre de messages), plus <strong>FME</strong>, <strong>Fréq. terminale</strong>, <strong>Début</strong>, <strong>Durée</strong>, <strong>Votre certitude</strong>, <strong>Certitude du validateur</strong> (masquables). Les colonnes de <strong>contexte</strong> (Date/Heure/Passage/Carré/Point) sont <strong>masquées</strong> quand la source est un passage unique, <strong>affichées</strong> sinon.</li>
+<li><strong>Avis du validateur</strong> : le <strong>troisième avis</strong>. Tadarida <strong>propose</strong>, l'observateur <strong>corrige</strong>, et un validateur du MNHN <strong>tranche</strong>. Cette colonne rend visible ce dernier verdict, qui existait déjà dans les données et que l'écran <strong>ignorait</strong> : sans elle, l'application présente la correction de l'observateur comme le dernier mot, alors qu'un expert a pu la réviser. Le <strong>désaccord</strong> est mis en avant (badge rouge, ⚠) ; l'accord est discret (vert, ✓) ; l'absence d'avis se dit (« - pas encore d'avis »).</li>
+<li><strong>Cet avis est en lecture seule.</strong> L'observateur <strong>ne peut pas</strong> l'écrire : le serveur refuse (<code>403</code>) toute écriture des champs <code>validateur_*</code> par un compte <code>Observateur</code>. On l'affiche, on en discute - on ne le modifie pas.</li>
+<li><strong>Panneau d'écoute</strong> (<code>AudioView</code>, en bas à gauche) : sonogramme + spectrogramme, <strong>expansion temporelle ×10</strong> (ultrasons ralentis pour être audibles), le <strong>cri sélectionné est surligné</strong> et la lecture s'y <strong>positionne</strong> automatiquement. Options <em>lecture auto à la sélection</em> et <em>lecture en boucle</em> dans le ☰.</li>
+<li><strong>Fil de discussion</strong> (à droite du lecteur) : les messages échangés avec le validateur <strong>sur l'observation sélectionnée</strong>. On les <strong>lit</strong>, et on peut <strong>répondre</strong>. C'est le seul endroit où l'observateur peut argumenter face à un verdict qu'il conteste - la colonne montre le désaccord, le fil permet d'en parler.</li>
+<li><strong>Envoyer un message est définitif.</strong> Le serveur <strong>ajoute</strong> le message, et <strong>aucune route ne permet de le supprimer ni de le modifier</strong>. La confirmation <strong>cite le texte</strong> avant l'envoi : on ne consent qu'à ce qu'on a relu. C'est aussi pourquoi l'écriture est une <strong>fonctionnalité désactivable</strong> - la couper laisse la <strong>lecture</strong> du fil intacte.</li>
+<li><strong>Barre d'actions</strong> : <em>Mode de revue</em> (<strong>Activité</strong> / <strong>Inventaire</strong>), <strong>✔ Valider</strong> (accepte la proposition Tadarida), sélecteur de taxon + <strong>✎ Corriger</strong> (remplace le taxon), et à droite <strong>⭐ Marquer référence</strong> / <em>Retirer la référence</em>. La <strong>sélection multiple</strong> (Ctrl/Maj+clic) agit <strong>en lot</strong> (tout-ou-rien, mode Activité).</li>
+<li><strong>Barre de statut</strong> : compteurs du <strong>sous-ensemble affiché</strong> (<code>N observation(s) · X / N revues</code>) et rappel des raccourcis.</li>
+</ul>
+<h3 id="interactions-cles">Interactions clés<a class="headerlink" href="#interactions-cles" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Élément</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sélection d'une ligne</td>
+<td>Charge le spectrogramme, positionne la lecture sur le cri, lance l'écoute (si <em>lecture auto</em>)</td>
+</tr>
+<tr>
+<td><strong>✔ Valider</strong> / touche <strong>Entrée</strong></td>
+<td>Accepte la proposition Tadarida comme taxon retenu (unitaire, ou <strong>en lot</strong> si plusieurs lignes)</td>
+</tr>
+<tr>
+<td>Sélecteur de taxon + <strong>✎ Corriger</strong></td>
+<td>Remplace le taxon retenu par le taxon choisi (autocomplete code à 6 lettres)</td>
+</tr>
+<tr>
+<td><strong>⭐ Marquer référence</strong> / touche <strong>R</strong></td>
+<td>Ajoute (ou retire) l'observation à la <strong>bibliothèque de sons de référence</strong></td>
+</tr>
+<tr>
+<td>Touche <strong>N</strong></td>
+<td>Va à la prochaine observation « À revoir » (en bouclant)</td>
+</tr>
+<tr>
+<td><strong>💬</strong> (clic cellule)</td>
+<td>Édite le <strong>commentaire</strong> de l'observation (popup)</td>
+</tr>
+<tr>
+<td>Sélection d'une ligne</td>
+<td>Charge aussi le <strong>fil de discussion</strong> de cette observation dans le panneau de droite</td>
+</tr>
+<tr>
+<td><strong>🗣</strong> (colonne)</td>
+<td>Indique qu'un <strong>fil existe</strong>, et combien de messages : on voit d'un coup d'œil où la discussion a eu lieu</td>
+</tr>
+<tr>
+<td><strong>Envoyer</strong> (panneau de discussion)</td>
+<td>Poste une réponse au validateur. <strong>Définitif</strong> : une confirmation <strong>cite le texte</strong> avant l'envoi</td>
+</tr>
+<tr>
+<td><strong>Double-clic</strong> sur une ligne</td>
+<td>Ouvre la <strong>fiche de l'espèce</strong> de la proposition Tadarida dans le navigateur</td>
+</tr>
+<tr>
+<td><strong>Clic droit</strong> sur une ligne</td>
+<td>Menu de la ligne : Ouvrir le passage, fiche de l'espèce, <code>Validation ▸</code> (valider, corriger, certitude, référence, douteux), <code>Copier ▸</code>, <code>Colonnes…</code></td>
+</tr>
+<tr>
+<td>Menu <strong>☰ → Importer / Exporter</strong></td>
+<td>Import CSV Tadarida, export <code>_Vu</code> (passage), export bibliothèque (références)</td>
+</tr>
+<tr>
+<td>Fil d'Ariane</td>
+<td>Remonte selon la source (passage, accueil, espèces, carte)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="variante-source-references-sons-de-reference-ex-bibliotheque">Variante - source « références » (Sons de référence, ex-bibliothèque)<a class="headerlink" href="#variante-source-references-sons-de-reference-ex-bibliotheque" title="Permanent link">&para;</a></h2>
+<p>Ouvert depuis la carte d'accueil <strong>« Sons &amp; validation »</strong> (prisme <em>Espèces &amp; biodiversité</em>), l'écran affiche cette fois <strong>toutes les observations marquées « référence »</strong>, toutes nuits confondues : les <strong>colonnes de contexte sont affichées</strong> (Date, Carré, Point), le fil d'Ariane est autonome (<code>Accueil › Sons de référence</code>), et le menu <strong>☰</strong> propose <strong>« 📤 Exporter la bibliothèque… »</strong> (récapitulatif CSV + copie des fichiers <code>.wav</code> par espèce) au lieu de l'import Tadarida.</p>
+<div markdown="0">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 250" role="img" aria-label="Maquette M-SonsValidation - variante source references" style="max-width: 100%; height: auto; border: 1px solid #d0d7de; border-radius: 6px; background: #fafbfc;">
+  <style>
+    .frame { fill: #ffffff; stroke: #2c3e50; stroke-width: 1.5; }
+    .chrome { fill: #3f51b5; }
+    .chrometxt { fill: #ffffff; font: 600 14px sans-serif; }
+    .crumb-link { fill: #c5cae9; font: 400 13px sans-serif; }
+    .crumb-active { fill: #ffffff; font: 600 13px sans-serif; }
+    .search { fill: #ffffff; stroke: #c5cae9; stroke-width: 1; }
+    .search-txt { fill: #9aa0b3; font: 13px sans-serif; }
+    .toolbar { fill: #ffffff; stroke: #e1e4e8; stroke-width: 1; }
+    .field { fill: #ffffff; stroke: #6a737d; stroke-width: 1; }
+    .field-ph { font: 13px sans-serif; fill: #9aa0b3; }
+    .btn-sec { fill: #ffffff; stroke: #2c3e50; stroke-width: 1; }
+    .btn-txt-dark { fill: #2c3e50; font: 600 12px sans-serif; }
+    .menu { fill: #ffffff; stroke: #2c3e50; stroke-width: 1; }
+    .table-head { fill: #eef2f5; stroke: #2c3e50; stroke-width: 1; }
+    .col-head { font: 600 11px sans-serif; fill: #2c3e50; }
+    .row { fill: #ffffff; stroke: #d0d7de; stroke-width: 0.5; }
+    .row-alt { fill: #f6f8fa; stroke: #d0d7de; stroke-width: 0.5; }
+    .cell { font: 12px sans-serif; fill: #2c3e50; }
+    .cell-mono { font: 11px monospace; fill: #2c3e50; }
+    .star { font: 13px sans-serif; fill: #e8a838; }
+    .note { font: 12px sans-serif; fill: #6a737d; }
+  </style>
+
+  <rect x="10" y="10" width="1180" height="230" rx="4" class="frame"/>
+  <rect x="10" y="10" width="1180" height="44" rx="4" class="chrome"/>
+  <rect x="10" y="26" width="1180" height="28" class="chrome"/>
+  <text x="28" y="38" class="chrometxt">VigieChiro Companion</text>
+  <text x="230" y="38" class="crumb-link">Accueil  ›  </text>
+  <text x="302" y="38" class="crumb-active">Sons de référence</text>
+  <rect x="940" y="22" width="220" height="22" rx="11" class="search"/>
+  <text x="956" y="38" class="search-txt">🔍  Rechercher (Ctrl+F)</text>
+
+  <rect x="40" y="66" width="1120" height="42" rx="4" class="toolbar"/>
+  <rect x="52" y="74" width="290" height="26" rx="3" class="field"/>
+  <text x="66" y="91" class="field-ph">🔍  Rechercher (fichier, espèce, commentaire)</text>
+  <rect x="352" y="74" width="86" height="26" rx="3" class="btn-sec"/>
+  <text x="395" y="91" class="btn-txt-dark" text-anchor="middle">+ Filtre</text>
+  <rect x="1114" y="74" width="34" height="26" rx="3" class="menu"/>
+  <text x="1131" y="92" class="btn-txt-dark" text-anchor="middle">☰</text>
+  <text x="470" y="91" class="note">☰ → 📤 Exporter la bibliothèque…  (colonnes de contexte Date / Carré / Point affichées)</text>
+
+  <!-- Table avec colonnes de contexte affichées -->
+  <rect x="40" y="120" width="1120" height="28" class="table-head"/>
+  <text x="54" y="139" class="col-head">DATE</text>
+  <text x="150" y="139" class="col-head">CARRÉ</text>
+  <text x="240" y="139" class="col-head">POINT</text>
+  <text x="320" y="139" class="col-head">FICHIER</text>
+  <text x="520" y="139" class="col-head">VOTRE TAXON</text>
+  <text x="720" y="139" class="col-head">FRÉQ.</text>
+  <text x="820" y="139" class="col-head">COMMENTAIRE</text>
+  <text x="1128" y="139" class="col-head" text-anchor="middle">⭐</text>
+
+  <rect x="40" y="148" width="1120" height="30" class="row"/>
+  <text x="54" y="167" class="cell">2026-06-22</text>
+  <text x="150" y="167" class="cell">640380</text>
+  <text x="240" y="167" class="cell">A1</text>
+  <text x="320" y="167" class="cell-mono">…Pass2-000.wav</text>
+  <text x="520" y="167" class="cell">Noctule de Leisler</text>
+  <text x="720" y="167" class="cell">27 kHz</text>
+  <text x="820" y="167" class="cell">Cri social typique, fin de nuit.</text>
+  <text x="1128" y="168" class="star" text-anchor="middle">⭐</text>
+
+  <rect x="40" y="178" width="1120" height="30" class="row-alt"/>
+  <text x="54" y="197" class="cell">2026-06-15</text>
+  <text x="150" y="197" class="cell">640380</text>
+  <text x="240" y="197" class="cell">B2</text>
+  <text x="320" y="197" class="cell-mono">…Pass1-014.wav</text>
+  <text x="520" y="197" class="cell">Pipistrelle commune</text>
+  <text x="720" y="197" class="cell">45 kHz</text>
+  <text x="820" y="197" class="cell">Signal de référence net.</text>
+  <text x="1128" y="198" class="star" text-anchor="middle">⭐</text>
+
+  <text x="54" y="226" class="note">Le panneau d'écoute (identique à la maquette principale) reste sous la table ; l'export copie les .wav par espèce.</text>
+</svg>
+</div>
+
+<h2 id="sources-un-ecran-quatre-manieres-de-louvrir">Sources - un écran, quatre manières de l'ouvrir<a class="headerlink" href="#sources-un-ecran-quatre-manieres-de-louvrir" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Ouvert depuis</th>
+<th>Fil d'Ariane</th>
+<th>Colonnes contexte</th>
+<th>Actions ☰ propres</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Passage</strong></td>
+<td>carte d'un passage → <em>Validation Tadarida</em></td>
+<td><code>… › Passage N° 2 › Sons &amp; validation</code></td>
+<td>masquées</td>
+<td>Import CSV Tadarida, export <code>_Vu</code></td>
+</tr>
+<tr>
+<td><strong>Références</strong></td>
+<td>carte d'accueil <em>Sons &amp; validation</em></td>
+<td><code>Accueil › Sons de référence</code></td>
+<td>affichées</td>
+<td>Export bibliothèque</td>
+</tr>
+<tr>
+<td><strong>Espèce</strong></td>
+<td><a href="../M-Analyse/">M-Analyse</a> → <em>🎧 Écouter / valider</em></td>
+<td><code>Espèces &amp; observations › [espèce]</code></td>
+<td>affichées</td>
+<td>(aucune)</td>
+</tr>
+<tr>
+<td><strong>Lot</strong></td>
+<td><a href="../M-MultiSite/">M-MultiSite</a> → <em>Écouter</em> (passage ou lot filtré)</td>
+<td><code>Carte &amp; passages › [lot]</code></td>
+<td>affichées</td>
+<td>(aucune)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes-pour-limplementation">Notes pour l'implémentation<a class="headerlink" href="#notes-pour-limplementation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Un écran, plusieurs sources</strong> : la source est décrite par un type scellé (<code>SourceObservations</code> : <code>ParPassage</code> / <code>ParPassages</code> / <code>ParEspece</code> / <code>References</code>) porté par le <strong>socle</strong>. Le filtre de statut éventuel voyage <strong>en texte</strong> (pas de dépendance socle → validation, sinon cycle de tranches ArchUnit). L'écran adapte fil d'Ariane, colonnes visibles et actions ☰ selon cette source.</li>
+<li><strong>Composant d'écoute partagé</strong> : l'<code>AudioView</code> (sonogramme + spectrogramme + lecteur, expansion ×10) est <strong>fourni</strong>. Il est réutilisé tel quel par <a href="../M-Qualification/">M-Qualification</a> : il n’y a <strong>qu’un seul</strong> patron « lieu d'écoute ».</li>
+<li><strong>Actions immédiates, revue au clavier</strong> : Valider / Corriger / Référence agissent tout de suite (pas de brouillon). Le workflow « sans souris » (Entrée / R / N / ↑↓) vise la <strong>productivité</strong> sur des centaines d'observations.</li>
+<li><strong>Filtres = état du sous-ensemble affiché</strong> : les compteurs de la barre de statut portent sur le <strong>sous-ensemble filtré</strong>, pas sur la source entière.</li>
+<li><strong>Bibliothèque = source, pas écran séparé</strong> : « Sons de référence » n'est <strong>pas</strong> un écran distinct mais la source <code>References</code> de cet écran ; l'export bibliothèque (récapitulatif CSV + copie des <code>.wav</code> par espèce, cf. <a href="../../Parcours%20utilisateurs/P10%20-%20Exporter%20une%20biblioth%C3%A8que%20de%20sons%20de%20r%C3%A9f%C3%A9rence/">P10</a>) s'y fait via le menu <strong>☰</strong>.</li>
+<li><strong>Trois avis, pas deux</strong> : une observation porte l'avis de <strong>Tadarida</strong> (<code>tadarida_*</code>), celui de l'<strong>observateur</strong> (<code>observateur_*</code>) et celui du <strong>validateur</strong> (<code>validateur_*</code>). Les trois <strong>arrivent ensemble</strong>, dans la même charge utile, à chaque import depuis Vigie-Chiro : il n'y a <strong>aucun appel supplémentaire</strong> à faire pour obtenir le troisième. Le modèle local doit simplement <strong>cesser de le jeter</strong>.</li>
+<li><strong>Asymétrie lecture / écriture</strong> : le verdict du validateur est <strong>lisible</strong> mais <strong>non modifiable</strong> (le serveur refuse en <code>403</code> toute écriture des champs <code>validateur_*</code> par un <code>Observateur</code>). En revanche, <strong>répondre</strong> dans le fil est possible - et c'est la seule voie de recours de l'observateur face à un verdict qu'il conteste.</li>
+<li><strong>Le message est irréversible</strong> : le serveur <strong>ajoute</strong> au fil, sans route de suppression ni de modification. Toute IHM qui l'expose doit donc <strong>faire confirmer en citant le texte</strong> (on ne consent qu'à ce qu'on a relu), et l'écriture doit rester <strong>désactivable</strong> indépendamment de la lecture.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../M-Qualification/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: M-Qualification">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                M-Qualification
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../M-Lot/" class="md-footer__link md-footer__link--next" aria-label="Suivant: M-Lot">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                M-Lot
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "content.action.edit", "content.action.view", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
