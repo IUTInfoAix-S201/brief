@@ -3098,6 +3098,10 @@
 <strong>Dépendances</strong> : <a href="#e0s1">E0.S1</a>, <a href="#e0s3">E0.S3</a>, E2 (l'import lui-même)<br></p>
 <hr />
 <h2 id="e0s7">E0.S7 - Reprendre une validation Tadarida en suspens<a class="headerlink" href="#e0s7" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Partiellement livré</p>
+<p>Les observations validées ou corrigées sont bien <strong>persistées</strong> et relues. En revanche le <strong>contexte de validation</strong> (dernière observation vue, filtres actifs, mode) vit en <strong>mémoire de session</strong> (<code>MemoireRevueAudio</code>), <strong>pas en BD</strong> : il n'est pas restauré par passage ni au redémarrage. Les vues de filtres sauvegardées (#623) sont l'exception réellement persistée.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Marie/">Marie</a> ou <a href="../../Personas/Samuel/">Samuel</a></p>
 <p><strong>Je veux</strong> que ma session de validation Tadarida (<a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a>), si je la quitte avant la fin, puisse être reprise plus tard exactement là où je l'avais laissée</p>
 <p><strong>Afin de</strong> pouvoir étaler la validation sur plusieurs jours sans rien perdre</p>

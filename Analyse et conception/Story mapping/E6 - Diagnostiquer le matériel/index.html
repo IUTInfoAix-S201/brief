@@ -2951,6 +2951,10 @@
 <strong>Dépendances</strong> : <a href="../E2%20-%20Importer%20et%20transformer%20une%20nuit/#e2s1">E2.S1</a>, <a href="../E2%20-%20Importer%20et%20transformer%20une%20nuit/#e2s4">E2.S4</a><br></p>
 <hr />
 <h2 id="e6s3">E6.S3 - Vérifier la cohérence des horaires d'enregistrement vs astronomie locale<a class="headerlink" href="#e6s3" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Partiellement livré</p>
+<p>Le <strong>calcul astronomique local</strong> (coucher / lever) et sa précondition GPS sont livrés et testés. Mais l'encart affiché <strong>n'a pas</strong> la <strong>plage théorique</strong> (coucher -30 min → lever +30 min), la <strong>plage effective enregistrée</strong>, ni l'<strong>écart à trois niveaux</strong> (✅ / ⚠ / ❌) ; l'absence de GPS n'offre pas de lien direct vers la fiche site.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
 <p><strong>Je veux</strong> que l'application calcule les heures réelles de coucher/lever de soleil pour la date et le lieu d'enregistrement, et compare ces horaires avec la plage effective enregistrée par le PR</p>
 <p><strong>Afin de</strong> détecter un PR mal programmé qui a enregistré trop tôt, trop tard, ou pas du tout selon le protocole Vigie-Chiro (allumage 30 min avant coucher → 30 min après lever)</p>

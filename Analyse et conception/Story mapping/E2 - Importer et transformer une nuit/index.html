@@ -3086,6 +3086,10 @@
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s4">E0.S4</a>, <a href="#e2s4">E2.S4</a>, <a href="#e2s5">E2.S5</a><br></p>
 <hr />
 <h2 id="e2s7">E2.S7 - Mémoriser l'association enregistreur ↔ site/point<a class="headerlink" href="#e2s7" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Non livré (cible)</p>
+<p>Rien ne persiste ni ne relit une <strong>« dernière association » par n° de série</strong> : le passage stocke bien <code>recorder_id</code> et <code>point_id</code>, mais aucun mécanisme ne présélectionne le site/point à l'import d'après l'enregistreur. Aucun des critères ci-dessous n'est tenu.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Karim/">Karim</a> ou <a href="../../Personas/Samuel/">Samuel</a> (qui réutilise plusieurs fois le même enregistreur sur les mêmes points)</p>
 <p><strong>Je veux</strong> que l'application se souvienne du dernier site/point sur lequel chaque enregistreur (n° de série) a été utilisé</p>
 <p><strong>Afin que</strong> la modale d'import présélectionne automatiquement le bon site/point la fois suivante et que je n'aie pas à le ressaisir</p>
