@@ -2948,11 +2948,11 @@ flowchart LR
         S3 --&gt; S4 --&gt; S5
     end
 
-    subgraph livraison[📤 Dépôt manuel]
+    subgraph livraison[📤 Dépôt sur Vigie-Chiro]
         direction TB
         Lot[("📦 Dépôt")]
         VC(["🌐 vigiechiro&lt;br/&gt;.herokuapp.com"])
-        Lot -.téléversement&lt;br/&gt;navigateur.-&gt; VC
+        Lot -.téléversement&lt;br/&gt;par l'application.-&gt; VC
     end
 
     S1 --&gt; S2
@@ -2983,7 +2983,7 @@ flowchart LR
 <p>L'application affiche d'abord un <strong>pré-check synthétique</strong> (trois feux 🟢/🟠/🔴 : couverture horaire vs plage astronomique, nombre de fichiers, cohérence du renommage) - c'est la vérification minimale, suffisante pour Samuel qui passe directement au dépôt. Marie complète par un <strong>sound check par écoute</strong> sur une sélection automatique de 10 à 30 séquences réparties sur la nuit, pour confirmer qu'aucun défaut acoustique global (saturation, parasite continu, micro HS) ne s'est produit. Elle saisit ensuite son <strong>verdict global</strong> : <code>OK</code>, <code>Utilisable</code>, ou <code>Inexploitable</code>.</p>
 <p>→ <strong>Détail complet</strong> : <a href="../P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3 - Vérifier l'enregistrement par échantillonnage</a>.</p>
 <h2 id="etape-5-preparer-le-depot-pour-vigie-chiro">Étape 5 - Préparer le dépôt pour Vigie-Chiro<a class="headerlink" href="#etape-5-preparer-le-depot-pour-vigie-chiro" title="Permanent link">&para;</a></h2>
-<p>Marie clique sur « Vérifier et préparer le dépôt ». L'application vérifie la cohérence du passage (préfixes, complétude des fichiers) et lui ouvre le dossier prêt à déposer dans son explorateur. Elle téléverse manuellement les fichiers sur <a href="https://vigiechiro.herokuapp.com/">https://vigiechiro.herokuapp.com/</a> via son navigateur, puis revient dans l'application pour cliquer « J'ai déposé ».</p>
+<p>Marie clique sur « Vérifier et préparer le dépôt ». L'application vérifie la cohérence du passage (préfixes, complétude des fichiers) puis, <strong>connectée à Vigie-Chiro, téléverse la nuit directement</strong> (elle reprend là où elle s'est arrêtée si la connexion coupe) et <strong>lance la participation</strong>. Sans connexion, Marie peut ouvrir le dossier et déposer depuis son navigateur, puis cliquer « Marquer déposé ».</p>
 <p>→ <strong>Détail complet</strong> : <a href="../P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4 - Préparer le dépôt</a>.</p>
 <h2 id="criteres-de-reussite-globaux">Critères de réussite globaux<a class="headerlink" href="#criteres-de-reussite-globaux" title="Permanent link">&para;</a></h2>
 <ul>

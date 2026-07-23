@@ -2199,7 +2199,7 @@
         <li class="md-nav__item">
   <a href="#e4s3" class="md-nav__link">
     <span class="md-ellipsis">
-      E4.S3 - Marquer le passage comme déposé après téléversement manuel
+      E4.S3 - Marquer le passage comme déposé (repli du dépôt navigateur)
     </span>
   </a>
   
@@ -2796,7 +2796,7 @@
         <li class="md-nav__item">
   <a href="#e4s3" class="md-nav__link">
     <span class="md-ellipsis">
-      E4.S3 - Marquer le passage comme déposé après téléversement manuel
+      E4.S3 - Marquer le passage comme déposé (repli du dépôt navigateur)
     </span>
   </a>
   
@@ -2844,7 +2844,10 @@
 
 <h1 id="e4-preparer-et-tracer-le-depot-vigiechiro">E4 - 📦 Préparer et tracer le dépôt VigieChiro<a class="headerlink" href="#e4-preparer-et-tracer-le-depot-vigiechiro" title="Permanent link">&para;</a></h1>
 <p><a href="../">← Retour au sommaire story mapping</a> · <strong>Parcours principal</strong> : <a href="../../Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4 - Préparer le dépôt</a></p>
-<p><strong>Portée</strong> : finaliser le travail post-vérification pour produire un <strong>dépôt directement déposable sur le portail Vigie-Chiro</strong> et tracer le dépôt. L'application <strong>ne dialogue pas</strong> avec le portail web : le téléversement final est manuel via navigateur. L'application se contente de préparer les fichiers à un emplacement connu, vérifier leur cohérence, et mémoriser la date de dépôt déclarée par l'utilisateur.</p>
+<p><strong>Portée</strong> : finaliser le travail post-vérification pour <strong>déposer la nuit sur Vigie-Chiro</strong> et tracer le dépôt. Le chemin nominal est un <strong>téléversement direct depuis l'application</strong> (création de la participation, envoi reprenable, lancement de l'analyse) ; l'ouverture du dossier pour un <strong>dépôt navigateur</strong> est un <strong>repli</strong> hors connexion.</p>
+<blockquote>
+<p>Cette épopée a été rédigée pour l'ancien modèle « dépôt manuel » ; sa <strong>structure</strong> (stories S2/S3) est réalignée par les chantiers #2379 et #2381. Les assertions « ne dialogue pas » sont corrigées ici (#2376).</p>
+</blockquote>
 <p><strong>Persona principal</strong> : tous (Marie pour ses 1-2 dépôts annuels, Karim et Samuel pour leur cadence intensive de plusieurs dizaines de dépôts par saison).</p>
 <p><strong>Pré-requis</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a> (DAO passages avec statut), <a href="../E3%20-%20V%C3%A9rifier%20la%20qualit%C3%A9%20d%27enregistrement/#e3s5">E3.S5</a> (passage avec verdict OK ou Utilisable).</p>
 <h2 id="e4s1">E4.S1 - Vérifier la cohérence du passage avant préparation du dépôt<a class="headerlink" href="#e4s1" title="Permanent link">&para;</a></h2>
@@ -2879,7 +2882,7 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'écran « Dépôt » affiche : nombre de séquences d'écoute, taille totale, chemin absolu du dossier de sortie sur le disque local.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un bouton <strong>« Ouvrir le dossier dans l'explorateur »</strong> (libellé exact à voir avec la maquette) déclenche l'ouverture du dossier dans l'explorateur natif de l'OS (Files sous Linux, Finder sous macOS, Explorer sous Windows).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le chemin du dossier est aussi affiché sous forme <strong>copiable</strong> (clic icône « copier ») pour les cas où le bouton « Ouvrir » ne fonctionne pas (ex. environnement sans bureau graphique).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un rappel explicite indique que l'application <strong>ne dialogue pas</strong> avec Vigie-Chiro : « Téléversez ces fichiers manuellement sur https://vigiechiro.herokuapp.com/ depuis votre navigateur. »</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> En <strong>repli</strong> (hors connexion), un rappel indique comment déposer à la main : « Téléversez ces fichiers sur https://vigiechiro.herokuapp.com/ depuis votre navigateur, puis revenez marquer le passage déposé. »</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un lien direct vers le portail Vigie-Chiro est mis à disposition (s'ouvre dans le navigateur par défaut).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests d'intégration : le bouton « Ouvrir le dossier » se résout-il correctement sur Linux/macOS/Windows ? (à arbitrer selon l'OS de référence)</li>
 </ul>
@@ -2887,7 +2890,7 @@
 <strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Lot/">M-Lot</a> (récapitulatif + bouton « Ouvrir le dossier » + lien externe Vigie-Chiro)<br>
 <strong>Dépendances</strong> : <a href="#e4s1">E4.S1</a><br></p>
 <hr />
-<h2 id="e4s3">E4.S3 - Marquer le passage comme déposé après téléversement manuel<a class="headerlink" href="#e4s3" title="Permanent link">&para;</a></h2>
+<h2 id="e4s3">E4.S3 - Marquer le passage comme déposé (repli du dépôt navigateur)<a class="headerlink" href="#e4s3" title="Permanent link">&para;</a></h2>
 <p><strong>En tant que</strong> <a href="../../Personas/Marie/">Marie</a></p>
 <p><strong>Je veux</strong> pouvoir confirmer à l'application que j'ai effectivement déposé sur Vigie-Chiro, avec mémorisation de la date de dépôt</p>
 <p><strong>Afin de</strong> clôturer ce passage dans mon suivi et le distinguer des passages encore en attente de dépôt</p>

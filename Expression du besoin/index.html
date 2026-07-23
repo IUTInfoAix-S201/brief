@@ -3039,7 +3039,7 @@
 <li><strong>Déclarer un site de suivi</strong> dans l'application : n° de carré (6 chiffres) et codes des points d'écoute (1 lettre + 1 chiffre). Le site doit avoir été créé en amont sur le portail Vigie-Chiro pour récupérer ces identifiants.</li>
 <li><strong>Importer une nuit d'enregistrement</strong> depuis un dossier (typiquement la carte SD) : détection automatique du <code>LogPR*.txt</code>, du <code>PaRec*_THLog.csv</code> et des WAV bruts ; <strong>copie protégée</strong> des fichiers (aucune écriture sur la SD source) ; <strong>renommage</strong> automatique avec le préfixe <code>CarXXXXXX-AAAA-PassN-YY-</code> ; <strong>transformation</strong> de chaque WAV brut en séquences de 5 s ralenties ×10 (expansion temporelle).</li>
 <li><strong>Vérifier l'enregistrement par échantillonnage</strong> : sound check avant dépôt. L'application propose automatiquement une dizaine de séquences réparties sur la nuit, l'utilisateur en écoute quelques-unes pour confirmer que la qualité est exploitable, et saisit un <strong>verdict global</strong> (<code>OK</code>, <code>Utilisable</code>, <code>Inexploitable</code>).</li>
-<li><strong>Préparer le dépôt</strong> : vérification de cohérence (préfixes conformes, journal et climat présents, etc.), affichage du chemin du dossier, ouverture dans l'explorateur natif pour téléversement manuel via navigateur sur Vigie-Chiro. L'application <strong>ne dialogue pas</strong> directement avec la plateforme.</li>
+<li><strong>Préparer le dépôt</strong> : vérification de cohérence (préfixes conformes, journal et climat présents, etc.), affichage du chemin du dossier, téléversement <strong>direct sur Vigie-Chiro</strong> depuis l'application (création de la participation, envoi reprenable, lancement de l'analyse), avec un <strong>repli</strong> par ouverture du dossier dans l'explorateur pour un dépôt navigateur hors connexion.</li>
 <li><strong>Tracer le dépôt</strong> : marquer le passage comme <code>Déposé</code> avec date de dépôt, pour distinguer ce qui a été livré de ce qui reste à traiter.</li>
 </ul>
 <h3 id="should-utilite-reconnue">SHOULD (utilité reconnue)<a class="headerlink" href="#should-utilite-reconnue" title="Permanent link">&para;</a></h3>
@@ -3066,7 +3066,7 @@
 <h3 id="wont-hors-perimetre-de-cette-premiere-version">WON'T (hors périmètre de cette première version)<a class="headerlink" href="#wont-hors-perimetre-de-cette-premiere-version" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Pas</strong> de communication directe avec la plateforme VigieChiro (les échanges se font par téléversement / téléchargement de fichiers).</li>
-<li><strong>Pas</strong> de gestion multi-utilisateur, pas de comptes, pas de synchronisation cloud.</li>
+<li><strong>Pas</strong> de gestion multi-utilisateur (l'application reste mono-poste). En revanche elle se connecte au <strong>compte Vigie-Chiro</strong> de l'observateur, par jeton, pour déposer et synchroniser.</li>
 <li><strong>Pas</strong> de calcul propre de classification automatique (Tadarida fait son travail en amont, l'application l'exploite).</li>
 <li><strong>Pas</strong> de déploiement web ou mobile.</li>
 </ul>

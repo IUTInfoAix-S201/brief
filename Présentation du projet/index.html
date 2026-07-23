@@ -2939,7 +2939,7 @@
 <li><strong>Déclarer un site de suivi</strong> : enregistrer dans l'application les n° de carré et les codes des points d'écoute qui ont été créés en amont sur le portail Vigie-Chiro (<a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P1%20-%20D%C3%A9clarer%20un%20site%20de%20suivi/">P1</a>).</li>
 <li><strong>Importer une nuit d'enregistrement</strong> : copier de manière protégée les WAV bruts + journal + climat depuis la carte SD, les <strong>renommer</strong> avec le préfixe <code>CarXXXXXX-AAAA-PassN-YY-</code>, et <strong>transformer</strong> chaque enregistrement en séquences de 5 s ralenties ×10 (<a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2</a>).</li>
 <li><strong>Vérifier l'enregistrement par échantillonnage</strong> : sound check global avant dépôt - écouter quelques séquences réparties sur la nuit pour confirmer que l'audio est exploitable, et saisir un verdict (<code>OK</code>, <code>Utilisable</code>, <code>Inexploitable</code>) (<a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3</a>).</li>
-<li><strong>Préparer le dépôt</strong> sur Vigie-Chiro : vérifications de cohérence + ouverture du dossier dans l'explorateur pour téléversement manuel via le navigateur (<a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4</a>).</li>
+<li><strong>Préparer et déposer</strong> sur Vigie-Chiro : vérifications de cohérence, puis <strong>téléversement direct depuis l'application</strong> (repli navigateur possible hors connexion) et lancement de l'analyse (<a href="../Analyse%20et%20conception/Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4</a>).</li>
 </ul>
 <h3 id="approfondissements-should">Approfondissements (SHOULD)<a class="headerlink" href="#approfondissements-should" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2984,7 +2984,7 @@
 </tr>
 </tbody>
 </table>
-<p>💡 Dans la première version, l'application reste mono-utilisateur : pas de comptes, pas de synchronisation cloud, pas de gestion d'équipe. Le possesseur de PR est seul devant son ordinateur, l'application travaille sur ses fichiers locaux.</p>
+<p>💡 L'application reste <strong>mono-poste</strong> : pas de gestion d'équipe, les données vivent en local. Elle se connecte toutefois au <strong>compte Vigie-Chiro</strong> de l'observateur (par jeton) pour déposer, synchroniser ses sites et récupérer les résultats.</p>
 
 
 

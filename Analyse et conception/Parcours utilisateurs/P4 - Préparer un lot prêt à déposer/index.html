@@ -2793,7 +2793,7 @@
 <blockquote>
 <p><strong>Persona principal</strong> : Marie / Karim / Samuel. <strong>Objectifs qualité visés</strong> : <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O7/">O7 Intégrité</a>, <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O8/">O8 Confidentialité</a>.</p>
 </blockquote>
-<p>Marie a importé et vérifié une nuit (parcours <a href="../P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2</a> et <a href="../P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3</a>). Elle veut maintenant <strong>préparer le dépôt de cette nuit sur le portail Vigie-Chiro</strong> et l'y téléverser manuellement.</p>
+<p>Marie a importé et vérifié une nuit (parcours <a href="../P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2</a> et <a href="../P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3</a>). Elle veut maintenant <strong>préparer le dépôt de cette nuit et le déposer sur Vigie-Chiro</strong> - directement depuis l'application quand elle est connectée, ou par un repli navigateur sinon.</p>
 <ol>
 <li>Marie sélectionne un passage <code>OK</code> ou <code>Utilisable</code> (un passage <code>Inexploitable</code> est bloqué, R14).</li>
 <li>Elle clique sur « <strong>Vérifier et préparer le dépôt</strong> ». L'application vérifie la cohérence du passage :<ul>
@@ -2802,9 +2802,9 @@
 <li>le journal du capteur et le relevé climatique sont-ils présents ?</li>
 </ul>
 </li>
-<li>L'application affiche un <strong>récapitulatif du dépôt</strong> : nombre de séquences d'écoute, taille totale, chemin du dossier prêt sur le disque. Un bouton « <strong>Ouvrir le dossier dans l'explorateur</strong> » permet à Marie de retrouver les fichiers immédiatement.</li>
-<li>Marie ouvre le dossier, sélectionne toutes les séquences et les téléverse manuellement sur <a href="https://vigiechiro.herokuapp.com/">https://vigiechiro.herokuapp.com/</a> via son navigateur (l'application <strong>ne dialogue pas avec le portail</strong>, c'est un dépôt manuel - R8 implicite).</li>
-<li>Une fois le téléversement effectué côté Vigie-Chiro, Marie revient dans l'application et clique sur « <strong>J'ai déposé</strong> » pour marquer la date de dépôt. Le passage passe au statut <code>Déposé</code>.</li>
+<li>L'application affiche un <strong>récapitulatif du dépôt</strong> : nombre de séquences d'écoute, taille totale, forme du dépôt (archives ZIP ou séquences WAV).</li>
+<li><strong>Connectée à Vigie-Chiro</strong>, Marie <strong>téléverse directement depuis l'application</strong> : celle-ci crée la participation, envoie les séquences au bon format, et <strong>reprend là où elle s'est arrêtée</strong> si la connexion coupe. Le passage passe à <code>Déposé</code> une fois <strong>tout</strong> en ligne. Puis Marie <strong>lance la participation</strong>, ce qui déclenche l'analyse Tadarida côté serveur.</li>
+<li><strong>Sans connexion</strong>, un <strong>repli</strong> reste possible : « Ouvrir le dossier » puis dépôt depuis le navigateur sur <a href="https://vigiechiro.herokuapp.com/">https://vigiechiro.herokuapp.com/</a>, suivi de « <strong>Marquer déposé</strong> » pour tracer la date à la main.</li>
 <li>Marie attend ensuite 24-48 h le retour Tadarida pour entamer le parcours <a href="../P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a>.</li>
 </ol>
 <h2 id="enrichissements-prevus">Enrichissements prévus<a class="headerlink" href="#enrichissements-prevus" title="Permanent link">&para;</a></h2>
