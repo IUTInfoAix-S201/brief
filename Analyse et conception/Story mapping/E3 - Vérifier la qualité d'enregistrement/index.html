@@ -2958,7 +2958,7 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Test d'intégration : sur un passage de référence, vérifier les trois indicateurs (cas nominal 🟢/🟢/🟢, cas dégradé 🟠 sur couverture, cas critique 🔴 sur renommage).</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3</a>, étape 1<br>
-<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Qualification/">M-Qualification</a> (encart « État de la nuit » en haut de la vue de vérification) - <em>à mettre à jour</em><br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Qualification/">M-Qualification</a> (encart « État de la nuit » en haut de la vue de vérification)<br>
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a> (passage en BD), <a href="../E2%20-%20Importer%20et%20transformer%20une%20nuit/#e2s6">E2.S6</a> (transformation terminée), librairie astronomique pour les horaires (re-use <a href="../E6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/#e6s3">E6.S3</a> si possible)<br></p>
 <hr />
 <h2 id="e3s1">E3.S1 - Générer une sélection d'écoute automatique à l'ouverture de l'onglet<a class="headerlink" href="#e3s1" title="Permanent link">&para;</a></h2>
@@ -3000,11 +3000,11 @@
 <p><strong>Afin de</strong> vérifier de mes propres oreilles ET de mes propres yeux que la nuit est exploitable</p>
 <div class="admonition info">
 <p class="admonition-title">Composant fourni</p>
-<p>Le composant de vue audio (sonogramme + spectrogramme avec contrôles de lecture et zoom) est <strong>fourni</strong>. Le même composant est utilisé dans <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s3">E7.S3</a> pour la validation Tadarida. Cette story se concentre sur l'<strong>intégration</strong> dans M-Qualification.</p>
+<p>Le composant de vue audio (sonogramme + spectrogramme avec contrôles de lecture et zoom) est une <strong>dépendance externe</strong> (<code>audio-view</code>, JitPack). Le même composant est utilisé dans <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s3">E7.S3</a> pour la validation Tadarida. Cette story ne porte que son <strong>intégration</strong> dans M-Qualification.</p>
 </div>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le panneau de détail (<a href="#e3s2">E3.S2</a>) affiche le composant audio fourni, alimenté par le chemin de la séquence courante.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le panneau de détail (<a href="#e3s2">E3.S2</a>) affiche le composant audio, alimenté par le chemin de la séquence courante.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le clic sur le bouton ▶ d'une séquence dans la liste de gauche déclenche la lecture immédiate dans le composant.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Comme les séquences sont <strong>déjà ralenties ×10 sur disque</strong> (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r10">R10</a>), la lecture se fait à vitesse normale (pas de re-échantillonnage à la volée).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le curseur du composant est synchronisé entre le sonogramme, le spectrogramme et la barre de lecture.  <em>(non verifiable depuis le code)</em></li>

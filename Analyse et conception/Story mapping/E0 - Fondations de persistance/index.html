@@ -2994,7 +2994,7 @@
 <h1 id="e0-fondations-de-persistance">E0 - 🗄️ Fondations de persistance<a class="headerlink" href="#e0-fondations-de-persistance" title="Permanent link">&para;</a></h1>
 <p><a href="../">← Retour au sommaire story mapping</a> · <strong>Épopée transverse</strong> socle (S1-S5) (S6-S7) (S8)</p>
 <p><strong>Portée</strong> : tout le travail base de données (schéma SQLite, DAO, persistance des entités cœur, mécanismes de reprise sur erreur). Cette épopée n'est rattachée à <strong>aucun parcours</strong> spécifique car elle <strong>sert toutes les autres épopées</strong> : sans elle, aucune story métier n'est livrable.</p>
-<p><strong>Justification du regroupement</strong> : la couche de persistance (JDBC + SQLite, cf. <a href="../../../Contraintes%20techniques/">Contraintes techniques</a>) est un livrable technique imposé par le brief. La regrouper comme épopée identifiée la rend visible, arbitrable, et donne un point d'entrée clair pour la partie persistance de l'application.</p>
+<p><strong>Justification du regroupement</strong> : la couche de persistance (JDBC + SQLite, cf. <a href="../../../Contraintes%20techniques/">Contraintes techniques</a>) est un <strong>socle technique transverse</strong>. La regrouper comme épopée identifiée la rend visible, arbitrable, et donne un point d'entrée clair pour la partie persistance de l'application.</p>
 <h2 id="e0s1">E0.S1 - Initialiser le schéma SQLite et les DAO génériques<a class="headerlink" href="#e0s1" title="Permanent link">&para;</a></h2>
 <p><strong>En tant que</strong> développeur de l'application</p>
 <p><strong>Je veux</strong> disposer d'un schéma SQLite initialisé au premier lancement et de classes DAO génériques</p>

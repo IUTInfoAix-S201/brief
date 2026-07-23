@@ -2902,14 +2902,14 @@ avec le produit - pas un énoncé figé. Le code est public :
 <h2 id="donnees-dexemple-fournies">Données d'exemple fournies<a class="headerlink" href="#donnees-dexemple-fournies" title="Permanent link">&para;</a></h2>
 <p>Un jeu de données réel issu d'une session d'enregistrement nocturne (22-23 avril 2026, PR n° 1925492) accompagne le projet en deux variantes complémentaires :</p>
 <h3 id="echantillon-versionne-dans-un-depot-dedie">🟢 Échantillon versionné dans un dépôt dédié<a class="headerlink" href="#echantillon-versionne-dans-un-depot-dedie" title="Permanent link">&para;</a></h3>
-<p>Un <strong>échantillon représentatif</strong> d'une nuit (audio réduit + observations complètes) est versionné dans le dépôt <a href="https://github.com/IUTInfoAix-S201/vigiechiro-pr-companion-exemple-nuit"><code>vigiechiro-pr-companion-exemple-nuit</code></a>, disponible immédiatement après <code>git clone</code>. Suffit pour démarrer, pour la CI, et pour tester la majorité des stories. Le détail du contenu est décrit dans le <code>README</code> de ce dépôt.</p>
+<p>Un <strong>échantillon représentatif</strong> d'une nuit (audio réduit + observations complètes) est versionné dans le dépôt <a href="https://github.com/echonuit/vigiechiro-pr-companion-exemple-nuit"><code>vigiechiro-pr-companion-exemple-nuit</code></a>, disponible immédiatement après <code>git clone</code>. Suffit pour démarrer, pour la CI, et pour tester la majorité des stories. Le détail du contenu est décrit dans le <code>README</code> de ce dépôt.</p>
 <h3 id="full-dataset-sur-zenodo">🔵 Full dataset sur Zenodo<a class="headerlink" href="#full-dataset-sur-zenodo" title="Permanent link">&para;</a></h3>
 <p><strong>~4,2 Go zippés</strong> (~11 Go décompressés) : 1572 WAV bruts + 2109 WAV redécoupés + 4031 observations Tadarida. Indispensable pour valider les stories de <strong>volumétrie</strong> (<a href="Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O3/">O3</a>, <a href="Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O5/">O5</a>).</p>
 <div class="admonition tip">
 <p class="admonition-title">Archive permanente : DOI Zenodo</p>
 <p>La nuit complète est archivée sur Zenodo, DOI <a href="https://doi.org/10.5281/zenodo.20492247">10.5281/zenodo.20492247</a> (lien permanent, accès libre) : c'est elle qui permet d'éprouver l'application sur les volumes réels.</p>
 <p><strong>Depuis votre navigateur</strong> : <a href="https://zenodo.org/records/20492247">fiche Zenodo du jeu de données</a>.</p>
-<p><strong>Depuis la ligne de commande</strong>, à la racine de votre clone du brief :</p>
+<p><strong>Depuis la ligne de commande</strong>, à la racine de votre clone du dépôt :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>data
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>data/Car640380-2026-Pass2-Z1.zip<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="s2">&quot;https://zenodo.org/records/20492247/files/Car640380-2026-Pass2-Z1.zip?download=1&quot;</span>

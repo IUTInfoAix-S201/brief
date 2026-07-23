@@ -3005,7 +3005,7 @@
 <p><strong>Afin de</strong> distinguer les caractéristiques discriminantes d'un cri (forme, fréquence dominante, harmoniques) qui complètent l'écoute pour prendre une décision de classification éclairée</p>
 <div class="admonition info">
 <p class="admonition-title">Composant fourni</p>
-<p>Le composant de vue audio (sonogramme + spectrogramme avec zoom) est <strong>fourni</strong>. Le calcul FFT et le rendu graphique du spectrogramme ne sont pas à réimplémenter. Cette story se concentre sur l'<strong>intégration</strong> : instancier le composant, le lier au cycle de lecture audio, et synchroniser le curseur avec le lecteur. Ce composant est réutilisé tel quel dans <a href="../E3%20-%20V%C3%A9rifier%20la%20qualit%C3%A9%20d%27enregistrement/#e3s3">E3.S3</a> (M-Qualification).</p>
+<p>Le composant de vue audio (sonogramme + spectrogramme avec zoom) est une <strong>dépendance externe</strong> (<code>audio-view</code>, JitPack) : le calcul FFT et le rendu du spectrogramme y sont déjà réalisés. Cette story ne porte que l'<strong>intégration</strong> : instancier le composant, le lier au cycle de lecture audio, synchroniser le curseur avec le lecteur. Le même composant sert dans <a href="../E3%20-%20V%C3%A9rifier%20la%20qualit%C3%A9%20d%27enregistrement/#e3s3">E3.S3</a> (M-Qualification).</p>
 </div>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
