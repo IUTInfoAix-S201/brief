@@ -2856,9 +2856,9 @@
 </tr>
 <tr>
 <td>fréquence médiane</td>
-<td>entier (Hz)</td>
-<td>obligatoire</td>
-<td>Métrique Tadarida.</td>
+<td>entier (<strong>kHz</strong>)</td>
+<td>optionnel</td>
+<td>Métrique Tadarida (colonne <code>median_freq_khz</code>). L'unité est le <strong>kHz</strong>, pas le Hz : les cris de chiroptères se lisent en dizaines de kHz (Pippip ~50, rhinolophes &gt;100). Lue en Hz, la valeur n'aurait aucun sens (infrasons).</td>
 </tr>
 <tr>
 <td>taxon Tadarida</td>
@@ -2888,7 +2888,13 @@
 <td>probabilité observateur</td>
 <td>décimal</td>
 <td>dans <code>[0, 1]</code>, optionnel</td>
-<td>Niveau de confiance utilisateur.</td>
+<td><strong>N'est pas la confiance de l'observateur</strong> : c'est la probabilité <strong>Tadarida recopiée</strong> à la validation, héritée du format <code>_Vu</code> (colonne <code>prob_observer</code>). La confiance déclarée par l'observateur est la <strong>certitude</strong> ci-dessous.</td>
+</tr>
+<tr>
+<td>certitude observateur</td>
+<td>énum</td>
+<td><code>SUR</code> | <code>PROBABLE</code> | <code>POSSIBLE</code> | <code>null</code> (défaut)</td>
+<td>Confiance <strong>déclarée à la main</strong> par l'observateur à la revue (colonne <code>observer_certainty</code>, #1139). Domaine calé sur la plateforme Vigie-Chiro ; <strong>jamais</strong> dérivée de la probabilité ci-dessus, vide tant qu'on ne l'a pas saisie.</td>
 </tr>
 <tr>
 <td>commentaire utilisateur</td>
@@ -2912,7 +2918,7 @@
 </table>
 <h2 id="regles-applicables">Règles applicables<a class="headerlink" href="#regles-applicables" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../R%C3%A8gles%20m%C3%A9tier/#r15">R15</a> - observation <code>validée</code> si <code>taxon observateur = taxon Tadarida</code> et <code>probabilité observateur</code> renseignée.</li>
+<li><a href="../R%C3%A8gles%20m%C3%A9tier/#r15">R15</a> - observation <code>validée</code> si <code>taxon observateur = taxon Tadarida</code> (la probabilité observateur n'entre pas dans le statut ; la confiance se déclare par la <strong>certitude</strong>).</li>
 <li><a href="../R%C3%A8gles%20m%C3%A9tier/#r16">R16</a> - observation <code>corrigée</code> si <code>taxon observateur ≠ taxon Tadarida</code>.</li>
 <li><a href="../R%C3%A8gles%20m%C3%A9tier/#r17">R17</a> - observation non touchée conserve les colonnes <code>tadarida_*</code> à l'export <code>_Vu.csv</code>.</li>
 <li><a href="../R%C3%A8gles%20m%C3%A9tier/#r18">R18</a> - deux modes de validation : <code>inventaire</code> ou <code>activité</code> (+ variante future <code>inventaire pondéré</code>).</li>
