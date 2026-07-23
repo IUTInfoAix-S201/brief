@@ -2931,7 +2931,7 @@
 <strong>Persona principal</strong> : <a href="../../Personas/Marie/">Marie</a>, partagée avec <a href="../../Personas/Karim/">Karim</a>. <a href="../../Personas/Samuel/">Samuel</a> bascule sur <a href="../M-MultiSite/">M-MultiSite</a> pour sa volumétrie.
 <strong>Parcours couverts</strong> : <a href="../../Parcours%20utilisateurs/P1%20-%20D%C3%A9clarer%20un%20site%20de%20suivi/">P1 - Déclarer un site de suivi</a>, <a href="../../Parcours%20utilisateurs/P12%20-%20R%C3%A9cup%C3%A9rer%20une%20nuit%20d%C3%A9pos%C3%A9e%20sur%20VigieChiro/">P12 - Récupérer une nuit déposée sur VigieChiro</a>.</p>
 </blockquote>
-<p>L'écran liste tous les sites de suivi déclarés sous forme de <strong>cartes</strong>, avec pour chacun : le n° de carré, le nom convivial (et la commune), le nombre de points d'écoute, le nombre de passages enregistrés cette saison, et un badge de fraîcheur (date du dernier passage). Un bouton <code>+ Nouveau site</code> est toujours visible en haut à droite. Le clic sur une carte ouvre <a href="../M-Site-detail/">M-Site-detail</a>. L'écran est atteint depuis l'accueil ; le <strong>fil d'Ariane</strong> du chrome (<code>Accueil › Mes sites</code>) et la <strong>recherche globale</strong> sont posés dans le bandeau.</p>
+<p>L'écran liste tous les sites de suivi déclarés sous forme de <strong>cartes</strong>, avec pour chacun : le n° de carré, le nom convivial (et la commune), le nombre de points d'écoute, le nombre de passages enregistrés cette saison, et un badge de fraîcheur (date du dernier passage). Deux boutons sont toujours visibles en haut à droite : <code>+ Nouveau site</code> et <code>☁️ Récupérer depuis Vigie-Chiro</code>, qui <strong>synchronise les sites et points depuis la plateforme</strong> (utile après une réinstallation ou pour un compte déjà rempli côté web). Le clic sur une carte ouvre <a href="../M-Site-detail/">M-Site-detail</a>. L'écran est atteint depuis l'accueil ; le <strong>fil d'Ariane</strong> du chrome (<code>Accueil › Mes sites</code>) et la <strong>recherche globale</strong> sont posés dans le bandeau.</p>
 <h2 id="maquette-principale-utilisateur-avec-plusieurs-sites-declares">Maquette principale - utilisateur avec plusieurs sites déclarés<a class="headerlink" href="#maquette-principale-utilisateur-avec-plusieurs-sites-declares" title="Permanent link">&para;</a></h2>
 <div markdown="0">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="Maquette M-Sites - Mes sites de suivi" style="max-width: 100%; height: auto; border: 1px solid #d0d7de; border-radius: 6px; background: #fafbfc;">
@@ -2947,6 +2947,8 @@
     .pagesub { font: 13px sans-serif; fill: #6a737d; }
     .btn-primary { fill: #4a90d9; stroke: #2563a3; stroke-width: 1; }
     .btn-txt { fill: #ffffff; font: 600 13px sans-serif; }
+    .btn-secondary { fill: #ffffff; stroke: #2c3e50; stroke-width: 1; }
+    .btn-txt-dark { fill: #2c3e50; font: 600 13px sans-serif; }
     .card { fill: #ffffff; stroke: #d0d7de; stroke-width: 1; }
     .card-hover { fill: #f6f8fa; stroke: #4a90d9; stroke-width: 1.5; }
     .carre-no { font: 700 20px sans-serif; fill: #2c3e50; }
@@ -2980,6 +2982,10 @@
   <!-- En-tete de page -->
   <text x="40" y="100" class="pagetitle">Mes sites de suivi</text>
   <text x="40" y="122" class="pagesub">3 sites déclarés · 5 passages enregistrés en 2026</text>
+
+  <!-- Bouton secondaire "Recuperer depuis Vigie-Chiro" (synchro des sites, #1045) -->
+  <rect x="724" y="82" width="250" height="40" rx="4" class="btn-secondary"/>
+  <text x="849" y="107" class="btn-txt-dark" text-anchor="middle">☁️ Récupérer depuis Vigie-Chiro</text>
 
   <!-- Bouton primary "+ Nouveau site" -->
   <rect x="990" y="82" width="170" height="40" rx="4" class="btn-primary"/>
@@ -3062,6 +3068,10 @@
 <tr>
 <td>Bouton <strong>+ Nouveau site</strong></td>
 <td>Ouvre le formulaire de création d'un site (n° de carré, points)</td>
+</tr>
+<tr>
+<td>Bouton <strong>☁️ Récupérer depuis Vigie-Chiro</strong></td>
+<td>Synchronise les sites et points depuis la plateforme (rapatrie ceux qui existent côté web)</td>
 </tr>
 <tr>
 <td>Champ <strong>🔍 Rechercher</strong> (ou Ctrl+F)</td>

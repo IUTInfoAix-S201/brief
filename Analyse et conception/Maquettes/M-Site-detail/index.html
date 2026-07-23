@@ -3038,30 +3038,36 @@
   <text x="40" y="92" class="pagetitle">Carré 640380 - Étang de la Tuilière</text>
   <text x="40" y="114" class="pagesub">📍 Ahetze (64) · Protocole PointFixeStandard</text>
 
-  <!-- Boutons d'action -->
-  <rect x="566" y="74" width="150" height="34" rx="4" class="btn-primary"/>
-  <text x="641" y="96" class="btn-txt" text-anchor="middle">📥 Importer une nuit</text>
-  <rect x="724" y="74" width="150" height="34" rx="4" class="btn-secondary"/>
-  <text x="799" y="96" class="btn-txt-dark" text-anchor="middle">🗺 Voir sur la carte</text>
-  <rect x="882" y="74" width="120" height="34" rx="4" class="btn-secondary"/>
-  <text x="942" y="96" class="btn-txt-dark" text-anchor="middle">✏ Modifier</text>
-  <rect x="1010" y="74" width="120" height="34" rx="4" class="btn-danger"/>
-  <text x="1070" y="96" class="btn-txt-danger" text-anchor="middle">🗑 Supprimer</text>
+  <!-- Boutons d'action (6 controles : 5 boutons + menu colonnes) -->
+  <rect x="470" y="74" width="138" height="34" rx="4" class="btn-primary"/>
+  <text x="539" y="96" class="btn-txt" text-anchor="middle">📥 Importer une nuit</text>
+  <rect x="614" y="74" width="82" height="34" rx="4" class="btn-secondary"/>
+  <text x="655" y="96" class="btn-txt-dark" text-anchor="middle">🗺 Carte</text>
+  <rect x="702" y="74" width="176" height="34" rx="4" class="btn-secondary"/>
+  <text x="790" y="96" class="btn-txt-dark" text-anchor="middle">☁️ Ouvrir sur Vigie-Chiro</text>
+  <rect x="884" y="74" width="98" height="34" rx="4" class="btn-secondary"/>
+  <text x="933" y="96" class="btn-txt-dark" text-anchor="middle">✏ Modifier</text>
+  <rect x="988" y="74" width="104" height="34" rx="4" class="btn-danger"/>
+  <text x="1040" y="96" class="btn-txt-danger" text-anchor="middle">🗑 Supprimer</text>
+  <rect x="1098" y="74" width="40" height="34" rx="4" class="btn-secondary"/>
+  <text x="1118" y="96" class="btn-txt-dark" text-anchor="middle">☰</text>
 
   <!-- Bandeau d'infos cles -->
   <rect x="40" y="132" width="1120" height="60" rx="4" class="info-bar"/>
   <text x="60" y="153" class="info-label">N° DE CARRÉ</text>
   <text x="60" y="177" class="info-value">640380</text>
-  <text x="200" y="153" class="info-label">DÉPARTEMENT</text>
-  <text x="200" y="177" class="info-value">64</text>
-  <text x="320" y="153" class="info-label">PROTOCOLE</text>
-  <text x="320" y="177" class="info-value">PointFixeStandard</text>
-  <text x="560" y="153" class="info-label">CRÉÉ LE</text>
-  <text x="560" y="177" class="info-value">2026-04-12</text>
-  <text x="720" y="153" class="info-label">DERNIÈRE NUIT IMPORTÉE</text>
-  <text x="720" y="177" class="info-value">2026-06-22 (il y a 2 j)</text>
-  <text x="960" y="153" class="info-label">PASSAGES (2026)</text>
-  <text x="960" y="177" class="info-value">4 (dont 1 à vérifier ⚠)</text>
+  <text x="185" y="153" class="info-label">DÉPARTEMENT</text>
+  <text x="185" y="177" class="info-value">64</text>
+  <text x="300" y="153" class="info-label">PROTOCOLE</text>
+  <text x="300" y="177" class="info-value">PointFixeStandard</text>
+  <text x="500" y="153" class="info-label">CRÉÉ LE</text>
+  <text x="500" y="177" class="info-value">2026-04-12</text>
+  <text x="650" y="153" class="info-label">DERNIÈRE NUIT</text>
+  <text x="650" y="177" class="info-value">2026-06-22 (2 j)</text>
+  <text x="830" y="153" class="info-label">PASSAGES (2026)</text>
+  <text x="830" y="177" class="info-value">4 (1 à vérifier ⚠)</text>
+  <text x="1010" y="153" class="info-label">VIGIE-CHIRO</text>
+  <text x="1010" y="177" class="info-value" fill="#1e6f3f">Lié ✓</text>
 
   <!-- Section Points d'ecoute -->
   <text x="40" y="232" class="section-title">Points d'écoute</text>
@@ -3160,7 +3166,7 @@
 
 <h3 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Bandeau d'infos clés</strong> : la fiche d'identité du site (n° de carré, département déduit des 2 premiers chiffres du carré <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r1">R1</a>, protocole, date de création, dernière nuit importée, total passages de l'année).</li>
+<li><strong>Bandeau d'infos clés</strong> : la fiche d'identité du site (n° de carré, département déduit des 2 premiers chiffres du carré <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r1">R1</a>, protocole, date de création, dernière nuit importée, total passages de l'année, et le <strong>statut Vigie-Chiro</strong> : lié ou non à la plateforme).</li>
 <li><strong>Cartes points d'écoute</strong> : pour A1 et B2 (géolocalisés), le lien vert <strong>« GPS - voir sur la carte »</strong>, précédé d'une <strong>icône de validation</strong>, ouvre la carte multi-sites centrée sur le point. Pour C3 (sans GPS), le lien ambré <strong>« GPS manquant - placer sur la carte »</strong>, précédé d'une <strong>icône d'avertissement</strong>, ouvre la carte sur le carré, <strong>mode édition actif</strong>, pour glisser le point à sa position (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r26">R26</a>, <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r27">R27</a>). Chaque carte indique le nombre de passages rattachés ; une carte qui en porte ne peut pas être supprimée (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r28">R28</a>).</li>
 <li><strong>Tableau passages</strong> : colonnes Date, Point, N° de passage, Statut, Verdict, Enregistreur, Déposé le. Le <strong>statut</strong> suit le cycle <code>Importé → Transformé → Vérifié → Prêt à déposer → Déposé</code> (couleur dérivée du statut).</li>
 </ul>
@@ -3182,8 +3188,12 @@
 <td>Ouvre <a href="../M-Import/">M-Import</a> avec le site pré-sélectionné</td>
 </tr>
 <tr>
-<td>Bouton <strong>🗺 Voir sur la carte</strong></td>
+<td>Bouton <strong>🗺 Carte</strong></td>
 <td>Ouvre <a href="../M-MultiSite/">M-MultiSite</a> centré sur le carré du site</td>
+</tr>
+<tr>
+<td>Bouton <strong>☁️ Ouvrir sur Vigie-Chiro</strong></td>
+<td>Ouvre la fiche du site sur le portail web (si le site est lié à la plateforme)</td>
 </tr>
 <tr>
 <td>Bouton <strong>✏ Modifier</strong></td>
@@ -3192,6 +3202,10 @@
 <tr>
 <td>Bouton <strong>🗑 Supprimer</strong></td>
 <td>Désactivé tant que des passages sont rattachés au site (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r28">R28</a>) ; sinon confirmation</td>
+</tr>
+<tr>
+<td>Menu <strong>☰</strong></td>
+<td>Choix des colonnes affichées (tableau des points)</td>
 </tr>
 <tr>
 <td>Lien <strong>GPS / GPS manquant</strong> d'une carte (icône de validation ou d'avertissement)</td>
