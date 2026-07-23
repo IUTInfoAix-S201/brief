@@ -2494,6 +2494,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#variante-carte-sd-contenant-plusieurs-nuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variante - carte SD contenant plusieurs nuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#variante-cas-fichiers-deja-prefixes-re-import-ou-dossier-deja-nomme" class="md-nav__link">
     <span class="md-ellipsis">
       Variante - cas « fichiers déjà préfixés » (re-import ou dossier déjà nommé)
@@ -2895,6 +2904,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#variante-carte-sd-contenant-plusieurs-nuits" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variante - carte SD contenant plusieurs nuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#variante-cas-fichiers-deja-prefixes-re-import-ou-dossier-deja-nomme" class="md-nav__link">
     <span class="md-ellipsis">
       Variante - cas « fichiers déjà préfixés » (re-import ou dossier déjà nommé)
@@ -2993,7 +3011,7 @@
 
 <h1 id="m-import-importer-une-nuit-denregistrement">M-Import - Importer une nuit d'enregistrement<a class="headerlink" href="#m-import-importer-une-nuit-denregistrement" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Type</strong> : assistant d'import (carte « Importer une nuit » de l'accueil).
+<p><strong>Type</strong> : assistant d'import, ouvert par le bouton <strong>« Importer une nuit »</strong> d'un site (cf. <a href="../M-Site-detail/">M-Site-detail</a>) ; il n'y a <strong>pas</strong> de carte d'import sur l'accueil, l'import part toujours d'un site déjà choisi.
 <strong>Persona principal</strong> : tous (<a href="../../Personas/Marie/">Marie</a>, <a href="../../Personas/Karim/">Karim</a>, <a href="../../Personas/Samuel/">Samuel</a>). C'est l'écran le plus utilisé après la mise en route.
 <strong>Parcours couverts</strong> : <a href="../../Parcours%20utilisateurs/P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2 - Importer une nuit d'enregistrement</a>.</p>
 </blockquote>
@@ -3047,8 +3065,8 @@
   <rect x="10" y="10" width="1180" height="44" rx="4" class="chrome"/>
   <rect x="10" y="26" width="1180" height="28" class="chrome"/>
   <text x="28" y="38" class="chrometxt">VigieChiro Companion</text>
-  <text x="260" y="38" class="crumb-link">Accueil  ›  </text>
-  <text x="332" y="38" class="crumb-active">Importer une nuit</text>
+  <text x="260" y="38" class="crumb-link">Accueil  ›  Mes sites  ›  Carré 640380  ›  </text>
+  <text x="566" y="38" class="crumb-active">Import</text>
   <rect x="940" y="22" width="220" height="22" rx="11" class="search"/>
   <text x="956" y="38" class="search-txt">🔍  Rechercher (Ctrl+F)</text>
 
@@ -3178,6 +3196,14 @@
 </tbody>
 </table>
 <hr />
+<h2 id="variante-carte-sd-contenant-plusieurs-nuits">Variante - carte SD contenant plusieurs nuits<a class="headerlink" href="#variante-carte-sd-contenant-plusieurs-nuits" title="Permanent link">&para;</a></h2>
+<p>Quand la carte SD (ou l'archive) contient <strong>plusieurs nuits</strong> enregistrées à la suite (le cas de <a href="../../Personas/Samuel/">Samuel</a>, dont les enregistreurs tournent plusieurs nuits d'affilée), l'inspection les <strong>détecte</strong> et insère, sous la section « Dossier source », un <strong>tableau des nuits détectées</strong> : une ligne par nuit (date, plage horaire, nombre de fichiers, complétude), chacune cochable.</p>
+<ul>
+<li>Chaque nuit retenue devient un <strong>passage distinct</strong> (<a href="../../Story%20mapping/E2%20-%20Importer%20et%20transformer%20une%20nuit/#e2s9">E2.S9</a>) : le découpage suit la nuit <strong>soir J → matin J+1</strong> (bascule à midi).</li>
+<li>Une nuit <strong>tronquée</strong> (cycle mal terminé, SD pleine) est signalée avec son motif, sans être exclue d'office ; une nuit <strong>déjà importée</strong> est signalée (doublon) et décochée par défaut.</li>
+<li>Le <strong>rattachement</strong> (site, point, n° de passage) est demandé par nuit ; le n° de passage s'incrémente d'une nuit à l'autre.</li>
+</ul>
+<p>Le reste de l'assistant (copie protégée, renommage, transformation, progression) est identique, appliqué à chaque nuit retenue.</p>
 <h2 id="variante-cas-fichiers-deja-prefixes-re-import-ou-dossier-deja-nomme">Variante - cas « fichiers déjà préfixés » (re-import ou dossier déjà nommé)<a class="headerlink" href="#variante-cas-fichiers-deja-prefixes-re-import-ou-dossier-deja-nomme" title="Permanent link">&para;</a></h2>
 <p>Quand l'inspection détecte que <strong>tous les fichiers</strong> portent déjà le préfixe <code>CarXXXXXX-AAAA-PassN-YY-</code>, le rattachement est <strong>extrait</strong> du préfixe et présélectionné. L'utilisateur valide tel quel (aucun re-renommage) ou modifie un champ.</p>
 <div markdown="0">

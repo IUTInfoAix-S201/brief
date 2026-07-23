@@ -2883,7 +2883,7 @@
 <strong>Persona principal</strong> : tous.
 <strong>Parcours couverts</strong> : <a href="../../Parcours%20utilisateurs/P8%20-%20Rechercher%20globalement/">P8 - Rechercher globalement</a>.</p>
 </blockquote>
-<p>La recherche globale permet de <strong>sauter directement</strong> à un site, un point ou un passage depuis n'importe quel écran. On la déclenche par le champ <strong>« 🔍 Rechercher »</strong> du bandeau (ou <strong>Ctrl+F</strong>) ; la liste de résultats s'ouvre au fil de la frappe, <strong>groupée par type</strong>.</p>
+<p>La recherche globale permet de <strong>sauter directement</strong> à un site, un point, un passage ou une <strong>espèce</strong> depuis n'importe quel écran. On la déclenche par le champ <strong>« 🔍 Rechercher »</strong> du bandeau (ou <strong>Ctrl+F</strong>) ; la liste de résultats s'ouvre au fil de la frappe, <strong>groupée par type</strong>.</p>
 <h2 id="maquette-liste-de-resultats-ouverte">Maquette - liste de résultats ouverte<a class="headerlink" href="#maquette-liste-de-resultats-ouverte" title="Permanent link">&para;</a></h2>
 <div markdown="0">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-label="Maquette M-Recherche - liste de résultats de la recherche globale" style="max-width: 100%; height: auto; border: 1px solid #d0d7de; border-radius: 6px; background: #fafbfc;">
@@ -2925,7 +2925,7 @@
   <text x="600" y="320" class="bg-label" text-anchor="middle">(écran courant, estompé pendant que la liste est ouverte)</text>
 
   <!-- Liste déroulante de résultats, ancrée sous le champ -->
-  <rect x="820" y="56" width="340" height="380" rx="6" class="popup"/>
+  <rect x="820" y="56" width="340" height="470" rx="6" class="popup"/>
 
   <!-- Groupe Sites -->
   <text x="838" y="80" class="grp">SITES</text>
@@ -2948,8 +2948,16 @@
   <text x="838" y="312" class="res-detail">Passage 2026 · 2026-06-22</text>
   <text x="838" y="340" class="res-main">640381 / B2 · n° 1</text>
   <text x="838" y="356" class="res-detail">Passage 2026 · 2026-06-15</text>
+  <line x1="822" y1="374" x2="1158" y2="374" class="sep"/>
 
-  <text x="838" y="400" class="res-detail">Résultats limités par type pour rester lisibles.</text>
+  <!-- Groupe Espèces -->
+  <text x="838" y="396" class="grp">ESPÈCES</text>
+  <text x="838" y="420" class="res-main">Pipistrelle commune</text>
+  <text x="838" y="436" class="res-detail">Pippip · 638 observations</text>
+  <text x="838" y="464" class="res-main">Petit rhinolophe</text>
+  <text x="838" y="480" class="res-detail">Rhifer · 80 observations</text>
+
+  <text x="838" y="508" class="res-detail">Résultats limités par type pour rester lisibles.</text>
 
   <!-- Aide navigation clavier -->
   <rect x="36" y="470" width="20" height="18" rx="3" class="kbd"/><text x="46" y="483" class="kbd-txt" text-anchor="middle">↓</text>
@@ -2964,7 +2972,7 @@
 <h3 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Champ actif</strong> : la saisie (<code>640380</code>) alimente la liste <strong>au fil de la frappe</strong>, <strong>insensible à la casse et aux accents</strong>.</li>
-<li><strong>Résultats groupés par type</strong> : <strong>Sites</strong> (par n° de carré ou nom), <strong>Points</strong> (par code ou description), <strong>Passages</strong> (par carré, code de point, n° de passage, année ou date). Chaque groupe porte un en-tête ; chaque ligne montre un libellé principal et un détail de contexte. Le nombre de résultats par type est <strong>borné</strong> pour garder la liste lisible.</li>
+<li><strong>Résultats groupés par type</strong> : <strong>Sites</strong> (par n° de carré ou nom), <strong>Points</strong> (par code ou description), <strong>Passages</strong> (par carré, code de point, n° de passage, année ou date) et <strong>Espèces</strong> (par nom ou code, avec le nombre d'observations). Chaque groupe porte un en-tête ; chaque ligne montre un libellé principal et un détail de contexte. Le nombre de résultats par type est <strong>borné</strong> (au plus 8) pour garder la liste lisible.</li>
 <li><strong>Sélection</strong> : à la souris, ou au clavier (la ligne mise en évidence suit les flèches).</li>
 </ul>
 <h3 id="interactions-cles">Interactions clés<a class="headerlink" href="#interactions-cles" title="Permanent link">&para;</a></h3>
@@ -2994,13 +3002,13 @@
 </tr>
 <tr>
 <td>Clic sur un résultat</td>
-<td>Ouvre l'écran de l'élément (<a href="../M-Site-detail/">M-Site-detail</a> ou <a href="../M-Passage/">M-Passage</a>)</td>
+<td>Ouvre l'écran de l'élément (<a href="../M-Site-detail/">M-Site-detail</a>, <a href="../M-Passage/">M-Passage</a>, ou <a href="../M-Analyse/">M-Analyse</a> sur l'espèce)</td>
 </tr>
 </tbody>
 </table>
 <h3 id="notes-pour-limplementation">Notes pour l'implémentation<a class="headerlink" href="#notes-pour-limplementation" title="Permanent link">&para;</a></h3>
 <ul>
-<li>La recherche vit dans le <strong>socle</strong> (<code>commun</code>) : le chrome consomme un contrat <code>RechercheGlobale</code> sans dépendre d'une fonctionnalité ; l'implémentation agrège les services <code>sites</code> (sites, points) et <code>multisite</code> (passages).</li>
+<li>La recherche vit dans le <strong>socle</strong> (<code>commun</code>) : le chrome consomme un contrat <code>RechercheGlobale</code> sans dépendre d'une fonctionnalité ; l'implémentation agrège les services <code>sites</code> (sites, points), <code>multisite</code> (passages) et l'inventaire des <strong>espèces observées</strong>.</li>
 <li>La saisie est <strong>anti-rebondie</strong> (frappes regroupées après une courte pause) ; la liste se ferme quand le focus quitte la zone de recherche.</li>
 <li>Chaque résultat est <strong>exposé aux lecteurs d'écran</strong> (libellé accessible) : la recherche se pilote entièrement au clavier.</li>
 </ul>
