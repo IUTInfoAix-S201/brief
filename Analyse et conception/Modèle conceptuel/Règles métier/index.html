@@ -3005,18 +3005,19 @@
 
 
 <h1 id="regles-metier">Règles métier<a class="headerlink" href="#regles-metier" title="Permanent link">&para;</a></h1>
-<p>Les règles métier du modèle conceptuel. Chaque règle a un identifiant ancré (<code>#r1</code> à <code>#r32</code>) qui sert de point de référence depuis le reste du dossier (parcours, stories, maquettes).</p>
+<p>Les règles métier du modèle conceptuel. Chaque règle a un identifiant ancré (<code>#r1</code> à <code>#r33</code>) qui sert de point de référence depuis le reste du dossier (parcours, stories, maquettes).</p>
 <h2 id="site-point-passage">Site, point, passage<a class="headerlink" href="#site-point-passage" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong id="r1">R1</strong> : un n° de carré est obligatoirement composé de <strong>6 chiffres</strong>, dont les 2 premiers correspondent au numéro de département (avec leading zero pour les départements 1 à 9).</li>
-<li><strong id="r2">R2</strong> : un code de point est exactement de la forme <strong>lettre + chiffre</strong> (ex. <code>A1</code>, <code>Z4</code>). Validation à la saisie.</li>
+<li><strong id="r2">R2</strong> : un code de point est une <strong>lettre majuscule suivie d'un ou plusieurs chiffres</strong> (regex <code>[A-Z][0-9]+</code>, ex. <code>A1</code>, <code>Z4</code>, <code>Z41</code>). Validation à la saisie : un code à plusieurs chiffres comme <code>B100</code> est donc accepté.</li>
 <li><strong id="r3">R3</strong> : sur les sites en mode <strong><code>PointFixeStandard</code></strong> (cf. <a href="../C2%20-%20Site%20de%20suivi/">C2</a>), deux passages sont attendus par site et par année :<ul>
 <li><strong>passage 1</strong> : entre le 15 juin et le 31 juillet,</li>
-<li><strong>passage 2</strong> : entre le 15 août et le 31 septembre.
-L'application <strong>alerte sans bloquer</strong> si l'utilisateur déclare un passage hors fenêtre. Sur les sites en mode <strong><code>PointFixeRecherche</code></strong> (dates personnalisées pour des besoins recherche), cette règle est <strong>muette</strong> : aucune alerte n'est générée.</li>
+<li><strong>passage 2</strong> : entre le 15 août et le 30 septembre.
+L'application doit <strong>alerter sans bloquer</strong> si l'utilisateur déclare un passage hors fenêtre. Sur les sites en mode <strong><code>PointFixeRecherche</code></strong> (dates personnalisées pour des besoins recherche), cette règle est <strong>muette</strong> : aucune alerte n'est générée.
+⚠️ <em>État réel</em> : la vérification de fenêtre est <strong>calculée</strong> (<code>ServicePassage.verifierProtocole</code>) mais <strong>pas encore branchée à l'IHM</strong> (elle n'est appelée que par les tests), donc l'alerte n'apparaît pas encore à l'utilisateur (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2387">#2387</a>).</li>
 </ul>
 </li>
-<li><strong id="r4">R4</strong> : sur les sites en mode <strong><code>PointFixeStandard</code></strong>, intervalle conseillé entre les deux passages d'un même site : <strong>≥ 1 mois</strong>. Idéalement, dates « anniversaires » (±10 j) d'une année à l'autre. Sur les sites en mode <strong><code>PointFixeRecherche</code></strong>, cette règle est également <strong>muette</strong> (l'utilisateur enregistre à la fréquence qui convient à son protocole, y compris plusieurs nuits successives).</li>
+<li><strong id="r4">R4</strong> : sur les sites en mode <strong><code>PointFixeStandard</code></strong>, intervalle conseillé entre les deux passages d'un même <strong>point d'écoute</strong> : <strong>≥ 1 mois</strong> (la vérification compare les passages d'un même point dans la <strong>même année</strong>). La clause « dates anniversaires (±10 j) d'une année à l'autre » <strong>n'est pas implémentée</strong>. Comme pour <a href="#r3">R3</a>, cette vérification est <strong>calculée mais pas encore affichée</strong> dans l'IHM (<a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2387">#2387</a>). Sur les sites en mode <strong><code>PointFixeRecherche</code></strong>, cette règle est également <strong>muette</strong> (l'utilisateur enregistre à la fréquence qui convient à son protocole, y compris plusieurs nuits successives).</li>
 <li><strong id="r5">R5</strong> : le triplet <code>(Site, Point, Année, n° de passage)</code> est <strong>unique</strong> : un même point ne peut pas avoir deux passages avec le même n° dans la même année.</li>
 <li><strong id="r25">R25</strong> : un n° de carré est <strong>unique par utilisateur</strong> : un même utilisateur ne peut pas déclarer deux fois le même carré (alerte bloquante à la création ou au renommage d'un site ; la vérification exclut le site courant, pour qu'un simple renommage ne se bloque pas lui-même).</li>
 </ul>
@@ -3029,11 +3030,11 @@ L'application <strong>alerte sans bloquer</strong> si l'utilisateur déclare un 
 <ul>
 <li><strong id="r6">R6</strong> : tout enregistrement original doit être renommé selon le préfixe <code>CarXXXXXX-AAAA-PassN-YY-</code> avant tout dépôt. Les <strong>tirets sont des « tirets du 6 »</strong> (<code>-</code>, U+002D HYPHEN-MINUS), pas des cadratins ni des demi-cadratins. À n'oublier sous aucun.</li>
 <li><strong id="r7">R7</strong> : le suffixe original de l'enregistreur (<code>PaRecPR&lt;sn&gt;_&lt;AAAAMMJJ&gt;_&lt;HHMMSS&gt;.wav</code>) est <strong>conservé tel quel</strong> après le préfixe.</li>
-<li><strong id="r8">R8</strong> : toute séquence d'écoute reprend le nom de son enregistrement original source en <strong>insérant un suffixe <code>_000</code>, <code>_001</code>, …</strong> entre le nom de base et l'extension.</li>
+<li><strong id="r8">R8</strong> : toute séquence d'écoute reprend le nom de son enregistrement original source, avec l'<strong>horodatage décalé de <code>index × 5 s</code></strong> (chaque tranche porte l'heure réelle de son début) et un suffixe <strong><code>_000</code> systématique</strong> entre le nom de base et l'extension. Les suffixes <code>_001</code>, <code>_002</code>, … ne <strong>numérotent pas les tranches</strong> : ils servent uniquement à <strong>départager une collision de noms</strong> entre deux originaux qui se chevauchent sur la grille de 5 s (le plus ancien garde <code>_000</code>, le suivant passe en <code>_001</code>).</li>
 </ul>
 <h2 id="copie-protegee">Copie protégée<a class="headerlink" href="#copie-protegee" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong id="r9">R9</strong> : à l'import, l'application <strong>copie systématiquement</strong> les fichiers depuis la carte SD vers son espace de travail. <strong>Aucune écriture sur les originaux</strong> sur la SD. C'est une contrainte explicite du protocole Vigie-Chiro pour éviter toute perte de données. La copie est <strong>vérifiée bit-à-bit</strong> : l'empreinte <strong>SHA-256</strong> de la destination est recalculée et comparée à celle de la source ; toute divergence est une erreur (copie non fidèle).</li>
+<li><strong id="r9">R9</strong> : à l'import, l'application <strong>ne modifie jamais les originaux</strong> sur la carte SD (lecture seule). C'est une contrainte explicite du protocole Vigie-Chiro pour éviter toute perte de données. Elle <strong>produit toujours</strong> les séquences d'écoute transformées dans son espace de travail ; <strong>copier</strong> les enregistrements bruts est en revanche une <strong>option désactivée par défaut</strong> (cf. <a href="#r22">R22</a> et <a href="https://companion-dev.echonuit.fr/decisions/0036-la-copie-des-bruts-est-une-option/">ADR 0036</a>). Quand cette conservation est active, chaque copie de brut est <strong>vérifiée bit-à-bit</strong> : l'empreinte <strong>SHA-256</strong> de la destination est recalculée et comparée à celle de la source ; toute divergence est une erreur (copie non fidèle). Dans le mode par défaut (sans copie), l'application <strong>capture</strong> malgré tout l'empreinte SHA-256 de chaque original (preuve d'identité) sans en garder de copie.</li>
 </ul>
 <h2 id="import-resilience-et-inspection">Import : résilience et inspection<a class="headerlink" href="#import-resilience-et-inspection" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3054,12 +3055,12 @@ L'application <strong>alerte sans bloquer</strong> si l'utilisateur déclare un 
 </ul>
 <h2 id="preparation-du-depot">Préparation du dépôt<a class="headerlink" href="#preparation-du-depot" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong id="r31">R31</strong> : préparer le dépôt s'appuie sur une <strong>checklist de cohérence vivante</strong> (chaque contrôle est affiché, même satisfait : ✓ / ⚠ / ✗). Un contrôle <strong>bloquant</strong> (✗) <strong>interdit la préparation</strong> tant qu'il n'est pas corrigé : verdict <code>Inexploitable</code> (<a href="#r14">R14</a>), <strong>transformation incomplète</strong>, <strong>préfixe de fichier non conforme</strong> (<a href="#r6">R6</a>), <strong>journal du capteur absent</strong>. Les contrôles <strong>non bloquants</strong> (⚠) - par exemple un <strong>relevé climatique absent</strong> (<a href="#r20">R20</a>) - sont signalés mais <strong>laissent préparer</strong>. Quand la préparation réussit, le passage passe au statut <code>Prêt à déposer</code>.</li>
+<li><strong id="r33">R33</strong> : préparer le dépôt s'appuie sur une <strong>checklist de cohérence vivante</strong> (chaque contrôle est affiché, même satisfait : ✓ / ⚠ / ✗). Un contrôle <strong>bloquant</strong> (✗) <strong>interdit la préparation</strong> tant qu'il n'est pas corrigé : verdict <code>Inexploitable</code> (<a href="#r14">R14</a>), <strong>transformation incomplète</strong>, <strong>préfixe de fichier non conforme</strong> (<a href="#r6">R6</a>), <strong>journal du capteur absent</strong>. Les contrôles <strong>non bloquants</strong> (⚠) - par exemple un <strong>relevé climatique absent</strong> (<a href="#r20">R20</a>) - sont signalés mais <strong>laissent préparer</strong>. Quand la préparation réussit, le passage passe au statut <code>Prêt à déposer</code>.</li>
 </ul>
 <h2 id="validation-taxonomique-should">Validation taxonomique (SHOULD)<a class="headerlink" href="#validation-taxonomique-should" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong id="r15">R15</strong> : une observation est qualifiée de <strong>validée</strong> quand l'observateur a saisi un <code>taxon observateur</code> <strong>égal</strong> au <code>taxon Tadarida</code>. La <strong>probabilité observateur n'entre pas</strong> dans ce statut : un <code>_Vu</code> réel porte une confiance <strong>textuelle</strong> (« SUR ») que le parseur lit comme probabilité inconnue, et l'exiger ferait passer une observation pourtant validée pour « non revue ». La confiance de l'observateur se déclare séparément par la <strong>certitude</strong> (<code>SUR</code> / <code>PROBABLE</code> / <code>POSSIBLE</code>, cf. <a href="../C13%20-%20Observation/">C13</a>), indépendante du statut.</li>
-<li><strong id="r16">R16</strong> : une observation est qualifiée de <strong>corrigée</strong> quand <code>taxon observateur ≠ taxon Tadarida</code>.</li>
+<li><strong id="r16">R16</strong> : une observation est qualifiée de <strong>corrigée</strong> quand <code>taxon observateur ≠ taxon Tadarida</code>. ⚠️ <strong>Cas particulier</strong> : une observation <strong>créée à la main</strong> (sans <code>taxon Tadarida</code>, cf. <a href="../C13%20-%20Observation/">C13</a>) tombe mécaniquement dans « corrigée » dès qu'un taxon observateur y est saisi, alors qu'il n'y avait rien à corriger. Le statut dérivé (<code>StatutObservation</code>) ne distingue pas encore ce cas d'une vraie correction.</li>
 <li><strong id="r17">R17</strong> : une observation <strong>non touchée</strong> par l'utilisateur conserve uniquement les colonnes <code>tadarida_*</code>, et l'export <code>_Vu.csv</code> reprend ces valeurs (l'utilisateur conserve ainsi la classification automatique par défaut).</li>
 <li><strong id="r18">R18</strong> : deux <strong>modes de validation</strong> coexistent au MVP (au choix de l'utilisateur) :<ul>
 <li><strong>Mode inventaire</strong> : dès qu'une espèce est validée avec confiance sur une nuit, on ne valide plus les autres détections de la même espèce sur la même nuit.</li>
@@ -3077,7 +3078,7 @@ L'application <strong>alerte sans bloquer</strong> si l'utilisateur déclare un 
 <p>Ce mode est tracé en BD et restituable dans l'export <code>_Vu.csv</code> (colonne optionnelle, à activer selon attentes Vigie-Chiro). Sa principale utilité : permettre à un évaluateur scientifique de distinguer ce qui a été réellement vérifié à l'oreille de ce qui a été propagé sur confiance.</p>
 </li>
 <li>
-<p><strong id="r32">R32</strong> : pendant la validation, une observation peut être marquée <strong>« séquence de référence »</strong>. L'export de la <strong>bibliothèque de sons de référence</strong> est constitué <strong>exactement de ces observations-là</strong> : pour chacune, le <strong>taxon retenu</strong> est le taxon <strong>observateur</strong> s'il a été validé, sinon le taxon <strong>Tadarida</strong>, et le fichier audio correspondant est copié, organisé par taxon.</p>
+<p><strong id="r32">R32</strong> : pendant la validation, une observation peut être marquée <strong>« séquence de référence »</strong>. L'export de la <strong>bibliothèque de sons de référence</strong> est constitué <strong>exactement de ces observations-là</strong> : pour chacune, le <strong>taxon retenu</strong> est le taxon <strong>observateur</strong> s'il a été validé, sinon le taxon <strong>Tadarida</strong>. Les fichiers audio sont copiés <strong>à plat</strong> dans le dossier d'export, accompagnés d'un <strong>CSV récapitulatif</strong> (<code>bibliotheque-sons.csv</code>) où le <strong>taxon est une colonne</strong> ; ils ne sont <strong>pas</strong> rangés dans des sous-dossiers par taxon.</p>
 </li>
 </ul>
 <h2 id="suppression-de-sites-et-de-points">Suppression de sites et de points<a class="headerlink" href="#suppression-de-sites-et-de-points" title="Permanent link">&para;</a></h2>
@@ -3093,17 +3094,18 @@ L'application <strong>alerte sans bloquer</strong> si l'utilisateur déclare un 
 <ul>
 <li><strong id="r21">R21</strong> : toutes les données et tous les paramètres de l'application vivent dans <strong>un unique dossier « workspace »</strong> sur le disque local de l'utilisateur. Ce workspace contient les sessions d'enregistrement, la base SQLite et tout fichier de réglages utilisateur. Aucune donnée n'est dispersée ailleurs.<ul>
 <li><strong>Défaut proposé à l'installation</strong> : <code>&lt;Documents&gt;/VigieChiro-Companion/</code> (résolu par OS : <code>~/Documents/VigieChiro-Companion/</code> sous Linux/macOS, <code>%USERPROFILE%\Documents\VigieChiro-Companion\</code> sous Windows).</li>
-<li><strong>Configurable depuis les préférences</strong> : utile en particulier pour les gros volumes (<a href="../../Personas/Samuel/">Samuel</a> : 24 enregistreurs × 40-50 nuits → To cumulés), qui demanderont à pointer un disque externe.</li>
+<li><strong>Configurable depuis les préférences</strong> (onglet « Emplacements ») : utile en particulier pour les gros volumes (<a href="../../Personas/Samuel/">Samuel</a> : 24 enregistreurs × 40-50 nuits → To cumulés), qui demanderont à pointer un disque externe. Le changement est <strong>pris en compte au prochain démarrage</strong> et ne déplace pas les données déjà présentes.</li>
 </ul>
 </li>
 <li><strong id="r22">R22</strong> : une session d'enregistrement occupe <strong>un sous-dossier du workspace dont le nom est exactement le préfixe</strong> défini par <a href="#r6">R6</a> (<code>Car&lt;carre&gt;-&lt;annee&gt;-Pass&lt;n&gt;-&lt;point&gt;</code>). Dans ce sous-dossier :<ul>
 <li>les <strong>enregistrements originaux</strong>, <strong>si l'utilisateur a demandé de les conserver</strong>, sont rangés dans <code>bruts/</code> (cf. <a href="#r7">R7</a>). Ce dossier est <strong>absent par défaut</strong> : l'application lit les WAV directement depuis la carte et n'en garde pas de copie, la conservation étant une option de ré-analyse (cf. <a href="https://companion-dev.echonuit.fr/decisions/0036-la-copie-des-bruts-est-une-option/">ADR 0036</a>) ;</li>
 <li>les <strong>séquences d'écoute</strong> sont rangées dans <code>transformes/</code> (cf. <a href="#r8">R8</a>) ;</li>
+<li>les <strong>archives ZIP de dépôt</strong> (<code>&lt;préfixe&gt;-N.zip</code>), quand elles ont été générées, sont rangées dans <code>depot/</code> ; elles sont <strong>régénérables à l'identique</strong> et peuvent être supprimées une fois téléversées ;</li>
 <li>le <strong>journal du capteur</strong> (<code>LogPR&lt;n&gt;.txt</code>) est à la <strong>racine</strong> de la session d'enregistrement (cf. <a href="../C9%20-%20Journal%20du%20capteur/">C9</a>) ;</li>
 <li>le <strong>relevé climatique</strong> (<code>PaRecPR&lt;sn&gt;_THLog.csv</code>), si présent, est aussi à la <strong>racine</strong> de la session d'enregistrement (cf. <a href="../C10%20-%20Relev%C3%A9%20climatique/">C10</a>, <a href="#r20">R20</a>).</li>
 </ul>
 </li>
-<li><strong id="r23">R23</strong> : le <strong>fichier de résultats Tadarida</strong> (<code>*-observations.csv</code> ou <code>*-observations_Vu.csv</code>) est importé <strong>dans le dossier <code>transformes/</code></strong> de la session d'enregistrement qu'il annote, à côté des séquences d'écoute auxquelles ses observations renvoient.</li>
+<li><strong id="r23">R23</strong> : le <strong>fichier de résultats Tadarida</strong> (<code>*-observations.csv</code> ou <code>*-observations_Vu.csv</code>) est <strong>lu à l'emplacement choisi par l'utilisateur</strong> (ou rapatrié de la plateforme). L'application <strong>n'en fait pas de copie</strong> et ne le déplace pas dans la session : seul son <strong>chemin d'origine</strong> est mémorisé comme provenance (colonne <code>file_path</code> des résultats d'identification). Il n'est donc <strong>pas</strong> rangé dans <code>transformes/</code>.</li>
 </ul>
 <p>Arborescence type d'un workspace contenant deux sessions d'enregistrement (un passage 1 et un passage 2 sur le même point) :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&lt;workspace&gt;/                              ← R21 : configurable, défaut &lt;Documents&gt;/VigieChiro-Companion/
@@ -3112,16 +3114,19 @@ L'application <strong>alerte sans bloquer</strong> si l'utilisateur déclare un 
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   │   ├── Car040962-2026-Pass1-A1-PaRecPR1925492_20260622_213045.wav
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   │   ├── Car040962-2026-Pass1-A1-PaRecPR1925492_20260622_213101.wav
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   │   └── ...
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   ├── transformes/                      ← R22 : séquences d&#39;écoute R8
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   ├── transformes/                      ← R22 : séquences d&#39;écoute R8 (horodatage + _000)
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   │   ├── Car040962-2026-Pass1-A1-PaRecPR1925492_20260622_213045_000.wav
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   │   ├── Car040962-2026-Pass1-A1-PaRecPR1925492_20260622_213045_001.wav
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   │   ├── ...
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   │   └── 7a4b8c1d-participation-...-observations.csv     ← R23 : CSV Tadarida
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   ├── LogPR1925492.txt                  ← R22 : journal capteur à la racine
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   └── PaRecPR1925492_THLog.csv          ← R22 : relevé climatique (optionnel)
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── Car040962-2026-Pass2-A1/
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│   └── ...                               ← même structure que ci-dessus
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>└── vigiechiro.db                         ← R21 : BD SQLite + réglages à la racine
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   │   ├── Car040962-2026-Pass1-A1-PaRecPR1925492_20260622_213050_000.wav
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   │   ├── Car040962-2026-Pass1-A1-PaRecPR1925492_20260622_213055_000.wav
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│   │   └── ...
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   ├── depot/                            ← R22 : archives ZIP de dépôt (régénérables)
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   │   ├── Car040962-2026-Pass1-A1-1.zip
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│   │   └── Car040962-2026-Pass1-A1-2.zip
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│   ├── LogPR1925492.txt                  ← R22 : journal capteur à la racine
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│   └── PaRecPR1925492_THLog.csv          ← R22 : relevé climatique (optionnel)
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>├── Car040962-2026-Pass2-A1/
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│   └── ...                               ← même structure que ci-dessus
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>└── vigiechiro.db                         ← R21 : BD SQLite + réglages à la racine
 </code></pre></div>
 <h2 id="retour">Retour<a class="headerlink" href="#retour" title="Permanent link">&para;</a></h2>
 <ul>

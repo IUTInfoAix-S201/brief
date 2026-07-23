@@ -3043,7 +3043,7 @@
 
   <!-- ===== 1. Vérifier et préparer ===== -->
   <text x="40" y="245" class="section-title">1. Vérifier et préparer le dépôt</text>
-  <text x="40" y="262" class="section-sub">Contrôles de cohérence (R31). Un ✗ bloque ; un ⚠ laisse déposer.</text>
+  <text x="40" y="262" class="section-sub">Contrôles de cohérence (R33). Un ✗ bloque ; un ⚠ laisse déposer.</text>
   <rect x="40" y="272" width="1120" height="128" rx="4" class="card"/>
   <text x="58" y="298" class="check-ok">✓</text><text x="80" y="298" class="check-row">Verdict de vérification : OK</text>
   <text x="58" y="322" class="check-ok">✓</text><text x="80" y="322" class="check-row">Transformation des enregistrements : 1 572 originaux → 3 614 séquences</text>
@@ -3103,7 +3103,7 @@
 <li><strong>Fil d'Ariane et retour</strong> : portés par le <strong>chrome</strong> via le contrat <code>EmplacementNavigation</code> ; l'écran ne dessine pas son propre fil. Emplacement : <code>Accueil › Mes sites › Carré N › Passage N° X › Préparer le dépôt</code>.</li>
 <li><strong>Stepper</strong> (<code>1 · Préparer</code> / <code>2 · Générer les archives</code> / <code>3 · Téléverser</code> / <code>4 · Marquer déposé</code>) : rappelle les quatre temps. L'étape 2 devient <strong>facultative</strong> quand on est connecté : le téléversement produit les archives à la volée et n'en garde que quelques-unes sur disque.</li>
 <li><strong>Bandeau passage</strong> : rappel du passage, du verdict, du statut, du volume, et de la <strong>forme du dépôt</strong> (ZIP ou WAV, réglable).</li>
-<li><strong>1. Vérifier et préparer</strong> : la checklist de cohérence (R31) affiche <strong>quatre contrôles bloquants</strong> (verdict, transformation, nommage, journal) et <strong>un avertissement non bloquant</strong> (relevé climatique absent). Un ✗ interdit la préparation ; un ⚠ laisse déposer. Le bouton verrouille ensuite la liste des séquences et fait passer le passage à <code>Prêt à déposer</code>.</li>
+<li><strong>1. Vérifier et préparer</strong> : la checklist de cohérence (R33) affiche <strong>quatre contrôles bloquants</strong> (verdict, transformation, nommage, journal) et <strong>un avertissement non bloquant</strong> (relevé climatique absent). Un ✗ interdit la préparation ; un ⚠ laisse déposer. Le bouton verrouille ensuite la liste des séquences et fait passer le passage à <code>Prêt à déposer</code>.</li>
 <li><strong>2. Générer les archives</strong> : découpe les séquences en <code>préfixe-N.zip</code> (≤ 700 Mo, réglable), écrites dans <code>depot/</code>. La table suit chaque archive (numéro, fichiers, taille, progression). Facultatif si connecté (cf. stepper).</li>
 <li><strong>3. Téléverser</strong> : le bouton <strong>☁ Téléverser sur Vigie-Chiro</strong> est le chemin nominal (participation créée, envoi <strong>reprenable</strong> unité par unité). <strong>📁 Ouvrir le dossier</strong> ouvre <code>depot/</code> pour un <strong>dépôt navigateur de repli</strong> hors connexion.</li>
 <li><strong>Traitement Vigie-Chiro</strong> : téléverser <strong>ne suffit pas</strong> à lancer l'analyse. <strong>▶ Lancer la participation</strong> déclenche le calcul Tadarida serveur ; <strong>↻ Actualiser</strong> relève son état (Planifiée / En cours / Terminée / Échec) <strong>à la demande</strong>, sans sondage automatique.</li>
