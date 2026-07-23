@@ -2980,10 +2980,11 @@ flowchart TB
 <h2 id="pattern-visuel-partage">Pattern visuel partagé<a class="headerlink" href="#pattern-visuel-partage" title="Permanent link">&para;</a></h2>
 <p>Toutes les maquettes reprennent le <strong>cadre fenêtre</strong> du chrome (<code>MainView.fxml</code>) :</p>
 <ul>
-<li><strong>Bandeau de navigation</strong> indigo (<code>#3f51b5</code>) : nom de l'application « VigieChiro Companion », bouton <strong>« ← Retour »</strong> (historique de navigation), <strong>fil d'Ariane</strong> partant toujours d'<code>Accueil</code>, et le champ de <strong>recherche globale</strong> (<code>Ctrl+F</code>) aligné à droite.</li>
+<li><strong>Bandeau de navigation</strong> indigo (<code>#3f51b5</code>) : nom de l'application « VigieChiro Companion », bouton <strong>« ← Retour »</strong> (historique de navigation), <strong>fil d'Ariane</strong> partant toujours d'<code>Accueil</code>, puis, alignés à droite, le champ de <strong>recherche globale</strong> (<code>Ctrl+F</code>) et un <strong>menu outils ☰</strong> (sauvegarde, restauration, connexion à Vigie-Chiro, à propos…).</li>
+<li><strong>Bandeau d'annonce</strong> transverse, <strong>masqué par défaut</strong>, qui apparaît sous le bandeau de navigation quand une <strong>mise à jour applicative</strong> est disponible.</li>
 <li><strong>En-tête de page</strong> avec titre principal et sous-titre éventuel, juste sous le bandeau.</li>
 <li><strong>Sections numérotées</strong> pour les écrans assistant (M-Import, M-Lot) ou <strong>panneau de détail</strong> « liste + détail » (M-Qualification, M-SonsValidation).</li>
-<li><strong>Pied de page</strong> discret (<code>VigieChiro Companion</code>).</li>
+<li><strong>Barre de statut</strong> contextuelle en pied de fenêtre, à <strong>trois zones</strong> : contexte à gauche, résumé au centre, compteurs et état vivant à droite (ce n'est pas un simple pied de page décoratif).</li>
 </ul>
 <p>L'<a href="M-Accueil/">accueil</a> ajoute, sous le bandeau, un <strong>bandeau nocturne</strong> (titre, invite, tableau de bord de compteurs) puis deux <strong>sections-prismes</strong> de cartes d'activité.</p>
 <p><strong>Palette de couleurs</strong> (cohérente avec le reste du dossier) :</p>
@@ -3032,6 +3033,12 @@ flowchart TB
 <ul>
 <li><a href="M-Qualification/">M-Qualification</a> et <a href="M-SonsValidation/">M-SonsValidation</a> partagent le <strong>même squelette « liste + écoute »</strong> (une liste pilote un panneau d'écoute <code>AudioView</code> commun). Il n’y a qu’un seul patron de « lieu d’écoute » à implémenter, qui se décline pour les deux modes : <strong>vérification</strong> par échantillonnage d'une part, <strong>validation</strong> taxonomique d'autre part.</li>
 <li><a href="M-Sites/">M-Sites</a> et <a href="M-Site-detail/">M-Site-detail</a> utilisent le <strong>même style de cards</strong> pour les sites et les points d'écoute.</li>
+<li><a href="M-MultiSite/">M-MultiSite</a>, <a href="M-Analyse/">M-Analyse</a> et <a href="M-SonsValidation/">M-SonsValidation</a> partagent le <strong>même socle de tableau réactif</strong>, décrit <strong>une seule fois ici</strong> (chaque fiche y renvoie plutôt que de le redécrire à sa façon) :<ul>
+<li>des <strong>onglets de vues mémorisées</strong> (« à la Notion ») en tête de tableau, pas un sous-menu du ☰ ;</li>
+<li>un <strong>constructeur de filtres à puces</strong> : un bouton <strong>« + Filtre »</strong> ouvre le choix du critère, et chaque filtre actif devient une <strong>puce cumulable</strong> (et non une rangée de listes déroulantes fixes) ;</li>
+<li>un <strong>choix des colonnes</strong> affichées, dans le <strong>menu outils ☰</strong>.</li>
+</ul>
+</li>
 </ul>
 <h2 id="cas-non-maquettes-documentes-textuellement">Cas non maquettés (documentés textuellement)<a class="headerlink" href="#cas-non-maquettes-documentes-textuellement" title="Permanent link">&para;</a></h2>
 <p>Certains écrans secondaires ne font pas l'objet d'une maquette complète mais sont décrits dans les fiches correspondantes :</p>
@@ -3039,7 +3046,14 @@ flowchart TB
 <li><strong>Formulaire de création d'un site</strong> : décrit dans la variante de <a href="M-Site-detail/">M-Site-detail</a> et invocable depuis <a href="M-Sites/">M-Sites</a>.</li>
 <li><strong>Fenêtre modale de re-rattachement d'un passage</strong> : action accessible depuis <a href="M-Passage/">M-Passage</a>.</li>
 <li><strong>Sélecteur de taxon de correction</strong> : autocomplete sur code à 6 lettres. Décrit dans <a href="M-SonsValidation/">M-SonsValidation</a>.</li>
-<li><strong>Fenêtre modale de confirmation « J'ai déposé »</strong> : avant transition vers le statut Déposé. Décrite dans <a href="M-Lot/">M-Lot</a>.</li>
+<li><strong>Confirmation « Marquer déposé »</strong> : avant transition vers le statut Déposé (c'est le libellé réel du bouton). Décrite dans <a href="M-Lot/">M-Lot</a>.</li>
+<li><strong>Écran de connexion à Vigie-Chiro</strong> : saisie du jeton d'API, trois états (connecté / enregistré non vérifié / non connecté). Cf. <a href="../Story%20mapping/E9%20-%20Int%C3%A9gration%20plateforme%20VigieChiro/#e9s1">E9.S1</a>.</li>
+<li><strong>Écran de réglages</strong> : onglets auto-découverts (Général, Fonctionnalités, Emplacements, Dépôt, Import, Audio), ouvert depuis le menu ☰. Cf. <a href="../Story%20mapping/E0%20-%20Fondations%20de%20persistance/#e0s9">E0.S9</a>.</li>
+<li><strong>Écran d'audit de cohérence</strong> et <strong>reset guidé</strong> : accessible aussi par une carte de l'accueil. Cf. <a href="../Story%20mapping/E0%20-%20Fondations%20de%20persistance/#e0s11">E0.S11</a>.</li>
+<li><strong>Modale de reconstruction</strong> d'un passage déposé absent de la machine. Cf. <a href="../Story%20mapping/E9%20-%20Int%C3%A9gration%20plateforme%20VigieChiro/#e9s5">E9.S5</a>.</li>
+<li><strong>Modale de réactivation</strong> d'un passage archivé (retrouver ses fichiers). Cf. <a href="../Story%20mapping/E4%20-%20Pr%C3%A9parer%20et%20tracer%20le%20d%C3%A9p%C3%B4t%20VigieChiro/#e4s6">E4.S6</a>.</li>
+<li><strong>Fenêtre « À propos »</strong> : version de l'application et crédits, ouverte depuis le menu ☰.</li>
+<li><strong>Bandeau d'annonce de mise à jour</strong> : masqué par défaut, signale une version plus récente (cf. « capacités transverses » du <a href="../Story%20mapping/">story mapping</a>).</li>
 </ul>
 
 
