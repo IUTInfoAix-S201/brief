@@ -2216,6 +2216,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e4s5" class="md-nav__link">
+    <span class="md-ellipsis">
+      E4.S5 - Générer et gérer les archives ZIP de dépôt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e4s6" class="md-nav__link">
+    <span class="md-ellipsis">
+      E4.S6 - Réactiver un passage archivé en retrouvant ses fichiers
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2834,6 +2852,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e4s5" class="md-nav__link">
+    <span class="md-ellipsis">
+      E4.S5 - Générer et gérer les archives ZIP de dépôt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e4s6" class="md-nav__link">
+    <span class="md-ellipsis">
+      E4.S6 - Réactiver un passage archivé en retrouvant ses fichiers
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2946,6 +2982,40 @@
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4</a> (transverse - pertinent aussi pour P2, P3 et P5)<br>
 <strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Passage/">M-Passage</a> (indicateur d’étapes de statut + chronologie), <a href="../../Maquettes/M-MultiSite/">M-MultiSite</a> (colonne statut filtrable)<br>
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a><br></p>
+<hr />
+<h2 id="e4s5">E4.S5 - Générer et gérer les archives ZIP de dépôt<a class="headerlink" href="#e4s5" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
+<p><strong>Je veux</strong> que l'application découpe mes séquences en archives ZIP prêtes à téléverser</p>
+<p><strong>Afin de</strong> déposer un gros volume par paquets et libérer l'espace une fois en ligne</p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les séquences sont découpées en archives <strong><code>&lt;préfixe&gt;-N.zip</code></strong> numérotées, écrites dans le sous-dossier <strong><code>depot/</code></strong> de la session (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r22">R22</a>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Chaque archive respecte un <strong>plafond de taille</strong> (~700 Mo par défaut, configurable) ; la <strong>taille réelle est vérifiée après écriture</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La génération <strong>vérifie l'espace disque</strong> disponible avant d'écrire et <strong>refuse tôt</strong> s'il manque.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les archives sont <strong>régénérables à l'identique</strong> ; leur <strong>suppression</strong> n'est permise que si le passage est marqué <strong>déposé</strong>.</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4</a>, génération du dépôt<br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Lot/">M-Lot</a> (« Générer les archives » / « Supprimer les archives ZIP locales »)<br>
+<strong>Dépendances</strong> : <a href="#e4s1">E4.S1</a><br></p>
+<hr />
+<h2 id="e4s6">E4.S6 - Réactiver un passage archivé en retrouvant ses fichiers<a class="headerlink" href="#e4s6" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Karim/">Karim</a></p>
+<p><strong>Je veux</strong> ré-associer les fichiers d'un passage dont l'audio n'est plus sur le disque</p>
+<p><strong>Afin de</strong> le réécouter après avoir libéré de l'espace ou réinstallé l'application</p>
+<div class="admonition info">
+<p class="admonition-title">« Archivé » est un état observé, pas un geste</p>
+<p>Un passage est « archivé » <strong>de fait</strong> quand ses séquences ne sont plus sur le disque : c'est un <strong>état recalculé sur le disque</strong>, pas un drapeau stocké ni un bouton « Archiver ». De même, <strong>ne pas conserver</strong> les originaux est un <strong>réglage d'import</strong> (désactivé par défaut, <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r9">R9</a> / <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r22">R22</a>), pas une « purge » déclarée a posteriori. Il n'y a donc <strong>ni bouton « Archiver » ni bouton « Purger »</strong>.</p>
+</div>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un passage dont les séquences ne sont plus sur le disque est <strong>consultable mais pas écoutable</strong> (état « archivé » observé).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La réactivation désigne un dossier et <strong>ne rebranche fichier par fichier que ce qui est vérifié</strong> : un fichier dont l'identité ne correspond pas est <strong>compté, motivé et rapporté</strong>, jamais rebranché (un cri validé en écoutant autre chose serait une erreur scientifique).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Deux voies</strong> : séquences présentes rebranchées directement, ou seulement les <strong>bruts</strong> régénérés puis soumis à la même garde ; ni l'un ni l'autre → <strong>aucune</strong> réactivation (on n'invente rien).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'opération est <strong>idempotente et non destructrice</strong> : fichiers <strong>copiés</strong> (jamais déplacés), observations et vérifications <strong>non touchées</strong>.</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P12%20-%20R%C3%A9cup%C3%A9rer%20une%20nuit%20d%C3%A9pos%C3%A9e%20sur%20VigieChiro/">P12</a>, après reconstruction<br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Passage/">M-Passage</a> (action « Réactiver ce passage »)<br>
+<strong>Dépendances</strong> : <a href="../E9%20-%20Int%C3%A9gration%20plateforme%20VigieChiro/#e9s5">E9.S5</a><br></p>
 
 
 

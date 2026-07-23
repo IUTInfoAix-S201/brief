@@ -2168,6 +2168,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e0s9" class="md-nav__link">
+    <span class="md-ellipsis">
+      E0.S9 - Réglages persistés et fonctionnalités désactivables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e0s10" class="md-nav__link">
+    <span class="md-ellipsis">
+      E0.S10 - Sauvegarder et restaurer la base et l'audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e0s11" class="md-nav__link">
+    <span class="md-ellipsis">
+      E0.S11 - Auditer la cohérence et réinitialiser proprement
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2906,6 +2933,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e0s9" class="md-nav__link">
+    <span class="md-ellipsis">
+      E0.S9 - Réglages persistés et fonctionnalités désactivables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e0s10" class="md-nav__link">
+    <span class="md-ellipsis">
+      E0.S10 - Sauvegarder et restaurer la base et l'audio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e0s11" class="md-nav__link">
+    <span class="md-ellipsis">
+      E0.S11 - Auditer la cohérence et réinitialiser proprement
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3073,6 +3127,51 @@
 <p><strong>Parcours rattaché</strong> : transverse (technique pur)<br>
 <strong>Maquettes cibles</strong> : aucune<br>
 <strong>Dépendances</strong> : <a href="#e0s1">E0.S1</a><br></p>
+<hr />
+<h2 id="e0s9">E0.S9 - Réglages persistés et fonctionnalités désactivables<a class="headerlink" href="#e0s9" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
+<p><strong>Je veux</strong> régler l'application et couper les fonctionnalités dont je n'ai pas besoin</p>
+<p><strong>Afin d'</strong> adapter l'outil à mon poste et à mon volume</p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un écran de réglages présente des <strong>onglets auto-découverts</strong> (Général, Fonctionnalités, Emplacements, Dépôt, Import, Audio).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les réglages typés (booléen / texte / entier) sont <strong>persistés</strong> dans une table clé/valeur ; une valeur absente ou illisible retombe sur son <strong>défaut sans planter</strong> ; les énums sont sérialisés <strong>par valeur stable</strong> (jamais par <code>name()</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Des fonctionnalités <strong>optionnelles ou expérimentales</strong> peuvent être <strong>désactivées</strong> ; une fonctionnalité <strong>« cœur » reste toujours active</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La <strong>précédence</strong> est explicite : propriété système &gt; alias de désactivation &gt; flag persisté &gt; défaut de la catégorie.</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : transverse (tous parcours)<br>
+<strong>Maquettes cibles</strong> : <em>écran de réglages non maquetté</em> (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2382">#2382</a>)<br>
+<strong>Dépendances</strong> : <a href="#e0s1">E0.S1</a><br></p>
+<hr />
+<h2 id="e0s10">E0.S10 - Sauvegarder et restaurer la base et l'audio<a class="headerlink" href="#e0s10" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
+<p><strong>Je veux</strong> sauvegarder mon travail et pouvoir le restaurer</p>
+<p><strong>Afin de</strong> ne pas tout perdre en cas de panne disque ou de fausse manipulation</p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sauvegarde <strong>« base seule »</strong> : instantané <strong>cohérent</strong> horodaté, même base ouverte (<code>VACUUM INTO</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Restauration</strong> : vérifie la lisibilité, <strong>met de côté la base courante</strong> (filet), remplace, purge les journaux, et <strong>rejoue la migration</strong> pour être à jour.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sauvegarde / restauration <strong>« complète »</strong> : base <strong>+ audio</strong>, en <strong>disant ce qui n'a pas pu être copié</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'<strong>emplacement de destination</strong> est choisi par l'utilisateur.</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : transverse (tous parcours)<br>
+<strong>Maquettes cibles</strong> : <em>actions de menu non maquettées</em> (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2382">#2382</a>)<br>
+<strong>Dépendances</strong> : <a href="#e0s1">E0.S1</a><br></p>
+<hr />
+<h2 id="e0s11">E0.S11 - Auditer la cohérence et réinitialiser proprement<a class="headerlink" href="#e0s11" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
+<p><strong>Je veux</strong> vérifier que ma base et mes fichiers sont cohérents, et repartir proprement si besoin</p>
+<p><strong>Afin de</strong> garder une base saine sur la durée</p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un <strong>audit en lecture seule</strong> vérifie, par passage, la présence disque, le préfixe attendu et la cohérence des unités déposées, plus un <strong>balayage inverse</strong> des orphelins ; <strong>en ligne</strong>, il confronte le dépôt au serveur et se <strong>dégrade proprement hors connexion</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un <strong>bilan de récupérabilité</strong> classe chaque nuit <strong>Disque → Serveur → Perdu</strong> (un <strong>dépôt ZIP</strong> est « perdu » côté serveur) en lisant le <strong>mode de dépôt réel</strong>, jamais présumé.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le <strong>reset guidé</strong> est ordonné : dire ce qu'on perdrait + acceptation, <strong>exiger que la plateforme réponde avant de détruire</strong>, sauvegarder, base neuve, repeupler depuis le serveur, audit final.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une nuit <strong>« perdue »</strong> reste navigable en <strong>passage archivé</strong>, réactivable plus tard (<a href="../E4%20-%20Pr%C3%A9parer%20et%20tracer%20le%20d%C3%A9p%C3%B4t%20VigieChiro/#e4s6">E4.S6</a>).</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : transverse (maintenance)<br>
+<strong>Maquettes cibles</strong> : <em>écran d'audit non maquetté</em> (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2382">#2382</a>)<br>
+<strong>Dépendances</strong> : <a href="#e0s1">E0.S1</a>, <a href="../E9%20-%20Int%C3%A9gration%20plateforme%20VigieChiro/#e9s5">E9.S5</a><br></p>
 
 
 

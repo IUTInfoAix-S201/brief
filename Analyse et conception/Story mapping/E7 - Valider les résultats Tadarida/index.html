@@ -2306,6 +2306,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e7s8" class="md-nav__link">
+    <span class="md-ellipsis">
+      E7.S8 - Déclarer sa certitude et marquer une observation douteuse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e7s9" class="md-nav__link">
+    <span class="md-ellipsis">
+      E7.S9 - Consulter l'avis du validateur MNHN et dialoguer avec lui
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2888,6 +2906,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e7s8" class="md-nav__link">
+    <span class="md-ellipsis">
+      E7.S8 - Déclarer sa certitude et marquer une observation douteuse
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e7s9" class="md-nav__link">
+    <span class="md-ellipsis">
+      E7.S9 - Consulter l'avis du validateur MNHN et dialoguer avec lui
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3059,6 +3095,36 @@
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a>, étape 8<br>
 <strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-SonsValidation/">M-SonsValidation</a> (bouton « Exporter Vu.csv » + modal de récapitulatif)<br>
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s5">E0.S5</a>, <a href="#e7s4">E7.S4</a><br></p>
+<hr />
+<h2 id="e7s8">E7.S8 - Déclarer sa certitude et marquer une observation douteuse<a class="headerlink" href="#e7s8" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Karim/">Karim</a></p>
+<p><strong>Je veux</strong> dire à quel point je suis sûr d'une identification, et pouvoir marquer une détection « à repasser »</p>
+<p><strong>Afin de</strong> tracer ma confiance et mes doutes sans bloquer ma revue</p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Chaque observation peut porter une <strong>certitude <code>SUR</code> / <code>PROBABLE</code> / <code>POSSIBLE</code></strong>, <strong>vide par défaut</strong> et <strong>jamais dérivée</strong> de la probabilité Tadarida (cf. <a href="../../Mod%C3%A8le%20conceptuel/C13%20-%20Observation/">C13</a>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une observation peut être marquée <strong>« douteuse »</strong> (écoutée mais à repasser), <strong>distincte</strong> de « pas encore vue ».</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La certitude et le drapeau douteux sont <strong>persistés</strong> et restitués tels quels.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La certitude est <strong>le même domaine</strong> pour l'observateur et pour le validateur (cf. <a href="#e7s9">E7.S9</a>).</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a>, pendant la revue<br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-SonsValidation/">M-SonsValidation</a> (menu certitude + marquage douteux)<br>
+<strong>Dépendances</strong> : <a href="#e7s4">E7.S4</a><br></p>
+<hr />
+<h2 id="e7s9">E7.S9 - Consulter l'avis du validateur MNHN et dialoguer avec lui<a class="headerlink" href="#e7s9" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Marie/">Marie</a></p>
+<p><strong>Je veux</strong> voir l'avis de l'expert MNHN sur mes détections et pouvoir lui répondre</p>
+<p><strong>Afin de</strong> comprendre une correction et échanger sur un cas litigieux</p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sur une observation, <strong>trois avis coexistent</strong> : Tadarida propose, l'observateur corrige, le validateur MNHN tranche.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'avis du validateur (taxon + certitude) est <strong>affiché mais en lecture seule</strong> : il n'est <strong>jamais réécrit</strong> vers le serveur.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un <strong>fil de discussion ordonné</strong> s'attache à l'observation ; chaque message distingue <strong>« vous »</strong> d'<strong>« un validateur »</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Poster un message est irréversible</strong> (aucune route serveur de suppression) et exige une <strong>confirmation explicite</strong> ; le message part <strong>au serveur d'abord, la base ensuite</strong> (jamais un message cru envoyé mais invisible côté expert).</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a>, échange avec le validateur<br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-SonsValidation/">M-SonsValidation</a> (panneau de discussion)<br>
+<strong>Dépendances</strong> : <a href="#e7s8">E7.S8</a>, <a href="../E9%20-%20Int%C3%A9gration%20plateforme%20VigieChiro/#e9s1">E9.S1</a><br></p>
 
 
 

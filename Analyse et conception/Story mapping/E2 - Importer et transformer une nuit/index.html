@@ -2210,6 +2210,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e2s9" class="md-nav__link">
+    <span class="md-ellipsis">
+      E2.S9 - Importer une carte SD contenant plusieurs nuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e2s10" class="md-nav__link">
+    <span class="md-ellipsis">
+      E2.S10 - Importer depuis une archive ZIP
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2906,6 +2924,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e2s9" class="md-nav__link">
+    <span class="md-ellipsis">
+      E2.S9 - Importer une carte SD contenant plusieurs nuits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e2s10" class="md-nav__link">
+    <span class="md-ellipsis">
+      E2.S10 - Importer depuis une archive ZIP
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3082,6 +3118,38 @@
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2</a>, notes importantes (« changer rétroactivement »)<br>
 <strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Passage/">M-Passage</a> (avec action « Modifier le rattachement » et écran de confirmation)<br>
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a>, <a href="#e2s2">E2.S2</a>, <a href="#e2s5">E2.S5</a><br></p>
+<hr />
+<h2 id="e2s9">E2.S9 - Importer une carte SD contenant plusieurs nuits<a class="headerlink" href="#e2s9" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a> (dont les enregistreurs tournent plusieurs nuits d'affilée sur un même point)</p>
+<p><strong>Je veux</strong> importer une carte SD qui contient plusieurs nuits, et que l'application les sépare toute seule</p>
+<p><strong>Afin de</strong> ne pas découper mes enregistrements nuit par nuit à la main</p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'import <strong>détecte les nuits</strong> d'une SD à journal unique et en fait <strong>un passage distinct par nuit</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le découpage suit la nuit <strong>soir J → matin J+1</strong>, avec <strong>bascule à midi</strong> : un fichier enregistré avant midi appartient à la veille.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une nuit dont le cycle s'est <strong>mal terminé</strong> (SD pleine, interruption) est signalée <strong>tronquée</strong> avec son motif ; une nuit <strong>sans cycle</strong> correspondant est supposée <strong>complète</strong> (pas de fausse alerte).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le groupage fonctionne <strong>même sans journal du capteur</strong>, à partir des noms horodatés <code>PaRecPR..._AAAAMMJJ_HHMMSS.wav</code> ; les fichiers non horodatés sont ignorés.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Chaque nuit est <strong>rattachée</strong> à son site / point / n° de passage avant le traitement effectif.</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2</a>, variante multi-nuits<br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Import/">M-Import</a> (tableau des nuits détectées)<br>
+<strong>Dépendances</strong> : <a href="#e2s1">E2.S1</a>, <a href="#e2s2">E2.S2</a><br></p>
+<hr />
+<h2 id="e2s10">E2.S10 - Importer depuis une archive ZIP<a class="headerlink" href="#e2s10" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Marie/">Marie</a></p>
+<p><strong>Je veux</strong> importer une nuit fournie sous forme d'archive ZIP</p>
+<p><strong>Afin de</strong> traiter une carte que j'ai déjà compressée sans la décompresser à la main</p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un fichier <strong><code>.zip</code></strong> est reconnu comme source d'import (détection par extension, insensible à la casse), par sélection ou <strong>glisser-déposer</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'archive est <strong>extraite sur disque</strong> dans un dossier temporaire <strong>sous le workspace</strong> (pas en mémoire), pour ne pas saturer la RAM sur une nuit volumineuse.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'extraction affiche une <strong>progression déterminée</strong> et peut être <strong>annulée</strong> (le partiel est nettoyé).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une entrée qui tenterait de <strong>s'évader du dossier</strong> (chemin <code>../</code>) est <strong>refusée</strong> (garde « zip-slip »).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un <strong>dossier racine unique</strong> dans l'archive est déplié pour pointer le vrai contenu.</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2</a>, variante « SD zippée »<br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Import/">M-Import</a> (zone de dépôt acceptant un <code>.zip</code>)<br>
+<strong>Dépendances</strong> : <a href="#e2s1">E2.S1</a><br></p>
 
 
 
