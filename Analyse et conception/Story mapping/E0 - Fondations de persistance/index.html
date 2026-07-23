@@ -3001,11 +3001,11 @@
 <p><strong>Afin de</strong> poser les fondations techniques sur lesquelles toutes les autres stories vont s'appuyer</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Au premier lancement, l'application crée un fichier <code>companion.db</code> dans le dossier de travail utilisateur si absent.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le schéma initial contient toutes les tables vides correspondant aux entités du <a href="../../Mod%C3%A8le%20conceptuel/">modèle conceptuel</a> (Utilisateur, Site, Point, Passage, Session d'enregistrement, EnregistrementOriginal, SéquenceDÉcoute, JournalCapteur, RelevéClimatique, SélectionDÉcoute, RésultatsIdentification, Observation, Taxon, GroupeTaxonomique).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une classe <code>DaoGenerique&lt;T&gt;</code> ou équivalent fournit les opérations CRUD de base (<code>create</code>, <code>findById</code>, <code>findAll</code>, <code>update</code>, <code>delete</code>).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La connexion JDBC est gérée avec un pool ou un singleton thread-safe.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un test d'intégration crée la BD, exécute une opération CRUD, et vérifie le résultat.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Au premier lancement, l'application crée un fichier <code>companion.db</code> dans le dossier de travail utilisateur si absent.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le schéma initial contient toutes les tables vides correspondant aux entités du <a href="../../Mod%C3%A8le%20conceptuel/">modèle conceptuel</a> (Utilisateur, Site, Point, Passage, Session d'enregistrement, EnregistrementOriginal, SéquenceDÉcoute, JournalCapteur, RelevéClimatique, SélectionDÉcoute, RésultatsIdentification, Observation, Taxon, GroupeTaxonomique).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Une classe <code>DaoGenerique&lt;T&gt;</code> ou équivalent fournit les opérations CRUD de base (<code>create</code>, <code>findById</code>, <code>findAll</code>, <code>update</code>, <code>delete</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> La connexion JDBC est gérée avec un pool ou un singleton thread-safe.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Un test d'intégration crée la BD, exécute une opération CRUD, et vérifie le résultat.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : aucun (transverse)<br>
 <strong>Maquettes cibles</strong> : aucune<br>
@@ -3017,11 +3017,11 @@
 <p><strong>Afin que</strong> l'épopée <a href="../E1%20-%20G%C3%A9rer%20ses%20sites%20et%20points%20de%20suivi/">E1</a> puisse créer, lire, mettre à jour et supprimer des sites et points</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>SiteDao</code> permet de créer un site avec son n° de carré, son nom convivial, son protocole.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>PointEcouteDao</code> permet d'ajouter, modifier, supprimer des points sur un site existant.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un site supprimé entraîne la suppression en cascade de ses points (ou refus si des passages y sont rattachés - à arbitrer).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les contraintes d'unicité sont vérifiées (n° de carré unique, code de point unique par site).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests d'intégration sur les opérations CRUD.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>SiteDao</code> permet de créer un site avec son n° de carré, son nom convivial, son protocole.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>PointEcouteDao</code> permet d'ajouter, modifier, supprimer des points sur un site existant.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Un site supprimé entraîne la suppression en cascade de ses points (ou refus si des passages y sont rattachés - à arbitrer).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les contraintes d'unicité sont vérifiées (n° de carré unique, code de point unique par site).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Tests d'intégration sur les opérations CRUD.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : sert <a href="../../Parcours%20utilisateurs/P1%20-%20D%C3%A9clarer%20un%20site%20de%20suivi/">P1</a><br>
 <strong>Maquettes cibles</strong> : aucune (DAO pur)<br>
@@ -3033,12 +3033,12 @@
 <p><strong>Afin que</strong> les épopées <a href="../">E2</a> (Import), <a href="../">E3</a> (Vérification) et <a href="../">E4</a> (Dépôt) puissent suivre l'avancement d'une nuit dans le cycle</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>PassageDao</code> permet de créer un passage rattaché à un point d'écoute, une année, un n° de passage.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'unicité du quadruplet <code>(carré, année, n° passage, point)</code> est garantie au niveau BD (contrainte unique).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le statut d'avancement est persisté (<code>Importé</code>, <code>Transformé</code>, <code>Vérifié</code>, <code>Prêt à déposer</code>, <code>Déposé</code>).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le verdict de vérification est persisté (<code>OK</code>, <code>Utilisable</code>, <code>Inexploitable</code>, ou null si non vérifié).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'association <code>Enregistreur ↔ Site/Point</code> (mémorisée pour faciliter les imports suivants) est persistée.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests d'intégration couvrant la création, la transition de statut et le verdict.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>PassageDao</code> permet de créer un passage rattaché à un point d'écoute, une année, un n° de passage.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> L'unicité du quadruplet <code>(carré, année, n° passage, point)</code> est garantie au niveau BD (contrainte unique).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le statut d'avancement est persisté (<code>Importé</code>, <code>Transformé</code>, <code>Vérifié</code>, <code>Prêt à déposer</code>, <code>Déposé</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le verdict de vérification est persisté (<code>OK</code>, <code>Utilisable</code>, <code>Inexploitable</code>, ou null si non vérifié).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> L'association <code>Enregistreur ↔ Site/Point</code> (mémorisée pour faciliter les imports suivants) est persistée.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Tests d'intégration couvrant la création, la transition de statut et le verdict.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : sert <a href="../../Parcours%20utilisateurs/P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2</a>, <a href="../../Parcours%20utilisateurs/P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3</a>, <a href="../../Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4</a><br>
 <strong>Maquettes cibles</strong> : aucune (DAO pur)<br>
@@ -3050,11 +3050,11 @@
 <p><strong>Afin que</strong> l'épopée <a href="../">E3</a> (Vérification) puisse mémoriser quelles séquences l'utilisateur a échantillonnées et écoutées</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>SequenceDEcouteDao</code> permet de stocker les métadonnées de chaque chunk produit lors de la transformation (nom de fichier, index, durée, fichier source).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>SelectionEcouteDao</code> permet de stocker une sélection (méthode de constitution, taille, séquences rattachées).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une séquence peut appartenir à 0..N sélections (table de jointure).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le statut « écouté oui/non » par séquence dans le contexte d'une sélection est persisté.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests d'intégration.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>SequenceDEcouteDao</code> permet de stocker les métadonnées de chaque chunk produit lors de la transformation (nom de fichier, index, durée, fichier source).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>SelectionEcouteDao</code> permet de stocker une sélection (méthode de constitution, taille, séquences rattachées).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Une séquence peut appartenir à 0..N sélections (table de jointure).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le statut « écouté oui/non » par séquence dans le contexte d'une sélection est persisté.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Tests d'intégration.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : sert <a href="../../Parcours%20utilisateurs/P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3</a><br>
 <strong>Maquettes cibles</strong> : aucune (DAO pur)<br>
@@ -3066,10 +3066,10 @@
 <p><strong>Afin que</strong> l'épopée <a href="../">E7</a> (Validation Tadarida) puisse importer un CSV de résultats et le présenter à l'utilisateur pour validation</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>ResultatsIdentificationDao</code> permet de créer un import (chemin du CSV source, format détecté, date d'import) rattaché à un passage.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>ObservationDao</code> permet d'insérer en masse des observations (volumétrie potentielle : 4000+ par passage), avec leur taxon Tadarida, probabilité, séquence rattachée, statut de validation, taxon observateur, commentaire.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>TaxonDao</code> et <code>GroupeTaxonomiqueDao</code> permettent de gérer un référentiel des taxons (peuplé une fois pour toutes ou rafraîchi via un fichier de référence).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Insertion en masse (bulk insert) optimisée pour ne pas freezer l'IHM (cf. <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O3/">O3</a>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>ResultatsIdentificationDao</code> permet de créer un import (chemin du CSV source, format détecté, date d'import) rattaché à un passage.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>ObservationDao</code> permet d'insérer en masse des observations (volumétrie potentielle : 4000+ par passage), avec leur taxon Tadarida, probabilité, séquence rattachée, statut de validation, taxon observateur, commentaire.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <code>TaxonDao</code> et <code>GroupeTaxonomiqueDao</code> permettent de gérer un référentiel des taxons (peuplé une fois pour toutes ou rafraîchi via un fichier de référence).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Insertion en masse (bulk insert) optimisée pour ne pas freezer l'IHM (cf. <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O3/">O3</a>).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests d'intégration avec un jeu de données représentatif (au moins 1000 observations).</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : sert <a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a><br>
@@ -3105,7 +3105,7 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le contexte de validation est persisté en BD : dernière observation vue, filtres actifs (taxon, groupe, seuil de probabilité, plage horaire), mode de validation choisi (inventaire/activité).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Au retour sur l'écran de validation pour le même passage, le contexte est restauré automatiquement.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les observations déjà validées ou corrigées sont persistées et conservent leur statut.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les observations déjà validées ou corrigées sont persistées et conservent leur statut.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test d'intégration : validation partielle, fermeture, réouverture, vérification de la restauration.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : transverse à <a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a><br>
@@ -3118,11 +3118,11 @@
 <p><strong>Afin de</strong> pouvoir faire évoluer le schéma sans casser les BDs existantes des utilisateurs</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une table <code>schema_version</code> mémorise la version courante du schéma.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Au démarrage, l'application compare la version code avec la version BD et applique les scripts de migration nécessaires.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les scripts de migration sont versionnés dans les sources (ex. <code>db/migrations/V01__init.sql</code>, <code>V02__add_observations.sql</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Une table <code>schema_version</code> mémorise la version courante du schéma.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Au démarrage, l'application compare la version code avec la version BD et applique les scripts de migration nécessaires.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les scripts de migration sont versionnés dans les sources (ex. <code>db/migrations/V01__init.sql</code>, <code>V02__add_observations.sql</code>).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une migration ratée laisse la BD dans son état initial (rollback) et bloque l'application avec un message clair.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test d'intégration : créer une BD en V01, lancer l'application qui fait passer en V02, vérifier la cohérence.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Test d'intégration : créer une BD en V01, lancer l'application qui fait passer en V02, vérifier la cohérence.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : transverse (technique pur)<br>
 <strong>Maquettes cibles</strong> : aucune<br>
@@ -3134,10 +3134,10 @@
 <p><strong>Afin d'</strong> adapter l'outil à mon poste et à mon volume</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un écran de réglages présente des <strong>onglets auto-découverts</strong> (Général, Fonctionnalités, Emplacements, Dépôt, Import, Audio).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les réglages typés (booléen / texte / entier) sont <strong>persistés</strong> dans une table clé/valeur ; une valeur absente ou illisible retombe sur son <strong>défaut sans planter</strong> ; les énums sont sérialisés <strong>par valeur stable</strong> (jamais par <code>name()</code>).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Des fonctionnalités <strong>optionnelles ou expérimentales</strong> peuvent être <strong>désactivées</strong> ; une fonctionnalité <strong>« cœur » reste toujours active</strong>.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La <strong>précédence</strong> est explicite : propriété système &gt; alias de désactivation &gt; flag persisté &gt; défaut de la catégorie.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Un écran de réglages présente des <strong>onglets auto-découverts</strong> (Général, Fonctionnalités, Emplacements, Dépôt, Import, Audio).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les réglages typés (booléen / texte / entier) sont <strong>persistés</strong> dans une table clé/valeur ; une valeur absente ou illisible retombe sur son <strong>défaut sans planter</strong> ; les énums sont sérialisés <strong>par valeur stable</strong> (jamais par <code>name()</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Des fonctionnalités <strong>optionnelles ou expérimentales</strong> peuvent être <strong>désactivées</strong> ; une fonctionnalité <strong>« cœur » reste toujours active</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> La <strong>précédence</strong> est explicite : propriété système &gt; alias de désactivation &gt; flag persisté &gt; défaut de la catégorie.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : transverse (tous parcours)<br>
 <strong>Maquettes cibles</strong> : <em>écran de réglages non maquetté</em> (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2382">#2382</a>)<br>
@@ -3149,10 +3149,10 @@
 <p><strong>Afin de</strong> ne pas tout perdre en cas de panne disque ou de fausse manipulation</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sauvegarde <strong>« base seule »</strong> : instantané <strong>cohérent</strong> horodaté, même base ouverte (<code>VACUUM INTO</code>).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Restauration</strong> : vérifie la lisibilité, <strong>met de côté la base courante</strong> (filet), remplace, purge les journaux, et <strong>rejoue la migration</strong> pour être à jour.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sauvegarde / restauration <strong>« complète »</strong> : base <strong>+ audio</strong>, en <strong>disant ce qui n'a pas pu être copié</strong>.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'<strong>emplacement de destination</strong> est choisi par l'utilisateur.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Sauvegarde <strong>« base seule »</strong> : instantané <strong>cohérent</strong> horodaté, même base ouverte (<code>VACUUM INTO</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> <strong>Restauration</strong> : vérifie la lisibilité, <strong>met de côté la base courante</strong> (filet), remplace, purge les journaux, et <strong>rejoue la migration</strong> pour être à jour.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Sauvegarde / restauration <strong>« complète »</strong> : base <strong>+ audio</strong>, en <strong>disant ce qui n'a pas pu être copié</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> L'<strong>emplacement de destination</strong> est choisi par l'utilisateur.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : transverse (tous parcours)<br>
 <strong>Maquettes cibles</strong> : <em>actions de menu non maquettées</em> (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2382">#2382</a>)<br>
@@ -3164,10 +3164,10 @@
 <p><strong>Afin de</strong> garder une base saine sur la durée</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un <strong>audit en lecture seule</strong> vérifie, par passage, la présence disque, le préfixe attendu et la cohérence des unités déposées, plus un <strong>balayage inverse</strong> des orphelins ; <strong>en ligne</strong>, il confronte le dépôt au serveur et se <strong>dégrade proprement hors connexion</strong>.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un <strong>bilan de récupérabilité</strong> classe chaque nuit <strong>Disque → Serveur → Perdu</strong> (un <strong>dépôt ZIP</strong> est « perdu » côté serveur) en lisant le <strong>mode de dépôt réel</strong>, jamais présumé.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le <strong>reset guidé</strong> est ordonné : dire ce qu'on perdrait + acceptation, <strong>exiger que la plateforme réponde avant de détruire</strong>, sauvegarder, base neuve, repeupler depuis le serveur, audit final.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une nuit <strong>« perdue »</strong> reste navigable en <strong>passage archivé</strong>, réactivable plus tard (<a href="../E4%20-%20Pr%C3%A9parer%20et%20tracer%20le%20d%C3%A9p%C3%B4t%20VigieChiro/#e4s6">E4.S6</a>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Un <strong>audit en lecture seule</strong> vérifie, par passage, la présence disque, le préfixe attendu et la cohérence des unités déposées, plus un <strong>balayage inverse</strong> des orphelins ; <strong>en ligne</strong>, il confronte le dépôt au serveur et se <strong>dégrade proprement hors connexion</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Un <strong>bilan de récupérabilité</strong> classe chaque nuit <strong>Disque → Serveur → Perdu</strong> (un <strong>dépôt ZIP</strong> est « perdu » côté serveur) en lisant le <strong>mode de dépôt réel</strong>, jamais présumé.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le <strong>reset guidé</strong> est ordonné : dire ce qu'on perdrait + acceptation, <strong>exiger que la plateforme réponde avant de détruire</strong>, sauvegarder, base neuve, repeupler depuis le serveur, audit final.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Une nuit <strong>« perdue »</strong> reste navigable en <strong>passage archivé</strong>, réactivable plus tard (<a href="../E4%20-%20Pr%C3%A9parer%20et%20tracer%20le%20d%C3%A9p%C3%B4t%20VigieChiro/#e4s6">E4.S6</a>).</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : transverse (maintenance)<br>
 <strong>Maquettes cibles</strong> : <em>écran d'audit non maquetté</em> (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2382">#2382</a>)<br>

@@ -2912,12 +2912,12 @@
 <p><strong>Afin de</strong> détecter une dérive ou une anomalie de la sonde climatique (gel inattendu, condensation excessive, etc.)</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'onglet « Diagnostic » de la fiche détail d'un passage affiche deux courbes superposées (ou empilées) : température (axe gauche, °C) et hygrométrie (axe droit, %).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'axe X est temporel et couvre toute la plage de la nuit (du premier au dernier enregistrement).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les données sont parsées depuis le fichier <code>PaRecPR&lt;sn&gt;_THLog.csv</code> (une mesure toutes les 600 s, colonnes <code>Date;Hour;Temperature;Humidity</code>).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Si le relevé climatique est <strong>absent</strong> (sonde défaillante ou non installée), un message explicite remplace les graphes : « Pas de relevé climatique disponible pour ce passage. Sonde absente ou défaillante ? » (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r20">R20</a>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> L'onglet « Diagnostic » de la fiche détail d'un passage affiche deux courbes superposées (ou empilées) : température (axe gauche, °C) et hygrométrie (axe droit, %).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> L'axe X est temporel et couvre toute la plage de la nuit (du premier au dernier enregistrement).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les données sont parsées depuis le fichier <code>PaRecPR&lt;sn&gt;_THLog.csv</code> (une mesure toutes les 600 s, colonnes <code>Date;Hour;Temperature;Humidity</code>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Si le relevé climatique est <strong>absent</strong> (sonde défaillante ou non installée), un message explicite remplace les graphes : « Pas de relevé climatique disponible pour ce passage. Sonde absente ou défaillante ? » (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r20">R20</a>).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Survol d'un point : tooltip avec timestamp précis + valeur exacte.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les graphes se redessinent proprement même si le passage couvre plusieurs heures (1000+ points possibles).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les graphes se redessinent proprement même si le passage couvre plusieurs heures (1000+ points possibles).  <em>(non verifiable depuis le code)</em></li>
 </ul>
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/">P6</a>, étape 2 (sous-bloc T°/H)<br>
 <strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Passage/">M-Passage</a> (onglet Diagnostic, partie haute)<br>
@@ -2934,7 +2934,7 @@
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'onglet « Diagnostic » affiche un encart « Batterie » avec : tension au démarrage, tension à la mise en veille, écart (delta).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sous l'encart batterie, une <strong>liste chronologique</strong> des évènements anormaux extraits du <code>LogPR&lt;n&gt;.txt</code> :<ul>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Sous l'encart batterie, une <strong>liste chronologique</strong> des évènements anormaux extraits du <code>LogPR&lt;n&gt;.txt</code> :<ul>
 <li>réveils non programmés (« wakeup non attendu »)</li>
 <li>erreurs SD (« SD card error »)</li>
 <li>redémarrages inopinés</li>
@@ -2956,7 +2956,7 @@
 <p><strong>Afin de</strong> détecter un PR mal programmé qui a enregistré trop tôt, trop tard, ou pas du tout selon le protocole Vigie-Chiro (allumage 30 min avant coucher → 30 min après lever)</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'onglet « Diagnostic » affiche un encart « Cohérence horaires » uniquement si les coordonnées GPS du point sont saisies (cf. <a href="../E1%20-%20G%C3%A9rer%20ses%20sites%20et%20points%20de%20suivi/#e1s3">E1.S3</a>).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> L'onglet « Diagnostic » affiche un encart « Cohérence horaires » uniquement si les coordonnées GPS du point sont saisies (cf. <a href="../E1%20-%20G%C3%A9rer%20ses%20sites%20et%20points%20de%20suivi/#e1s3">E1.S3</a>).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'encart affiche :<ul>
 <li>heure de coucher du soleil <strong>calculée localement</strong> d'après les coordonnées GPS et la date d'enregistrement</li>
 <li>heure de lever du soleil idem</li>
@@ -2966,8 +2966,8 @@
 </ul>
 </li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Si les coordonnées GPS sont absentes, l'encart est masqué avec une note discrète : « Renseignez les coordonnées GPS du point pour activer la vérification astronomique. » + lien direct vers la fiche site.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le calcul astronomique est fait <strong>localement</strong> par une bibliothèque (ex. <code>commons-suncalc</code> ou implémentation maison) - aucun appel réseau.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests unitaires : sur une date et une coordonnée connues (ex. Aix-en-Provence, 22 avril 2026), vérifier que le coucher est calculé à ±2 min près de la valeur officielle.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le calcul astronomique est fait <strong>localement</strong> par une bibliothèque (ex. <code>commons-suncalc</code> ou implémentation maison) - aucun appel réseau.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Tests unitaires : sur une date et une coordonnée connues (ex. Aix-en-Provence, 22 avril 2026), vérifier que le coucher est calculé à ±2 min près de la valeur officielle.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/">P6</a>, section « Cohérence horaires (calcul astronomique) »<br>
 <strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Passage/">M-Passage</a> (onglet Diagnostic, encart cohérence horaires)<br>
