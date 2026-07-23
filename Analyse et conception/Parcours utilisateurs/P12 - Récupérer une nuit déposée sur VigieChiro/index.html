@@ -2012,6 +2012,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#copier-ou-laisser-les-fichiers-ou-ils-sont" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copier, ou laisser les fichiers où ils sont
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2845,6 +2854,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#copier-ou-laisser-les-fichiers-ou-ils-sont" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copier, ou laisser les fichiers où ils sont
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2974,6 +2992,21 @@ jetées. Le produit doit donc dire, et tenir, que <strong>réactiver n'est pas a
 enregistrement absent du dossier qu'il a désigné l'appelle à chercher ailleurs ; une tranche que
 l'application n'a pas su reproduire est un défaut de notre côté, à signaler. Les deux se ressemblaient
 autrefois sous un même décompte muet, qui ne disait à personne quoi faire.</p>
+<h3 id="copier-ou-laisser-les-fichiers-ou-ils-sont">Copier, ou laisser les fichiers où ils sont<a class="headerlink" href="#copier-ou-laisser-les-fichiers-ou-ils-sont" title="Permanent link">&para;</a></h3>
+<p>Refaire l'import à l'identique ne veut plus dire <strong>recopier</strong>. L'application <strong>observe</strong> désormais les
+fichiers de l'utilisateur au lieu de les <strong>posséder</strong> : elle ne les archive plus, ne les purge plus, ne
+les déplace plus. La réactivation demande donc <strong>ce qu'il faut faire du dossier désigné</strong> :</p>
+<ul>
+<li>s'il est <strong>hors</strong> de l'espace de travail - un serveur de fichiers, un disque externe, l'arborescence
+  habituelle de l'utilisateur -, ces fichiers sont <strong>les siens</strong> ; l'application propose de <strong>les laisser
+  où ils sont</strong> et de s'y référer, plutôt que d'en faire un doublon qu'il n'a pas demandé ;</li>
+<li>sinon, elle en garde sa propre copie, comme avant.</li>
+</ul>
+<p>La conséquence est <strong>dite avant</strong> le choix : une nuit <strong>référencée</strong> devient muette si son support n'est
+pas joignable (disque débranché, dossier réseau hors ligne), et le redevient d'elle-même dès qu'il
+revient - son identité étant revérifiée à chaque retour, jamais rebranchée sur la foi du seul chemin.
+Les tranches que l'application <strong>régénère</strong> depuis les bruts restent, elles, toujours copiées : elles
+sont produites par le produit, pas par l'utilisateur.</p>
 <h2 id="ne-pas-noyer-les-vues-site">Ne pas noyer les vues site<a class="headerlink" href="#ne-pas-noyer-les-vues-site" title="Permanent link">&para;</a></h2>
 <p>La synchro rapatrie <strong>tous</strong> les points du carré Vigie-Chiro (la grille STOC peut en compter des dizaines), pas seulement ceux que l'utilisateur exploite. Pour ne pas noyer les points <strong>réellement utilisés</strong> sous cette grille (<a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O5/">O5</a>), les vues site distinguent l'origine d'un point : <a href="../../Maquettes/M-Site-detail/">M-Site-detail</a> masque par défaut les points rapatriés <strong>sans passage</strong> (repliés derrière un « + N rapatrié(s) »), et <a href="../../Maquettes/M-Sites/">M-Sites</a> résume de même le bandeau des points. Un point rapatrié réapparaît dès qu'on s'en sert (un passage l'y rattache).</p>
 <h2 id="lien-avec-les-autres-parcours">Lien avec les autres parcours<a class="headerlink" href="#lien-avec-les-autres-parcours" title="Permanent link">&para;</a></h2>
