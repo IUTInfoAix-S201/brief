@@ -3160,7 +3160,13 @@
 <h3 id="annotations">Annotations<a class="headerlink" href="#annotations" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Barre de filtres (« à la Notion »)</strong> : un champ de <strong>recherche libre</strong> (fichier, espèce, commentaire) et un bouton <strong>« + Filtre »</strong> qui ajoute une <strong>puce</strong> parmi six critères combinés en ET : <em>Statut</em> (À revoir / Validée / Corrigée), <em>Groupe</em>, <em>Espèce</em>, <em>Références</em>, <em>Probabilité</em> (curseur), <em>Heure</em> (plage horaire de la nuit). Le tri et les filtres sont <strong>mémorisés</strong> d'une réouverture à l'autre.</li>
-<li><strong>Menu ☰</strong> (coin haut-droit) : actions selon la source. Source <strong>passage</strong> : <code>📥 Importer un CSV Tadarida…</code> (ou <code>🔁 Réimporter…</code>), <code>📤 Exporter _Vu…</code>, option <em>Inclure le mode de validation à l'export</em>. Source <strong>références</strong> : <code>📤 Exporter la bibliothèque…</code>. Toujours : <code>Colonnes…</code>, <code>🔊 Lecture automatique à la sélection</code>, <code>🔁 Lecture en boucle</code>.</li>
+<li><strong>Menu ☰</strong> (coin haut-droit) : il regroupe <strong>toutes</strong> les actions secondaires, variables selon la <strong>source</strong>. Ce n'est pas un menu court : il compte une douzaine d'entrées, réparties en groupes.<ul>
+<li><em>Navigation</em> : <code>🗺️ Voir sur la carte</code>, <code>Fiche de l'espèce</code>.</li>
+<li><em>Plateforme Vigie-Chiro</em> : <code>📥 Importer depuis Vigie-Chiro…</code>, <code>📤 Publier les corrections vers Vigie-Chiro…</code>, <code>Ouvrir les données sur Vigie-Chiro</code>.</li>
+<li><em>Import / export Tadarida</em> (source <strong>passage</strong>) : <code>📥 Importer un CSV Tadarida…</code> (ou <code>🔁 Réimporter…</code>), <code>📤 Exporter _Vu…</code> (+ option <em>Inclure le mode de validation</em>), <code>📤 Exporter les observations (CSV)…</code>. Source <strong>références</strong> : <code>📤 Exporter la bibliothèque…</code>.</li>
+<li><em>Toujours</em> : <code>Colonnes…</code>, <code>🔊 Lecture automatique à la sélection</code>, <code>🔁 Lecture en boucle</code>.</li>
+</ul>
+</li>
 <li><strong>Table des observations</strong> : une ligne par observation ; colonnes <strong>Fichier</strong>, <strong>Proposition Tadarida</strong> (verrouillée visible), <strong>Proba.</strong>, <strong>Votre taxon</strong> (« - » tant que non revue), <strong>Avis du validateur</strong>, <strong>Fréquence</strong>, <strong>Statut</strong>, <strong>⭐ référence</strong>, <strong>💬 commentaire</strong> (clic = édition en popup), <strong>🗣 fil</strong> (nombre de messages), plus <strong>FME</strong>, <strong>Fréq. terminale</strong>, <strong>Début</strong>, <strong>Durée</strong>, <strong>Votre certitude</strong>, <strong>Certitude du validateur</strong> (masquables). Les colonnes de <strong>contexte</strong> (Date/Heure/Passage/Carré/Point) sont <strong>masquées</strong> quand la source est un passage unique, <strong>affichées</strong> sinon.</li>
 <li><strong>Avis du validateur</strong> : le <strong>troisième avis</strong>. Tadarida <strong>propose</strong>, l'observateur <strong>corrige</strong>, et un validateur du MNHN <strong>tranche</strong>. Cette colonne rend visible ce dernier verdict, qui existait déjà dans les données et que l'écran <strong>ignorait</strong> : sans elle, l'application présente la correction de l'observateur comme le dernier mot, alors qu'un expert a pu la réviser. Le <strong>désaccord</strong> est mis en avant (badge rouge, ⚠) ; l'accord est discret (vert, ✓) ; l'absence d'avis se dit (« - pas encore d'avis »).</li>
 <li><strong>Cet avis est en lecture seule.</strong> L'observateur <strong>ne peut pas</strong> l'écrire : le serveur refuse (<code>403</code>) toute écriture des champs <code>validateur_*</code> par un compte <code>Observateur</code>. On l'affiche, on en discute - on ne le modifie pas.</li>
@@ -3224,8 +3230,8 @@
 <td>Menu de la ligne : Ouvrir le passage, fiche de l'espèce, <code>Validation ▸</code> (valider, corriger, certitude, référence, douteux), <code>Copier ▸</code>, <code>Colonnes…</code></td>
 </tr>
 <tr>
-<td>Menu <strong>☰ → Importer / Exporter</strong></td>
-<td>Import CSV Tadarida, export <code>_Vu</code> (passage), export bibliothèque (références)</td>
+<td>Menu <strong>☰</strong></td>
+<td>Actions <strong>plateforme</strong> (importer depuis / publier les corrections vers / ouvrir sur Vigie-Chiro), import CSV Tadarida, exports (<code>_Vu</code>, observations CSV, bibliothèque), navigation (carte, fiche espèce), colonnes, lecture</td>
 </tr>
 <tr>
 <td>Fil d'Ariane</td>
