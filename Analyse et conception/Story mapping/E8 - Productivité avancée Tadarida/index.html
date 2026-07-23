@@ -2813,6 +2813,10 @@
 <p><strong>Persona principal</strong> : Samuel exclusivement (Karim en bénéficie aussi par effet de bord, Marie n'en a pas l'usage).</p>
 <p><strong>Pré-requis</strong> : <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">E7</a> en place (<a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s1">E7.S1</a> à <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s7">E7.S7</a> au minimum).</p>
 <h2 id="e8s1">E8.S1 - Regrouper plusieurs passages successifs pour validation conjointe<a class="headerlink" href="#e8s1" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Non livré (cible COULD)</p>
+<p>Il n'existe ni service ni ViewModel de regroupement de nuits pour validation groupée (le test E2E du parcours le documente lui-même : « il n'existe aucun service ni ViewModel de regroupement »). L'axe d'inventaire <code>PAR_ESPECE</code> / <code>PAR_CARRE</code> existe par ailleurs, mais ce n'est pas la validation regroupée décrite ici.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a> (qui déploie un PR sur le même point pendant 4 nuits successives)</p>
 <p><strong>Je veux</strong> pouvoir sélectionner plusieurs passages successifs d'un même point et les valider ensemble dans une vue unifiée</p>
 <p><strong>Afin de</strong> ne pas re-valider la même espèce 4 fois si elle est présente toutes les nuits</p>
@@ -2832,6 +2836,10 @@
 <strong>Dépendances</strong> : <a href="../E5%20-%20Naviguer%20dans%20le%20volume%20multi-sites/#e5s2">E5.S2</a>, <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s2">E7.S2</a>, <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s4">E7.S4</a>, <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s6">E7.S6</a><br></p>
 <hr />
 <h2 id="e8s2">E8.S2 - Marquer des séquences comme référence et exporter une bibliothèque par espèce<a class="headerlink" href="#e8s2" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Partiellement livré</p>
+<p>Le marquage « séquence de référence » et l'export existent, mais les sons sont exportés <strong>à plat</strong> dans un dossier unique, accompagnés d'un CSV récapitulatif où le taxon est une colonne. Ils ne sont <strong>pas</strong> rangés en <strong>arborescence de sous-dossiers par taxon</strong> (cf. <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r32">R32</a>).</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a> (qui forme un débutant)</p>
 <p><strong>Je veux</strong> pouvoir marquer certaines observations validées comme « séquence de référence » et générer un dossier organisé par espèce avec mes meilleurs exemples</p>
 <p><strong>Afin de</strong> transmettre une bibliothèque pédagogique exploitable à un débutant ou pour mon propre usage</p>

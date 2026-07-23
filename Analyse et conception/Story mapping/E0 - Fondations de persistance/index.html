@@ -3000,6 +3000,10 @@
 <strong>Dépendances</strong> : <a href="#e0s1">E0.S1</a>, <a href="#e0s3">E0.S3</a><br></p>
 <hr />
 <h2 id="e0s6">E0.S6 - Reprendre un import interrompu<a class="headerlink" href="#e0s6" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Non livré (cible)</p>
+<p>Il n'y a pas de file d'attente d'import persistée à reprendre au démarrage. La reprise d'un import interrompu est <strong>idempotente</strong> (re-scan qui saute les fichiers déjà copiés, #231), déclenchée par un <strong>relancement manuel</strong> : rien n'est notifié à l'ouverture de l'application.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Marie/">Marie</a></p>
 <p><strong>Je veux</strong> que mon import de nuit, s'il est interrompu (crash, fermeture inopinée, batterie à plat), puisse reprendre là où il s'est arrêté</p>
 <p><strong>Afin de</strong> ne pas avoir à tout recommencer si quelque chose se passe mal</p>

@@ -2866,6 +2866,10 @@
 <p><strong>Persona principal</strong> : Karim et Samuel (Marie reste sur 1 site et n'a pas besoin de la majorité des stories de cette épopée).</p>
 <p><strong>Pré-requis</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s2">E0.S2</a>, <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a>, <a href="../E1%20-%20G%C3%A9rer%20ses%20sites%20et%20points%20de%20suivi/">E1</a> (sites/points déclarés), <a href="../E2%20-%20Importer%20et%20transformer%20une%20nuit/">E2</a> (passages importés).</p>
 <h2 id="e5s1">E5.S1 - Vue arborescente des sites avec compteurs de passages par point<a class="headerlink" href="#e5s1" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Non livré (cible)</p>
+<p>L'application n'a <strong>pas</strong> de vue arborescente (aucun <code>TreeView</code> dans le code) : le volume multi-sites se parcourt par la <strong>vue tabulaire</strong> (<a href="#e5s2">E5.S2</a>), livrée. Les critères ci-dessous décrivent la cible.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Karim/">Karim</a></p>
 <p><strong>Je veux</strong> voir tous mes sites de suivi sous forme d'arbre où chaque site se déplie en points d'écoute, et chaque point affiche le nombre de passages cette saison + l'état du dernier passage</p>
 <p><strong>Afin de</strong> voir d'un coup d'œil où j'en suis sur chaque site et identifier les points qui n'ont pas encore été utilisés</p>
@@ -2926,6 +2930,10 @@
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a>, <a href="#e5s2">E5.S2</a><br></p>
 <hr />
 <h2 id="e5s4">E5.S4 - Actions de masse sur une sélection de passages<a class="headerlink" href="#e5s4" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Non livré (cible)</p>
+<p>Il n'existe ni sélection multiple de passages, ni actions de masse (verdict ou suppression en lot, saisie de « SUPPRIMER », journal d'opérations). La seule multi-sélection du code sert la <strong>revue d'observations audio</strong> (<a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">E7</a>), pas cette story : suppression et verdict restent <strong>unitaires</strong>.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
 <p><strong>Je veux</strong> pouvoir sélectionner plusieurs passages dans la vue tabulaire et leur appliquer une action commune (changer le verdict, supprimer, exporter)</p>
 <p><strong>Afin de</strong> ne pas être obligé d'ouvrir chaque passage individuellement quand je veux faire le même traitement sur un lot</p>
@@ -2944,6 +2952,10 @@
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a>, <a href="#e5s2">E5.S2</a><br></p>
 <hr />
 <h2 id="e5s5">E5.S5 - Import groupé de plusieurs dossiers SD à la suite<a class="headerlink" href="#e5s5" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Non livré (cible)</p>
+<p>Pas de file d'attente d'import persistée ni de panneau « File d'attente ». Ce qui existe : une reprise <strong>idempotente fichier par fichier</strong> au <strong>relancement manuel</strong> (#231), sans mise en file ni notification au démarrage. Dépend de <a href="../E0%20-%20Fondations%20de%20persistance/#e0s6">E0.S6</a>, également non livrée.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Karim/">Karim</a> (qui revient d'une semaine de terrain avec 5 cartes SD)</p>
 <p><strong>Je veux</strong> pouvoir lancer en une seule fois l'import de plusieurs dossiers SD et que l'application les traite en file d'attente</p>
 <p><strong>Afin de</strong> ne pas avoir à attendre la fin d'un import pour démarrer le suivant et pouvoir tout lancer puis aller faire autre chose</p>

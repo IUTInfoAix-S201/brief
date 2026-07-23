@@ -2901,6 +2901,10 @@
 <strong>Dépendances</strong> : <a href="../E2%20-%20Importer%20et%20transformer%20une%20nuit/#e2s1">E2.S1</a>, <a href="../E2%20-%20Importer%20et%20transformer%20une%20nuit/#e2s4">E2.S4</a><br></p>
 <hr />
 <h2 id="e6s2">E6.S2 - Visualiser le niveau de batterie et lister les évènements anormaux<a class="headerlink" href="#e6s2" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Partiellement livré</p>
+<p>La <strong>liste des anomalies</strong> et la <strong>liste des évènements</strong> du journal sont bien affichées dans l'onglet Diagnostic (<code>listeAnomalies</code>, <code>listeEvenements</code>), et une anomalie « batterie faible » (seuil 20 %) y figure. En revanche, l'<strong>encart « Batterie »</strong> (tension au démarrage, à la veille, delta) <strong>n'est pas livré</strong> : le code ne calcule ni n'affiche de tension.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Karim/">Karim</a></p>
 <p><strong>Je veux</strong> voir le niveau de batterie du PR au début et à la fin de la nuit, ainsi que la liste des évènements techniques anormaux qui se sont produits (réveils non programmés, erreurs SD, redémarrages, alerte batterie critique)</p>
 <p><strong>Afin de</strong> identifier rapidement les passages où le matériel a eu un comportement inattendu et décider s'il faut intervenir</p>
@@ -2947,6 +2951,10 @@
 <strong>Dépendances</strong> : <a href="../E1%20-%20G%C3%A9rer%20ses%20sites%20et%20points%20de%20suivi/#e1s3">E1.S3</a>, <a href="../E2%20-%20Importer%20et%20transformer%20une%20nuit/#e2s1">E2.S1</a>, <a href="#e6s2">E6.S2</a><br></p>
 <hr />
 <h2 id="e6s4">E6.S4 - Comparer le diagnostic avec un passage précédent du même enregistreur<a class="headerlink" href="#e6s4" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Non livré (cible)</p>
+<p>Pas de comparaison de deux passages : le graphe climatique du Diagnostic ne trace qu'<strong>un seul passage</strong>. Aucun sélecteur de passage à comparer, aucune courbe superposée.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Karim/">Karim</a></p>
 <p><strong>Je veux</strong> afficher côte à côte le diagnostic d'un passage et celui d'un passage antérieur du même enregistreur</p>
 <p><strong>Afin de</strong> repérer une dérive sur la durée (batterie qui faiblit nuit après nuit, sonde climatique qui décale) sans avoir à ouvrir 2 fenêtres et comparer mentalement</p>
@@ -2964,6 +2972,10 @@
 <strong>Dépendances</strong> : <a href="#e6s1">E6.S1</a>, <a href="#e6s2">E6.S2</a><br></p>
 <hr />
 <h2 id="e6s5">E6.S5 - Exporter le diagnostic d'un passage en CSV ou PDF<a class="headerlink" href="#e6s5" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Partiellement livré</p>
+<p>L'export du diagnostic produit <strong>du CSV uniquement</strong> (pas de PDF), en <strong>deux fichiers séparés</strong> (série climatique + anomalies), et <strong>seulement en ligne de commande</strong> (<code>diagnostiquer --csv ...</code>) : aucun bouton d'export dans l'IHM.</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Karim/">Karim</a></p>
 <p><strong>Je veux</strong> pouvoir exporter le rapport de diagnostic d'une nuit dans un fichier autonome (CSV pour traitement ou PDF pour archive/partage)</p>
 <p><strong>Afin de</strong> transmettre ce diagnostic à un fabricant en cas de SAV, ou l'archiver dans mon rapport client</p>
@@ -2988,6 +3000,10 @@
 <strong>Dépendances</strong> : <a href="#e6s1">E6.S1</a>, <a href="#e6s2">E6.S2</a><br></p>
 <hr />
 <h2 id="e6s6">E6.S6 - Détecter automatiquement un paramétrage de nuit anormal<a class="headerlink" href="#e6s6" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Non livré (cible)</p>
+<p>Le pré-check affiche <strong>trois feux</strong> (couverture horaire, nombre de fichiers, cohérence de renommage). Le 4ᵉ indicateur « paramétrage atypique » n'existe pas (aucune occurrence de « atypique » dans le code).</p>
+</div>
 <p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a> ou <a href="../../Personas/Karim/">Karim</a></p>
 <p><strong>Je veux</strong> que l'application analyse le journal du capteur (<code>LogPR&lt;n&gt;.txt</code>) à l'import et m'alerte si les paramètres d'acquisition de la nuit s'écartent fortement d'un référentiel attendu (fréquence d'échantillonnage hors-norme, gain extrême, bande de fréquences atypique, période d'enregistrement très courte ou très longue, sensibilité de déclenchement très basse, etc.)</p>
 <p><strong>Afin de</strong> repérer immédiatement une nuit potentiellement ratée par mauvais paramétrage du PR, sans attendre de découvrir le problème en aval (au moment d'écouter les sons ou de recevoir le retour Tadarida).</p>
