@@ -2825,7 +2825,7 @@
 
 
 <h1 id="c13-observation">C13 - Observation<a class="headerlink" href="#c13-observation" title="Permanent link">&para;</a></h1>
-<p>Une ligne du fichier de résultats. Une <strong>séquence d'écoute peut générer plusieurs observations</strong> : Tadarida produit 1 ligne par espèce distincte identifiée dans la séquence, avec son timing début/fin précis dans la séquence.</p>
+<p>Une détection dans une séquence d'écoute. Une <strong>séquence peut en générer plusieurs</strong> : Tadarida produit 1 ligne par espèce distincte identifiée, avec son timing début/fin précis. Sur une même détection, <strong>trois avis peuvent coexister</strong> : Tadarida <strong>propose</strong> (<code>taxon Tadarida</code>), l'observateur <strong>corrige</strong> (<code>taxon observateur</code> + certitude), et le validateur MNHN <strong>tranche</strong> (<code>taxon validateur</code>, en lecture seule) ; un <strong>fil de discussion</strong> peut s'y greffer. Une observation peut aussi être <strong>créée à la main</strong> sur une séquence que Tadarida n'a pas identifiée (elle n'a alors pas de <code>taxon Tadarida</code>).</p>
 <table>
 <thead>
 <tr>
@@ -2914,6 +2914,36 @@
 <td><code>manuel</code> | <code>auto</code> | <code>null</code> (défaut)</td>
 <td>Trace comment le <code>taxon observateur</code> a été établi : saisie utilisateur explicite (<code>manuel</code>), propagation automatique par le mode inventaire (<code>auto</code>), ou pas encore validé (<code>null</code>). Cf. <a href="../R%C3%A8gles%20m%C3%A9tier/#r24">R24</a>.</td>
 </tr>
+<tr>
+<td>douteuse</td>
+<td>booléen</td>
+<td>par défaut <code>false</code></td>
+<td>Drapeau « à repasser » posé par l'observateur (<code>is_doubtful</code>, #160). Distinct de « pas encore vue » : la détection a été regardée, mais laissée en suspens.</td>
+</tr>
+<tr>
+<td>taxon validateur</td>
+<td>référence</td>
+<td>optionnel</td>
+<td>Taxon <strong>tranché par l'expert MNHN</strong> (<code>taxon_validator</code>, #1417). <strong>Lecture seule</strong> : le serveur refuse l'écriture depuis un jeton d'observateur.</td>
+</tr>
+<tr>
+<td>certitude validateur</td>
+<td>énum</td>
+<td><code>SUR</code> | <code>PROBABLE</code> | <code>POSSIBLE</code> | <code>null</code></td>
+<td>Certitude déclarée par le validateur (<code>validator_certainty</code>), même domaine que la certitude observateur. Lecture seule.</td>
+</tr>
+<tr>
+<td>identifiant donnée plateforme</td>
+<td>texte</td>
+<td>optionnel</td>
+<td><code>_id</code> de la donnée côté serveur (<code>vigiechiro_data_id</code>), acquis à l'ancrage.</td>
+</tr>
+<tr>
+<td>indice observation plateforme</td>
+<td>entier</td>
+<td>optionnel</td>
+<td>Position <strong>brute</strong> de l'observation dans le tableau <code>observations</code> du serveur (<code>vigiechiro_obs_index</code>) : c'est la <strong>cible du PATCH</strong> de correction.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="regles-applicables">Règles applicables<a class="headerlink" href="#regles-applicables" title="Permanent link">&para;</a></h2>
@@ -2927,8 +2957,9 @@
 <h2 id="voisins-dans-le-modele">Voisins dans le modèle<a class="headerlink" href="#voisins-dans-le-modele" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Détectée dans</strong> 1 <a href="../C8%20-%20S%C3%A9quence%20d%27%C3%A9coute/">Séquence d'écoute</a>.</li>
-<li><strong>Classée comme</strong> 1 <a href="../C14%20-%20Taxon/">Taxon</a>.</li>
-<li><strong>Agrégée par</strong> 1 <a href="../C12%20-%20R%C3%A9sultats%20d%27identification/">Résultats d'identification</a>.</li>
+<li><strong>Classée comme</strong> 0..1 <a href="../C14%20-%20Taxon/">Taxon</a> : le <code>taxon Tadarida</code> est <strong>nullable</strong> depuis l'observation manuelle (une détection créée à la main n'en a pas). L'observation porte en outre jusqu'à <strong>trois</strong> références de taxon (Tadarida, observateur, validateur).</li>
+<li><strong>Agrégée par</strong> 0..1 <a href="../C12%20-%20R%C3%A9sultats%20d%27identification/">Résultats d'identification</a> : <code>results_id</code> est <strong>nullable</strong> ; une observation manuelle n'appartient à aucun jeu de résultats.</li>
+<li><strong>Discutée par</strong> 0..N <strong>Message</strong> (table <code>observation_message</code>, #1417) : le fil d'échange avec le validateur MNHN, ordonné, chaque message portant l'auteur (identifiant plateforme) et sa date.</li>
 </ul>
 <h2 id="retour">Retour<a class="headerlink" href="#retour" title="Permanent link">&para;</a></h2>
 <ul>

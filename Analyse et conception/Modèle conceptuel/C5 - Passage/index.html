@@ -2875,8 +2875,8 @@
 <tr>
 <td>statut d'avancement</td>
 <td>énum</td>
-<td><code>Importé</code> / <code>Transformé</code> / <code>Vérifié</code> / <code>Prêt à déposer</code> / <code>Déposé</code></td>
-<td>Progression de la chaîne pré-VigieChiro.</td>
+<td><code>Importé</code> / <code>Transformé</code> / <code>Vérifié</code> / <code>Prêt à déposer</code> / <strong><code>Dépôt en cours</code></strong> / <code>Déposé</code></td>
+<td>Progression de la chaîne. <strong><code>Dépôt en cours</code></strong> est né du dépôt par API : le téléversement a commencé et est <strong>reprenable</strong> (cf. voisins ci-dessous). Le passage ne devient <code>Déposé</code> que lorsque toutes les unités sont en ligne.</td>
 </tr>
 <tr>
 <td>verdict final de vérification</td>
@@ -2921,6 +2921,10 @@
 <li><strong>Produit</strong> exactement 1 <a href="../C6%20-%20Session%20d%27enregistrement/">Session d'enregistrement</a>.</li>
 <li><strong>À vérifier par</strong> 0..1 <a href="../C11%20-%20S%C3%A9lection%20d%27%C3%A9coute/">Sélection d'écoute</a>.</li>
 <li><strong>Annoté par</strong> 0..1 <a href="../C12%20-%20R%C3%A9sultats%20d%27identification/">Résultats d'identification</a>.</li>
+<li><strong>Déployé avec</strong> 0..1 <strong>Matériel micro</strong> (table <code>passage_equipment</code>, 1:1) : position (sol / canopée), hauteur, type de micro <strong>de cette nuit-là</strong>. L'information micro a migré de l'enregistreur vers le déploiement d'un passage (EPIC #543).</li>
+<li><strong>Déposé par</strong> 0..N <strong>Unité de dépôt</strong> (table <code>depot_unite</code>) et 0..1 <strong>Plan de dépôt</strong> (<code>depot_plan</code>) : le dépôt reprenable, unité par unité (archive ZIP ou séquence WAV), avec l'empreinte de la liste source. Support de l'état <code>Dépôt en cours</code>.</li>
+<li><strong>Traité par</strong> 0..1 <strong>Traitement de participation</strong> (table <code>participation_traitement</code>) : l'<strong>état relevé</strong> du calcul Tadarida côté serveur (planifié / en cours / fini / erreur), avec la date de notre dernière lecture. C'est un <strong>cache d'observation</strong>, jamais faisant autorité.</li>
+<li><strong>Ancré par</strong> 0..1 <a href="../">Lien VigieChiro</a> (<code>vigiechiro_link</code>, entité <code>passage</code>) : l'<code>_id</code> de la <strong>participation</strong> créée au dépôt, prérequis de l'import des résultats.</li>
 </ul>
 <h2 id="retour">Retour<a class="headerlink" href="#retour" title="Permanent link">&para;</a></h2>
 <ul>

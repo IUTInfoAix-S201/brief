@@ -2843,6 +2843,18 @@
 <td>Suit la vie matérielle du micro (utile pour repérer une dérive après remplacement).</td>
 </tr>
 <tr>
+<td>date de retrait</td>
+<td>date</td>
+<td>optionnel</td>
+<td>Fin de service du micro (<code>decommissioned_at</code>), typiquement après un remplacement.</td>
+</tr>
+<tr>
+<td>actif</td>
+<td>booléen</td>
+<td>par défaut <code>true</code></td>
+<td>Micro actuellement monté (<code>is_active</code>). La table <strong>historise</strong> les micros : un seul <code>actif</code> par enregistreur, les précédents sont conservés avec leur date de retrait.</td>
+</tr>
+<tr>
 <td>commentaire libre</td>
 <td>texte</td>
 <td>optionnel</td>

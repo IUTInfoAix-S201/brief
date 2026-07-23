@@ -2805,8 +2805,8 @@
 <td><a href="../C1%20-%20Utilisateur/">Utilisateur</a></td>
 <td>possède</td>
 <td><a href="../C2%20-%20Site%20de%20suivi/">Site de suivi</a></td>
-<td>1..*</td>
-<td>Marie en a 1, Karim 2-3, Samuel 36+</td>
+<td>0..*</td>
+<td>aucun sur une installation neuve, puis 1 (Marie) à 36+ (Samuel)</td>
 </tr>
 <tr>
 <td><a href="../C2%20-%20Site%20de%20suivi/">Site de suivi</a></td>
@@ -2833,8 +2833,15 @@
 <td><a href="../C4%20-%20Enregistreur/">Enregistreur</a></td>
 <td>porte</td>
 <td><a href="../C4bis%20-%20Micro/">Micro</a></td>
-<td>1..1</td>
-<td>un PR a un micro courant ; un changement de micro = mise à jour de cette association</td>
+<td>0..*</td>
+<td>les micros sont <strong>historisés</strong> : un seul <strong>actif</strong> à la fois, les précédents restent avec leur date de retrait</td>
+</tr>
+<tr>
+<td><a href="../C5%20-%20Passage/">Passage</a></td>
+<td>déployé avec</td>
+<td>Matériel micro (<code>passage_equipment</code>)</td>
+<td>0..1</td>
+<td>position (sol / canopée), hauteur, type de micro <strong>de cette nuit-là</strong> (EPIC #543)</td>
 </tr>
 <tr>
 <td><a href="../C5%20-%20Passage/">Passage</a></td>
@@ -2897,14 +2904,14 @@
 <td>annoté par</td>
 <td><a href="../C12%20-%20R%C3%A9sultats%20d%27identification/">Résultats d'identification</a></td>
 <td>0..1</td>
-<td>rempli après retour Tadarida (SHOULD)</td>
+<td>rempli après retour Tadarida (importés par l'API ou par CSV)</td>
 </tr>
 <tr>
 <td><a href="../C12%20-%20R%C3%A9sultats%20d%27identification/">Résultats d'identification</a></td>
 <td>agrège</td>
 <td><a href="../C13%20-%20Observation/">Observation</a></td>
 <td>1..*</td>
-<td>plusieurs milliers par fichier de résultats</td>
+<td>plusieurs milliers par jeu de résultats ; côté observation, <code>results_id</code> est <strong>nullable</strong> (0..1 : une observation manuelle n'appartient à aucun jeu)</td>
 </tr>
 <tr>
 <td><a href="../C13%20-%20Observation/">Observation</a></td>
@@ -2917,8 +2924,8 @@
 <td><a href="../C13%20-%20Observation/">Observation</a></td>
 <td>classée comme</td>
 <td><a href="../C14%20-%20Taxon/">Taxon</a></td>
-<td>1..1</td>
-<td>au moment de l'import du fichier de résultats</td>
+<td>0..1</td>
+<td><code>taxon Tadarida</code> <strong>nullable</strong> (observation manuelle) ; jusqu'à <strong>3</strong> taxons portés (Tadarida, observateur, validateur)</td>
 </tr>
 <tr>
 <td><a href="../C14%20-%20Taxon/">Taxon</a></td>
@@ -2926,6 +2933,41 @@
 <td><a href="../C15%20-%20Groupe%20taxonomique/">Groupe taxonomique</a></td>
 <td>1..1</td>
 <td>exemple : Pippip → Pipistrellus → Vespertilionidae</td>
+</tr>
+<tr>
+<td><a href="../C13%20-%20Observation/">Observation</a></td>
+<td>discutée par</td>
+<td>Message (<code>observation_message</code>)</td>
+<td>0..*</td>
+<td>fil d'échange avec le validateur MNHN, ordonné (#1417)</td>
+</tr>
+<tr>
+<td><a href="../C5%20-%20Passage/">Passage</a></td>
+<td>déposé par</td>
+<td>Unité de dépôt (<code>depot_unite</code>)</td>
+<td>0..*</td>
+<td>dépôt reprenable, une unité par archive ZIP ou séquence WAV</td>
+</tr>
+<tr>
+<td><a href="../C5%20-%20Passage/">Passage</a></td>
+<td>planifié par</td>
+<td>Plan de dépôt (<code>depot_plan</code>)</td>
+<td>0..1</td>
+<td>empreinte de la liste source ordonnée</td>
+</tr>
+<tr>
+<td><a href="../C5%20-%20Passage/">Passage</a></td>
+<td>traité par</td>
+<td>Traitement de participation (<code>participation_traitement</code>)</td>
+<td>0..1</td>
+<td>état relevé du calcul Tadarida serveur (cache)</td>
+</tr>
+<tr>
+<td>Site / Taxon / Passage</td>
+<td>ancré par</td>
+<td>Lien VigieChiro (<code>vigiechiro_link</code>)</td>
+<td>0..1</td>
+<td>correspondance entre l'objet local et son <code>_id</code> plateforme (+ verrou du site)</td>
 </tr>
 </tbody>
 </table>

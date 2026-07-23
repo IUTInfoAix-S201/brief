@@ -2883,6 +2883,24 @@
 <td>par défaut <code>false</code></td>
 <td>Mis à <code>true</code> si la séquence est sélectionnée pour la vérification d'enregistrement.</td>
 </tr>
+<tr>
+<td>horodatage de capture</td>
+<td>texte (ISO)</td>
+<td>optionnel</td>
+<td>Heure réelle de capture (<code>recorded_at</code>), extraite du nom de fichier : permet le tri et le filtre par heure de la nuit.</td>
+</tr>
+<tr>
+<td>taille</td>
+<td>entier (octets)</td>
+<td>optionnel</td>
+<td><code>size_bytes</code> : preuve d'identité à la réactivation d'un passage archivé.</td>
+</tr>
+<tr>
+<td>empreinte de contenu</td>
+<td>hex</td>
+<td>optionnel</td>
+<td>SHA-256 des 64 premiers Kio (<code>content_fingerprint</code>) : preuve que la séquence régénérée est bien l'originale (transformation déterministe, R11).</td>
+</tr>
 </tbody>
 </table>
 <h2 id="regles-applicables">Règles applicables<a class="headerlink" href="#regles-applicables" title="Permanent link">&para;</a></h2>

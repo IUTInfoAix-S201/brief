@@ -2728,6 +2728,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#tables-du-schema-non-modelisees-comme-entites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tables du schéma non modélisées comme entités
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#autres-fiches" class="md-nav__link">
     <span class="md-ellipsis">
       Autres fiches
@@ -2776,7 +2785,7 @@
 <p>Ce document pose le <strong>vocabulaire</strong>, le <strong>modèle de données</strong> et les <strong>règles métier</strong> sur lesquels s'aligne tout le reste du dossier d'analyse et de conception. Toute évolution du brief qui touche ces concepts doit être répercutée ici <strong>avant</strong> de s'attaquer aux parcours, aux stories ou aux maquettes.</p>
 <blockquote>
 <p>Convention de nommage : les noms d'entités, d'attributs et de statuts adoptés ici sont <strong>les noms qui doivent apparaître dans l'IHM</strong>. On évite à dessein le jargon technique (formats de fichiers, sigles, anglicismes) pour ne pas rendre l'application illisible aux utilisateurs cibles (<a href="../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O2/">O2 - Facilité d'apprentissage</a>, <a href="../../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC1/">SC1 - Onboarding</a>).</p>
-<p>🛈 <strong>Statut</strong> : la <strong>structure</strong> des entités et de leurs associations est validée. Les <strong>attributs</strong> détaillés (types précis, contraintes, valeurs énumérées) restent à affiner au fil des étapes suivantes (parcours, stories, maquettes) en fonction des besoins concrets qui émergeront.</p>
+<p>🛈 <strong>Statut</strong> : la <strong>structure</strong> des entités métier est stabilisée. Le schéma physique a depuis gagné des tables d'<strong>intégration plateforme</strong> (ancrage, dépôt reprenable, traitement, discussion avec le validateur), listées en fin de sommaire et rattachées aux fiches par leurs <em>voisins</em>.</p>
 </blockquote>
 <h2 id="vue-densemble">Vue d'ensemble<a class="headerlink" href="#vue-densemble" title="Permanent link">&para;</a></h2>
 <p>L'application <em>VigieChiro Companion</em> organise les données autour d'un utilisateur unique (mono-utilisateur, hors-ligne). Cet utilisateur déclare un ou plusieurs <strong>sites de suivi</strong>, chaque site contenant un ou plusieurs <strong>points d'écoute</strong>. Sur chaque point, il réalise des <strong>passages</strong> (= une nuit complète d'enregistrement). Chaque passage produit une <strong>session d'enregistrement</strong> : les enregistrements originaux copiés depuis la SD, les séquences d'écoute (découpées en tranches de 5 s réelles, puis ralenties ×10) prêtes à être déposées sur Vigie-Chiro, ainsi que le journal du capteur et le relevé climatique de l'enregistreur utilisé.</p>
@@ -2788,7 +2797,7 @@
 </figure>
 <p><a class="md-button" href="Diagramme%20-%20plein%20%C3%A9cran/">🖼️ Ouvrir le diagramme dans une vue plein écran ↗</a></p>
 <p>Ce diagramme est un <strong>MCD</strong> (modèle conceptuel de données, méthode <strong>Merise</strong>) : il fixe le <strong>vocabulaire métier</strong> et la <strong>topologie des associations</strong>, sans préjuger de l'implémentation. Les clés étrangères n'y figurent pas : elles sont <em>portées par les associations</em>, et les cardinalités se lisent en <strong>(minimum, maximum)</strong> sur chaque patte. Vous re-spécifierez les classes Java de votre implémentation séparément (typage, méthodes, héritages selon vos choix d'architecture), et sa traduction relationnelle ajoutera les clés primaires et étrangères.</p>
-<p>Le diagramme rend visible la <strong>séparation entre deux moments du cycle</strong> : la chaîne <code>Passage → Session d'enregistrement → Séquence d'écoute → Sélection d'écoute</code> (avant le dépôt VigieChiro, MUST du MVP), puis la chaîne <code>Résultats d'identification → Observation → Taxon</code> (après le retour Tadarida, SHOULD/cible étirable).</p>
+<p>Le diagramme rend visible la <strong>séparation entre deux moments du cycle</strong> : la chaîne <code>Passage → Session d'enregistrement → Séquence d'écoute → Sélection d'écoute</code> (avant le dépôt VigieChiro, MUST du MVP), puis la chaîne <code>Résultats d'identification → Observation → Taxon</code> (après le retour Tadarida), <strong>livrée</strong>, avec la validation par l'observateur, l'avis du validateur MNHN et l'ancrage plateforme.</p>
 <h2 id="sommaire-des-fiches">Sommaire des fiches<a class="headerlink" href="#sommaire-des-fiches" title="Permanent link">&para;</a></h2>
 <p>Le modèle conceptuel est éclaté en plusieurs fiches pour rester lisible. Chaque fiche est accessible depuis la barre latérale ; les liens ci-dessous servent de table des matières.</p>
 <h3 id="entites">Entités<a class="headerlink" href="#entites" title="Permanent link">&para;</a></h3>
@@ -2804,7 +2813,7 @@
 <tr>
 <td>C1</td>
 <td><a href="C1%20-%20Utilisateur/">Utilisateur</a></td>
-<td>L'unique utilisateur de l'app (mono-utilisateur, hors-ligne).</td>
+<td>L'unique utilisateur de l'app (mono-poste, connecté à Vigie-Chiro par jeton).</td>
 </tr>
 <tr>
 <td>C2</td>
@@ -2864,7 +2873,7 @@
 <tr>
 <td>C12</td>
 <td><a href="C12%20-%20R%C3%A9sultats%20d%27identification/">Résultats d'identification</a></td>
-<td>Fichier Tadarida (post-dépôt, SHOULD).</td>
+<td>Résultats Tadarida (post-dépôt), importés par l'API ou par CSV.</td>
 </tr>
 <tr>
 <td>C13</td>
@@ -2883,10 +2892,58 @@
 </tr>
 </tbody>
 </table>
+<h3 id="tables-du-schema-non-modelisees-comme-entites">Tables du schéma non modélisées comme entités<a class="headerlink" href="#tables-du-schema-non-modelisees-comme-entites" title="Permanent link">&para;</a></h3>
+<p>Le diagramme ci-dessus est <strong>conceptuel</strong> : il ne porte que les entités métier. Le schéma physique (migrations <code>V01</code> → <code>V30</code>) contient en plus des tables <strong>d'intégration plateforme</strong> et <strong>techniques</strong>, décrites dans les <em>voisins</em> des fiches concernées :</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Rôle</th>
+<th>Où elle apparaît</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vigiechiro_link</code></td>
+<td>correspondance objet local ↔ <code>_id</code> plateforme (<code>site</code> / <code>taxon</code> / <code>passage</code>) + verrou du site</td>
+<td>voisins de <a href="C2%20-%20Site%20de%20suivi/">C2</a>, <a href="C5%20-%20Passage/">C5</a></td>
+</tr>
+<tr>
+<td><code>passage_equipment</code></td>
+<td>matériel micro <strong>du déploiement d'une nuit</strong> (1:1 passage)</td>
+<td>voisin de <a href="C5%20-%20Passage/">C5</a></td>
+</tr>
+<tr>
+<td><code>depot_unite</code>, <code>depot_plan</code></td>
+<td>dépôt <strong>reprenable</strong>, unité par unité, + empreinte de la liste source</td>
+<td>voisins de <a href="C5%20-%20Passage/">C5</a></td>
+</tr>
+<tr>
+<td><code>participation_traitement</code></td>
+<td><strong>état relevé</strong> du calcul Tadarida serveur (cache d'observation)</td>
+<td>voisin de <a href="C5%20-%20Passage/">C5</a></td>
+</tr>
+<tr>
+<td><code>observation_message</code></td>
+<td><strong>fil de discussion</strong> avec le validateur MNHN</td>
+<td>voisin de <a href="C13%20-%20Observation/">C13</a></td>
+</tr>
+<tr>
+<td><code>saved_filter_view</code>, <code>column_layout</code>, <code>app_setting</code></td>
+<td><strong>tables techniques</strong> : vues de filtres, disposition des colonnes, réglages</td>
+<td>persistance d'IHM et de préférences, hors modèle métier</td>
+</tr>
+<tr>
+<td><code>saved_view</code></td>
+<td><strong>table morte</strong> : créée en <code>V01</code>, remplacée par <code>saved_filter_view</code> (<code>V11</code>), plus référencée par le code</td>
+<td>à retirer</td>
+</tr>
+</tbody>
+</table>
 <h3 id="autres-fiches">Autres fiches<a class="headerlink" href="#autres-fiches" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="Cardinalit%C3%A9s/">Cardinalités</a> - tableau récapitulatif des cardinalités d'association.</li>
-<li><a href="R%C3%A8gles%20m%C3%A9tier/">Règles métier</a> - les 24 règles <strong>R1</strong> à <strong>R24</strong> (validations, conventions, cycle de vie).</li>
+<li><a href="R%C3%A8gles%20m%C3%A9tier/">Règles métier</a> - les règles <strong>R1</strong> à <strong>R32</strong> (validations, conventions, cycle de vie).</li>
 <li><a href="Glossaire%20m%C3%A9tier/">Glossaire métier</a> - vocabulaire utilisateur (site, carré, passage, session d'enregistrement, séquence d'écoute, verdict…).</li>
 <li><a href="Glossaire%20outils/">Glossaire des outils &amp; ressources externes</a> - Lupas Rename, Kaléidoscope, Tadarida, Chirosurf, vigiechiro.herokuapp.com, etc.</li>
 </ul>
