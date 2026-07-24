@@ -2880,7 +2880,7 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>Colonnes vestigiales.</strong> Le schéma porte encore <code>archived_at</code> (V24) et <code>originals_purged_at</code> (V25), destinées à tracer un archivage et une purge des bruts. Ces gestes ont été <strong>retirés</strong> (ADR 0048 : « l'application observe, elle ne possède pas ») : les deux colonnes ne sont plus <strong>ni lues ni écrites</strong>.</p>
+<p><strong>Colonnes retirées.</strong> Le schéma a porté <code>archived_at</code> (V24) et <code>originals_purged_at</code> (V25), destinées à tracer un archivage et une purge des bruts. Ces gestes ont été <strong>retirés</strong> (ADR 0048 : « l'application observe, elle ne possède pas ») : n'étant plus ni lues ni écrites, les deux colonnes ont été <strong>supprimées du schéma</strong> par <code>V31</code> (#2429).</p>
 </blockquote>
 <h2 id="regles-applicables">Règles applicables<a class="headerlink" href="#regles-applicables" title="Permanent link">&para;</a></h2>
 <ul>
