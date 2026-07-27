@@ -2713,6 +2713,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#deux-regles-nees-de-lusage-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deux règles nées de l'usage réel
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2862,6 +2871,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#deux-regles-nees-de-lusage-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deux règles nées de l'usage réel
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2981,8 +2999,6 @@
   <rect x="46" y="362" width="11" height="11" rx="2" fill="#ffffff" stroke="#c4ccd4"/><text x="66" y="372" class="filt-off">Plesp</text><text x="226" y="372" class="filt-num">13</text>
   <rect x="46" y="386" width="11" height="11" rx="2" fill="#ffffff" stroke="#c4ccd4"/><text x="66" y="396" class="filt-off">Barbar</text><text x="226" y="396" class="filt-num">9</text>
 
-  <rect x="44" y="418" width="60" height="22" rx="3" class="ctrl"/><text x="74" y="433" class="ctrl-txt">Top 5</text>
-  <rect x="112" y="418" width="60" height="22" rx="3" class="ctrl"/><text x="142" y="433" class="ctrl-txt">Aucune</text>
   <rect x="44" y="450" width="128" height="22" rx="3" class="ctrl"/><text x="108" y="465" class="ctrl-txt">Réinitialiser</text>
 
   <!-- En-tete du graphe -->
@@ -3027,13 +3043,10 @@
   <polyline class="s2" points="310,416 334,416 359,409 383,402 408,389 432,370 457,344 482,312 506,286 531,293 556,312 580,331 605,350 630,370 654,383 679,389 704,396 728,402 753,402 777,409 802,409 827,409 851,416 876,416 900,416 925,416 950,416"/>
   <polyline class="s3" points="310,416 334,409 359,396 383,377 408,357 432,338 457,325 482,325 506,331 531,338 556,344 580,357 605,363 630,370 654,377 679,377 704,383 728,389 753,389 777,396 802,396 827,402 851,402 876,402 900,409 925,409 950,409"/>
 
-  <!-- pics + etiquettes directes -->
+  <!-- pics : marques seules, l'identification passe par la legende et le survol -->
   <circle cx="506" cy="213" r="4" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>
-  <text x="516" y="208" class="lbl">Pippip · 30</text>
   <circle cx="506" cy="286" r="4" fill="#1baf7a" stroke="#ffffff" stroke-width="2"/>
-  <text x="516" y="281" class="lbl">Nyclei · 20</text>
   <circle cx="457" cy="325" r="4" fill="#4a3aa7" stroke="#ffffff" stroke-width="2"/>
-  <text x="447" y="320" class="lbl" text-anchor="end">Pipkuh · 14</text>
 
   <!-- Legende -->
   <rect x="46" y="490" width="11" height="11" rx="2" fill="#2a78d6"/><text x="66" y="500" class="legend-txt">Pipistrelle commune (Pippip)</text>
@@ -3054,10 +3067,11 @@
 <li><strong>Bande nocturne</strong> (<code>bandeNuit</code>) : aplat très pâle entre le coucher et le lever du soleil calculés au point d'écoute. C'est la même source que la cohérence horaire de <a href="../M-Diagnostic/">M-Diagnostic</a>. Quand le GPS du point manque, la bande disparaît et le graphe reste traçable.</li>
 <li><strong>Axe des ordonnées</strong> (<code>axeContacts</code>) : nombre de contacts dans la tranche. Le pas se choisit sur des valeurs rondes ; le titre d'axe rappelle la tranche courante, qui change avec le sélecteur.</li>
 <li><strong>Sélecteur de tranche</strong> (<code>groupeTranche</code>) : 15, 30 ou 60 minutes. Le graphe se recalcule, la sélection d'espèces est conservée.</li>
-<li><strong>Panneau de filtres</strong> (<code>panneauFiltres</code>) : sections repliables carrés → points → passages → nuits → espèces, <strong>en cascade</strong> (choisir des carrés restreint les points disponibles, et ainsi de suite). Chaque en-tête porte un compteur <code>n / total</code>, ce qui évite d'avoir à déplier pour savoir où on en est.</li>
-<li><strong>Sémantique du vide</strong> : une sélection vide signifie « rien », pas « pas de filtre ». C'est le seul choix qui rende les raccourcis « Aucune » utilisables.</li>
+<li><strong>Barre de filtres</strong> (<code>barreFiltres</code>) : recherche permanente et puces « + Filtre » (carré, point, nuit, taxon parent), sur le socle partagé avec Espèces &amp; observations. Chaque puce se retire d'un clic, et le sous-ensemble filtré est <strong>ré-agrégé</strong> en direct : filtrer, c'est re-tracer.</li>
+<li><strong>Onglets</strong> (<code>barreOnglets</code>) : socle des vues mémorisées, partageant les taxons par <strong>catégorie du référentiel</strong> (Chiroptères, Orthoptères et cigales, Autres mammifères), plus « Tout ». Tadarida ne détecte pas que des chauves-souris, et sans cette séparation la présélection des plus contactés peut retenir une sauterelle. L'utilisateur enregistre ses propres vues à côté.</li>
+<li><strong>Sémantique du vide</strong> : une sélection vide signifie « rien », pas « pas de filtre » — l'écran le dit alors en nommant la dimension responsable.</li>
 <li><strong>Espèces</strong> (<code>listeEspeces</code>) : cochées par défaut sur les <strong>cinq plus contactées</strong>. Au-delà, le graphe devient illisible. Le compteur à droite de chaque espèce respecte les autres filtres actifs.</li>
-<li><strong>Identité des courbes</strong> : légende systématique <strong>et</strong> étiquette directe au pic. L'identité d'une série ne repose jamais sur la seule couleur, qui ne survit ni au daltonisme, ni à l'impression, ni au thème sombre.</li>
+<li><strong>Identité des courbes</strong> : légende systématique sous le graphe, et <strong>survol</strong> d'un point pour l'espèce, l'heure exacte et le nombre de contacts. L'étiquette directe au pic, prévue à la conception pour ne pas dépendre de la seule couleur, s'est révélée illisible à cinq courbes : elle a été retirée à l'usage, la légende portant l'identification. L'arbitrage est assumé, la dépendance résiduelle à la couleur avec.</li>
 <li><strong>Barre de statut</strong> : contexte du passage, nombre d'espèces affichées et tranche courante, volumétrie de la sélection.</li>
 </ul>
 <h2 id="variante-etat-vide">Variante - état vide<a class="headerlink" href="#variante-etat-vide" title="Permanent link">&para;</a></h2>
@@ -3096,16 +3110,12 @@
 <td>Recalcule le graphe, conserve la sélection</td>
 </tr>
 <tr>
-<td>Survol du graphe</td>
-<td>Infobulle : tranche horaire, espèce, nombre de contacts</td>
-</tr>
-<tr>
-<td><strong>Top 5</strong> / <strong>Aucune</strong></td>
-<td>Raccourcis de sélection des espèces</td>
+<td>Survol d'un point</td>
+<td>Infobulle : espèce, heure de la tranche, nombre de contacts</td>
 </tr>
 <tr>
 <td><strong>Exporter l'image…</strong></td>
-<td>Image <strong>redessinée</strong> hors écran, portant carré, point, passage, nuit, tranche, filtres actifs, version et date</td>
+<td>Image <strong>redessinée</strong> hors écran, portant carré, point, passage, tranche, filtres actifs, version et date. Le résultat, réussite comme échec, est dit dans le bandeau de retour</td>
 </tr>
 <tr>
 <td>Sélection vide</td>
@@ -3113,6 +3123,11 @@
 </tr>
 </tbody>
 </table>
+<h3 id="deux-regles-nees-de-lusage-reel">Deux règles nées de l'usage réel<a class="headerlink" href="#deux-regles-nees-de-lusage-reel" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Plusieurs nuits se replient sur une.</strong> L'axe est celui d'<strong>une</strong> nuit : sur un sous-ensemble qui en couvre plusieurs, les tranches de même heure de nuit sont <strong>sommées</strong>. Sans ce repliement, chaque nuit repose ses points sur le même axe et la ligne, qui suit l'ordre chronologique, repart en arrière — la courbe prend un aspect de dents de scie qui ne décrit rien.</li>
+<li><strong>Une tranche sans contact vaut zéro, là où l'on écoutait.</strong> Sinon deux contacts séparés d'un silence de trois heures sont reliés par une droite, qui donne à voir une activité continue. La plage des zéros est la <strong>fenêtre réellement enregistrée</strong> du passage, ou à défaut la plage observée : hors d'elle, l'absence de contact ne dit rien — le capteur pouvait être éteint — et la courbe s'abstient plutôt que d'affirmer un silence constaté.</li>
+</ul>
 <h2 id="notes-pour-limplementation">Notes pour l'implémentation<a class="headerlink" href="#notes-pour-limplementation" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong><code>LineChart</code> JavaFX</strong> sur <code>NumberAxis</code> en minutes depuis 18 h, étiquettes <code>HH</code>. C'est le même patron que le graphe climatique de <a href="../M-Diagnostic/">M-Diagnostic</a>, avec plus de séries et une bande de fond.</li>
