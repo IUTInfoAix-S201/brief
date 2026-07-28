@@ -954,6 +954,8 @@
       
         
       
+        
+      
     
     
     
@@ -1386,6 +1388,27 @@
   
   <span class="md-ellipsis">
     C15 - Groupe taxonomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C16%20-%20Campagne/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C16 - Campagne
   </span>
   
 
@@ -2925,6 +2948,12 @@
 <td>optionnelle</td>
 <td>Tracée au dépôt.</td>
 </tr>
+<tr>
+<td>participation opportuniste</td>
+<td>booléen</td>
+<td>par défaut faux</td>
+<td>La nuit a bien été enregistrée, mais <strong>hors protocole</strong> : elle ne compte pas comme passage 1 ou 2, et <a href="../R%C3%A8gles%20m%C3%A9tier/#r3">R3</a> / <a href="../R%C3%A8gles%20m%C3%A9tier/#r4">R4</a> sont muettes pour elle (cf. <a href="../R%C3%A8gles%20m%C3%A9tier/#r34">R34</a>). Se déclare à l'import, dans la modale du passage, ou se <strong>dérive</strong> d'un carré de tiers (<a href="../R%C3%A8gles%20m%C3%A9tier/#r35">R35</a>).</td>
+</tr>
 </tbody>
 </table>
 <blockquote>
@@ -2936,10 +2965,12 @@
 <li><a href="../R%C3%A8gles%20m%C3%A9tier/#r4">R4</a> - intervalle ≥ 1 mois entre les deux passages d'un site.</li>
 <li><a href="../R%C3%A8gles%20m%C3%A9tier/#r5">R5</a> - unicité du quadruplet <code>(Site, Point, Année, n° de passage)</code>.</li>
 <li><a href="../R%C3%A8gles%20m%C3%A9tier/#r14">R14</a> - un passage <code>Inexploitable</code> ne peut pas être déposé.</li>
+<li><a href="../R%C3%A8gles%20m%C3%A9tier/#r34">R34</a> - une nuit <strong>opportuniste</strong> est hors décompte du protocole, et exemptée de <a href="../R%C3%A8gles%20m%C3%A9tier/#r3">R3</a> / <a href="../R%C3%A8gles%20m%C3%A9tier/#r4">R4</a>.</li>
 </ul>
 <h2 id="voisins-dans-le-modele">Voisins dans le modèle<a class="headerlink" href="#voisins-dans-le-modele" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Sur</strong> un <a href="../C3%20-%20Point%20d%27%C3%A9coute/">Point d'écoute</a>.</li>
+<li><strong>Regroupé par</strong> 0..1 <a href="../C16%20-%20Campagne/">Campagne</a> : rattachement <strong>facultatif</strong>, purement organisationnel. Supprimer la campagne détache le passage sans l'effacer.</li>
 <li><strong>Produit par</strong> un <a href="../C4%20-%20Enregistreur/">Enregistreur</a>.</li>
 <li><strong>Produit</strong> exactement 1 <a href="../C6%20-%20Session%20d%27enregistrement/">Session d'enregistrement</a>.</li>
 <li><strong>À vérifier par</strong> 0..1 <a href="../C11%20-%20S%C3%A9lection%20d%27%C3%A9coute/">Sélection d'écoute</a>.</li>

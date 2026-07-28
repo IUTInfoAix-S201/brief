@@ -954,6 +954,8 @@
       
         
       
+        
+      
     
     
     
@@ -1319,6 +1321,27 @@
   
   <span class="md-ellipsis">
     C15 - Groupe taxonomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="C16%20-%20Campagne/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C16 - Campagne
   </span>
   
 
@@ -2913,10 +2936,15 @@
 <td><a href="C15%20-%20Groupe%20taxonomique/">Groupe taxonomique</a></td>
 <td>Niveau hiérarchique au-dessus du taxon.</td>
 </tr>
+<tr>
+<td>C16</td>
+<td><a href="C16%20-%20Campagne/">Campagne</a></td>
+<td>Regroupement <strong>facultatif</strong> de passages relevant du même suivi.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="tables-du-schema-non-modelisees-comme-entites">Tables du schéma non modélisées comme entités<a class="headerlink" href="#tables-du-schema-non-modelisees-comme-entites" title="Permanent link">&para;</a></h3>
-<p>Le diagramme ci-dessus est <strong>conceptuel</strong> : il ne porte que les entités métier. Le schéma physique (migrations <code>V01</code> → <code>V30</code>) contient en plus des tables <strong>d'intégration plateforme</strong> et <strong>techniques</strong>, décrites dans les <em>voisins</em> des fiches concernées :</p>
+<p>Le diagramme ci-dessus est <strong>conceptuel</strong> : il ne porte que les entités métier. Le schéma physique (migrations <code>V01</code> → <code>V35</code>) contient en plus des tables <strong>d'intégration plateforme</strong> et <strong>techniques</strong>, décrites dans les <em>voisins</em> des fiches concernées :</p>
 <table>
 <thead>
 <tr>
@@ -2950,6 +2978,16 @@
 <td><code>observation_message</code></td>
 <td><strong>fil de discussion</strong> avec le validateur MNHN</td>
 <td>voisin de <a href="C13%20-%20Observation/">C13</a></td>
+</tr>
+<tr>
+<td><code>passage_opportuniste</code></td>
+<td><strong>participation opportuniste</strong> d'une nuit (<a href="R%C3%A8gles%20m%C3%A9tier/#r34">R34</a>) : la présence de la ligne porte le fait</td>
+<td>attribut de <a href="C5%20-%20Passage/">C5</a></td>
+</tr>
+<tr>
+<td><code>site_tiers</code></td>
+<td><strong>carré appartenant à un tiers</strong> (<a href="R%C3%A8gles%20m%C3%A9tier/#r35">R35</a>), dérivé de la synchronisation</td>
+<td>attribut de <a href="C2%20-%20Site%20de%20suivi/">C2</a></td>
 </tr>
 <tr>
 <td><code>saved_filter_view</code>, <code>column_layout</code>, <code>app_setting</code></td>

@@ -954,6 +954,8 @@
       
         
       
+        
+      
     
     
     
@@ -1319,6 +1321,27 @@
   
   <span class="md-ellipsis">
     C15 - Groupe taxonomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C16%20-%20Campagne/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C16 - Campagne
   </span>
   
 
@@ -3028,7 +3051,7 @@
 
 
 <h1 id="regles-metier">Règles métier<a class="headerlink" href="#regles-metier" title="Permanent link">&para;</a></h1>
-<p>Les règles métier du modèle conceptuel. Chaque règle a un identifiant ancré (<code>#r1</code> à <code>#r33</code>) qui sert de point de référence depuis le reste du dossier (parcours, stories, maquettes).</p>
+<p>Les règles métier du modèle conceptuel. Chaque règle a un identifiant ancré (<code>#r1</code> à <code>#r35</code>) qui sert de point de référence depuis le reste du dossier (parcours, stories, maquettes).</p>
 <h2 id="site-point-passage">Site, point, passage<a class="headerlink" href="#site-point-passage" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong id="r1">R1</strong> : un n° de carré est obligatoirement composé de <strong>6 chiffres</strong>, dont les 2 premiers correspondent au numéro de département (avec leading zero pour les départements 1 à 9).</li>
@@ -3036,12 +3059,14 @@
 <li><strong id="r3">R3</strong> : sur les sites en mode <strong><code>PointFixeStandard</code></strong> (cf. <a href="../C2%20-%20Site%20de%20suivi/">C2</a>), deux passages sont attendus par site et par année :<ul>
 <li><strong>passage 1</strong> : entre le 15 juin et le 31 juillet,</li>
 <li><strong>passage 2</strong> : entre le 15 août et le 30 septembre.
-L'application doit <strong>alerter sans bloquer</strong> si l'utilisateur déclare un passage hors fenêtre. Sur les sites en mode <strong><code>PointFixeRecherche</code></strong> (dates personnalisées pour des besoins recherche), cette règle est <strong>muette</strong> : aucune alerte n'est générée.
+L'application doit <strong>alerter sans bloquer</strong> si l'utilisateur déclare un passage hors fenêtre. Sur les sites en mode <strong><code>PointFixeRecherche</code></strong> (dates personnalisées pour des besoins recherche), cette règle est <strong>muette</strong> : aucune alerte n'est générée. Elle est également muette sur une nuit déclarée <strong>participation opportuniste</strong> (<a href="#r34">R34</a>).
 ⚠️ <em>État réel</em> : la vérification de fenêtre est <strong>calculée</strong> (<code>ServicePassage.verifierProtocole</code>), mais sa <strong>restitution à l'utilisateur</strong> relève du <strong>solde de saison</strong> (<a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2349">#2349</a>, <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2356">#2356</a>), non d'une alerte à la saisie : R3 est un <strong>indicateur de pilotage</strong> de la campagne, pas une garde de rattachement (arbitrage tracé en <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2387">#2387</a>).</li>
 </ul>
 </li>
-<li><strong id="r4">R4</strong> : sur les sites en mode <strong><code>PointFixeStandard</code></strong>, intervalle conseillé entre les deux passages d'un même <strong>point d'écoute</strong> : <strong>≥ 1 mois</strong> (la vérification compare les passages d'un même point dans la <strong>même année</strong>). La clause « dates anniversaires (±10 j) d'une année à l'autre » <strong>n'est pas implémentée</strong>. Comme pour <a href="#r3">R3</a>, cette vérification est <strong>calculée</strong> et sera <strong>restituée par le solde de saison</strong> (<a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2349">#2349</a>), non par une alerte de saisie (arbitrage tracé en <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2387">#2387</a>). Sur les sites en mode <strong><code>PointFixeRecherche</code></strong>, cette règle est également <strong>muette</strong> (l'utilisateur enregistre à la fréquence qui convient à son protocole, y compris plusieurs nuits successives).</li>
+<li><strong id="r4">R4</strong> : sur les sites en mode <strong><code>PointFixeStandard</code></strong>, intervalle conseillé entre les deux passages d'un même <strong>point d'écoute</strong> : <strong>≥ 1 mois</strong> (la vérification compare les passages d'un même point dans la <strong>même année</strong>). La clause « dates anniversaires (±10 j) d'une année à l'autre » <strong>n'est pas implémentée</strong>. Comme pour <a href="#r3">R3</a>, cette vérification est <strong>calculée</strong> et sera <strong>restituée par le solde de saison</strong> (<a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2349">#2349</a>), non par une alerte de saisie (arbitrage tracé en <a href="https://github.com/echonuit/vigiechiro-pr-companion/issues/2387">#2387</a>). Sur les sites en mode <strong><code>PointFixeRecherche</code></strong>, cette règle est également <strong>muette</strong> (l'utilisateur enregistre à la fréquence qui convient à son protocole, y compris plusieurs nuits successives), de même que sur une nuit déclarée <strong>participation opportuniste</strong> (<a href="#r34">R34</a>).</li>
 <li><strong id="r5">R5</strong> : le triplet <code>(Site, Point, Année, n° de passage)</code> est <strong>unique</strong> : un même point ne peut pas avoir deux passages avec le même n° dans la même année.</li>
+<li><strong id="r34">R34</strong> : une nuit peut être déclarée <strong>participation opportuniste</strong> : elle a bien été enregistrée, mais <strong>hors du protocole</strong> de l'observateur. <a href="#r3">R3</a> et <a href="#r4">R4</a> sont alors <strong>muettes</strong> pour elle (une nuit hors protocole n'a pas à respecter une fenêtre ni un intervalle), et elle <strong>ne compte pas</strong> comme passage 1 ou 2 dans le solde de saison : elle y figure à part, en « hors protocole ». La qualité est <strong>orthogonale au statut d'avancement</strong> : une nuit opportuniste s'importe, se transforme, se vérifie et se dépose comme les autres. Elle se déclare de <strong>trois façons</strong> : à l'import, dans la modale du passage, ou <strong>dérivée automatiquement</strong> par <a href="#r35">R35</a>.</li>
+<li><strong id="r35">R35</strong> : un <strong>carré d'un tiers</strong> est un carré que la synchronisation Vigie-Chiro rattache à un <strong>autre observateur</strong> que celui connecté. Ses nuits sont <strong>présumées opportunistes</strong> et marquées comme telles à chaque synchronisation. Le marquage dérivé est à <strong>sens unique</strong> : il ajoute, il ne retire jamais. Un carré transféré ne réécrit pas l'histoire (les nuits y ont bien été réalisées alors qu'il appartenait à un tiers), et surtout un retrait automatique effacerait les déclarations faites <strong>à la main</strong> pour des participations qui, elles, ne sont liées à aucun carré distant. Sans profil lisible côté plateforme, aucun carré n'est présumé d'un tiers.</li>
 <li><strong id="r25">R25</strong> : un n° de carré est <strong>unique par utilisateur</strong> : un même utilisateur ne peut pas déclarer deux fois le même carré (alerte bloquante à la création ou au renommage d'un site ; la vérification exclut le site courant, pour qu'un simple renommage ne se bloque pas lui-même).</li>
 </ul>
 <h2 id="geographie-des-carres-et-des-points">Géographie des carrés et des points<a class="headerlink" href="#geographie-des-carres-et-des-points" title="Permanent link">&para;</a></h2>

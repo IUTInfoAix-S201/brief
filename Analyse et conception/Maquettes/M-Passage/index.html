@@ -952,6 +952,8 @@
       
         
       
+        
+      
     
     
     
@@ -1317,6 +1319,27 @@
   
   <span class="md-ellipsis">
     C15 - Groupe taxonomique
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mod%C3%A8le%20conceptuel/C16%20-%20Campagne/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C16 - Campagne
   </span>
   
 
@@ -3042,7 +3065,7 @@
 <li>
 <p><strong>En-tête</strong> : le titre identifie le passage (<code>Carré N / Point / N° X (année)</code>). Les actions de tête sont <strong>contextuelles selon l'état</strong> ; il en existe <strong>six</strong> :</p>
 <ul>
-<li><strong>toujours</strong> : <strong>🗺 Voir sur la carte</strong>, <strong>✏ Modifier le passage</strong> (année, n° de passage, avec re-renommage des fichiers), <strong>🗑 Supprimer</strong> (refusé si le passage est déposé) ;</li>
+<li><strong>toujours</strong> : <strong>🗺 Voir sur la carte</strong>, <strong>✏ Modifier le passage</strong> (année, n° de passage - avec re-renommage des fichiers -, campagne, participation opportuniste), <strong>🗑 Supprimer</strong> (refusé si le passage est déposé) ;</li>
 <li><strong>après dépôt</strong> : <strong>🔗 Voir la participation</strong> (ouvre la fiche de la participation sur la plateforme), <strong>↩ Annuler le dépôt</strong> ;</li>
 <li>si le passage est <strong>archivé</strong> (audio absent du disque) : <strong>♻ Réactiver ce passage</strong>.</li>
 </ul>
@@ -3076,7 +3099,7 @@
 </tr>
 <tr>
 <td>Bouton <strong>✏ Modifier le passage</strong></td>
-<td>Ouvre la <strong>modale</strong> d'édition (année, n° de passage), avec re-renommage des fichiers (voir variante ci-dessous)</td>
+<td>Ouvre la <strong>modale</strong> d'édition (année, n° de passage, campagne, participation opportuniste) ; changer l'année ou le n° re-renomme les fichiers (voir variante ci-dessous)</td>
 </tr>
 <tr>
 <td>Bouton <strong>🗑 Supprimer</strong></td>
@@ -3119,6 +3142,8 @@
 <p>Le bouton <strong>✏ Modifier le passage</strong> ouvre une <strong>modale</strong> d'édition de l'<strong>identité</strong> du passage. Ce n'est pas un simple formulaire : changer ces valeurs <strong>renomme tous les fichiers</strong> de la session.</p>
 <ul>
 <li><strong>Champs éditables</strong> : <strong>année</strong> et <strong>n° de passage</strong> (le site et le point ne se changent pas ici) ; les valeurs courantes sont pré-remplies.</li>
+<li><strong>Rattachement à une campagne</strong> (<a href="../../Mod%C3%A8le%20conceptuel/C16%20-%20Campagne/">C16</a>) : une liste déroulante des campagnes existantes, avec une entrée vide pour <strong>détacher</strong>. Sans conséquence sur les fichiers - c'est du rangement, pas de l'identité. La liste n'apparaît pas si la fonctionnalité <code>campagne</code> est désactivée.</li>
+<li><strong>Case « participation opportuniste »</strong> (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r34">R34</a>) : déclare que la nuit a bien eu lieu mais <strong>hors protocole</strong>. La cocher retire le passage du décompte du <a href="../M-Saison/">solde de saison</a> et rend muets les contrôles de fenêtre et d'intervalle pour lui. Là encore, aucun fichier n'est touché.</li>
 <li><strong>Conséquence annoncée</strong> : la modification recompose le <strong>préfixe</strong> <code>CarXXXXXX-AAAA-PassN-YY-</code> (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r6">R6</a>) et <strong>re-renomme</strong> tous les enregistrements et séquences (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r7">R7</a>) ; la modale l'explique avant de valider.</li>
 <li><strong>Garde d'unicité</strong> : la nouvelle combinaison <code>(Site, Point, Année, n° de passage)</code> doit rester <strong>unique</strong> (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r5">R5</a>) ; une collision est refusée.</li>
 <li><strong>Confirmation forte</strong> : l'opération touchant le disque, elle demande une confirmation explicite (<strong>Enregistrer</strong> / <strong>Annuler</strong>).</li>
