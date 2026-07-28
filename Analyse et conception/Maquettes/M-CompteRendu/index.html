@@ -2803,6 +2803,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ce-que-le-livre-a-precise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ce que le livré a précisé
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes-pour-limplementation" class="md-nav__link">
     <span class="md-ellipsis">
       Notes pour l'implémentation
@@ -2925,6 +2934,15 @@
   <a href="#interactions-cles" class="md-nav__link">
     <span class="md-ellipsis">
       Interactions clés
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-que-le-livre-a-precise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ce que le livré a précisé
     </span>
   </a>
   
@@ -3240,6 +3258,29 @@
 </tr>
 </tbody>
 </table>
+<h2 id="ce-que-le-livre-a-precise">Ce que le livré a précisé<a class="headerlink" href="#ce-que-le-livre-a-precise" title="Permanent link">&para;</a></h2>
+<p>La maquette a été écrite avant le code. Cinq points ont été <strong>tranchés en chemin</strong>, et ce sont eux qu'un
+lecteur doit connaître avant d'ajouter une quatrième surface.</p>
+<p><strong>1. Chaque mention porte sa sévérité.</strong> La maquette ne prévoyait qu'un bloc « avertissements ». La
+première capture de la réactivation a montré un triangle d'alerte devant « L'audio est de nouveau
+complet » et devant un indice explicitement annoncé non bloquant. Une mention porte donc son registre :
+coche pour une bonne nouvelle, « i » pour un fait de contexte, triangle pour ce sur quoi il faut revenir.</p>
+<p><strong>2. Le compte rendu textuel ne disparaît pas partout, et le critère est le consommateur.</strong> Là où une
+<strong>commande en ligne</strong> rend le même bilan (la réactivation), il reste. Là où la seule surface était l'écran
+(la publication des corrections), le chiffré le remplace.</p>
+<p><strong>3. Un bilan qui n'a rien à ventiler garde le textuel.</strong> Un passage <strong>reconstruit</strong> n'a pas subi de
+réactivation : une barre « 0 sur 30 » y ferait croire à une tentative qui a échoué.</p>
+<p><strong>4. La teinte de la seconde part d'un volume ne s'emploie pas dans une ventilation.</strong> Elle partage la
+couleur de la part retenue — « bruts + séquences » se lit comme un tout. Employée pour une catégorie
+distincte, elle fait lire un écart comme une réussite (constaté sur « sans ancrage », dans la
+publication).</p>
+<p><strong>5. La bande vit dans des largeurs très différentes</strong> — 900 px sous l'écran d'import, ~560 px dans une
+modale. La légende <strong>reflue</strong>, les intitulés s'enroulent, et le résumé des motifs <strong>assume</strong> de s'abréger
+puisque son contenu est à un clic. C'est le garde-fou anti-troncature des captures qui l'a imposé, dont
+une fois en intégration continue seulement : ses métriques de police diffèrent de neuf pixels par entrée.</p>
+<p><strong>Et la donnée que le lot devait ajouter est ajoutée</strong> : le volume <strong>lu sur la carte</strong> n'était mesuré
+nulle part. Il ne l'a pas fallu calculer — le garde-fou d'espace disque parcourait déjà les originaux
+pour décider, il jetait le chiffre. Il le rend (<code>VolumesImport</code>).</p>
 <h2 id="notes-pour-limplementation">Notes pour l'implémentation<a class="headerlink" href="#notes-pour-limplementation" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Composant présentationnel pur</strong> dans <code>commun/view</code> : il reçoit un modèle de compte rendu et l'affiche. Il ne va rien chercher, ne décide de rien, et n'appartient à aucune feature.</li>
