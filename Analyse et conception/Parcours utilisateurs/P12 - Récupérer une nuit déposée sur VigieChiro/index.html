@@ -2542,6 +2542,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#une-nuit-rapatriee-nest-pas-une-nuit-quon-a-deposee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Une nuit rapatriée n'est pas une nuit qu'on a déposée
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3634,6 +3645,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#une-nuit-rapatriee-nest-pas-une-nuit-quon-a-deposee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Une nuit rapatriée n'est pas une nuit qu'on a déposée
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3800,6 +3822,26 @@ pas joignable (disque débranché, dossier réseau hors ligne), et le redevient 
 revient - son identité étant revérifiée à chaque retour, jamais rebranchée sur la foi du seul chemin.
 Les tranches que l'application <strong>régénère</strong> depuis les bruts restent, elles, toujours copiées : elles
 sont produites par le produit, pas par l'utilisateur.</p>
+<h3 id="une-nuit-rapatriee-nest-pas-une-nuit-quon-a-deposee">Une nuit rapatriée n'est pas une nuit qu'on a déposée<a class="headerlink" href="#une-nuit-rapatriee-nest-pas-une-nuit-quon-a-deposee" title="Permanent link">&para;</a></h3>
+<p>Le geste laisse la nuit dans un état qui lui est propre, et l'écran le nomme : <strong>« Récupéré »</strong>.</p>
+<p>Elle porte ses observations et son rattachement, pas son audio. Elle n'a franchi aucune étape du
+workflow d'ici - ni importée, ni transformée, ni vérifiée - et sa seule suite est de rejoindre les nuits
+déposées, quand la réactivation lui rend son son.</p>
+<p>L'état a d'abord été <strong>observé</strong> sans être nommé : rattachée à une participation, et aucun enregistrement
+ne portant de fréquence d'échantillonnage. Cela suffisait tant qu'il ne servait qu'à <strong>décider</strong> - qui
+peut être supprimé, qui peut changer de verdict. Cela ne suffit plus dès qu'il faut le <strong>montrer</strong>, parce
+qu'une vue a besoin d'un nom, pas d'une question. C'est la règle qu'en tire l'ADR 2581 : <em>observer tant
+qu'on décide, déclarer quand on montre.</em></p>
+<p>Ce que l'utilisateur y gagne, concrètement :</p>
+<ul>
+<li>il <strong>voit</strong> d'où vient la nuit, au lieu de lire « Déposé » d'une nuit qu'il n'a jamais déposée ;</li>
+<li>il peut la <strong>supprimer</strong> - c'est une copie locale, la participation reste sur la plateforme - sans
+  passer par un « Annuler le dépôt » qui lui ferait affirmer quelque chose de faux ;</li>
+<li>il peut <strong>écouter et valider</strong> ses observations tout de suite, sans attendre l'audio ;</li>
+<li>il ne peut ni changer son <strong>verdict</strong> (il se décide sur Vigie-Chiro) ni la <strong>renommer</strong> (l'année et le
+  n° sont l'identité que le serveur lui donne) ;</li>
+<li>il les retrouve toutes d'un coup, dans une vue <strong>« À réactiver »</strong>.</li>
+</ul>
 <h2 id="ne-pas-noyer-les-vues-site">Ne pas noyer les vues site<a class="headerlink" href="#ne-pas-noyer-les-vues-site" title="Permanent link">&para;</a></h2>
 <p>La synchro rapatrie <strong>tous</strong> les points du carré Vigie-Chiro (la grille STOC peut en compter des dizaines), pas seulement ceux que l'utilisateur exploite. Pour ne pas noyer les points <strong>réellement utilisés</strong> sous cette grille (<a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O5/">O5</a>), les vues site distinguent l'origine d'un point : <a href="../../Maquettes/M-Site-detail/">M-Site-detail</a> masque par défaut les points rapatriés <strong>sans passage</strong> (repliés derrière un « + N rapatrié(s) »), et <a href="../../Maquettes/M-Sites/">M-Sites</a> résume de même le bandeau des points. Un point rapatrié réapparaît dès qu'on s'en sert (un passage l'y rattache).</p>
 <h2 id="lien-avec-les-autres-parcours">Lien avec les autres parcours<a class="headerlink" href="#lien-avec-les-autres-parcours" title="Permanent link">&para;</a></h2>
