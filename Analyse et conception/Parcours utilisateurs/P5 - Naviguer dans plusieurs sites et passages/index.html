@@ -1861,9 +1861,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enrichissements-prevus" class="md-nav__link">
+  <a href="#ce-que-actions-de-masse-a-fini-par-vouloir-dire" class="md-nav__link">
     <span class="md-ellipsis">
-      Enrichissements prévus
+      Ce que « actions de masse » a fini par vouloir dire
     </span>
   </a>
   
@@ -2813,9 +2813,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enrichissements-prevus" class="md-nav__link">
+  <a href="#ce-que-actions-de-masse-a-fini-par-vouloir-dire" class="md-nav__link">
     <span class="md-ellipsis">
-      Enrichissements prévus
+      Ce que « actions de masse » a fini par vouloir dire
     </span>
   </a>
   
@@ -2871,6 +2871,8 @@
 <li>Une <strong>vue tabulaire alternative</strong> liste tous les passages tous sites confondus, triables et filtrables par site, point, n° de passage, statut d'avancement, verdict, date.</li>
 <li>Karim utilise la vue tabulaire pour repérer les 8 passages au statut <code>Importé</code> ou <code>Transformé</code> qui attendent sa vérification. Il peut faire un import groupé en sélectionnant plusieurs dossiers SD à la suite (variante du parcours <a href="../P2%20-%20Importer%20une%20nuit%20d%27enregistrement/">P2</a>).</li>
 <li>Pour chaque passage, il enchaîne <a href="../P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3</a> puis <a href="../P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4</a> en gardant le contexte global de son chantier visible (badges colorés indiquant le site/chantier).</li>
+<li>Quand les mêmes gestes reviennent nuit après nuit sans qu'aucune décision ne change, Karim <strong>coche plusieurs lignes</strong> et les traite d'un coup : préparer le dépôt, téléverser, importer les résultats, déclencher le calcul. L'application lui dit <strong>avant</strong> de partir lesquelles seront écartées et pourquoi, puis rend compte de chacune.</li>
+<li>Il suit sa saison point par point : le <strong>solde</strong> lui dit ce qu'il reste à faire au regard du protocole, et une <strong>campagne</strong> regroupe les passages d'un même suivi pour les filtrer et les exporter ensemble.</li>
 </ol>
 <h2 id="notes-pour-samuel">Notes pour Samuel<a class="headerlink" href="#notes-pour-samuel" title="Permanent link">&para;</a></h2>
 <p>Avec ses 24 enregistreurs en parallèle pendant 40-50 nuits par saison, Samuel a en pratique <strong>plus de 1 000 passages par saison</strong>. La vue tabulaire doit donc :</p>
@@ -2879,15 +2881,15 @@
 <li>permettre des actions de masse (changement de verdict, suppression, export)</li>
 <li>rester réactive même à plusieurs centaines de lignes (cf. <a href="../../../Objectifs%20qualit%C3%A9s/Objectifs%20qualit%C3%A9s/O5/">O5</a>)</li>
 </ul>
-<h2 id="enrichissements-prevus">Enrichissements prévus<a class="headerlink" href="#enrichissements-prevus" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Ces évolutions sont <strong>décidées et maquettées, pas encore livrées</strong>. Elles prolongent ce parcours sans en modifier les étapes actuelles.</p>
-</blockquote>
+<h2 id="ce-que-actions-de-masse-a-fini-par-vouloir-dire">Ce que « actions de masse » a fini par vouloir dire<a class="headerlink" href="#ce-que-actions-de-masse-a-fini-par-vouloir-dire" title="Permanent link">&para;</a></h2>
+<p>Les trois enrichissements annoncés ici sont <strong>livrés</strong> (EPIC #2349) : le <a href="../../Maquettes/M-Saison/">solde de saison</a> point par point (#2356), la <strong>campagne</strong> comme dimension de regroupement, de filtre et d'export (#2355), et les <strong>actions groupées</strong> (#2357).</p>
+<p>La demande de départ, « permettre des actions de masse (changement de verdict, suppression, export) », ne décrivait pas tout à fait le besoin. Ce qui coûte à Karim et à Samuel n'est pas de reposer vingt verdicts : c'est de <strong>refaire vingt fois la chaîne de production</strong>. Les quatre actions livrées sont donc celles de cette chaîne : préparer le dépôt, téléverser, importer les résultats, déclencher le calcul.</p>
+<p>Deux des actions imaginées restent <strong>volontairement unitaires</strong>, et ce n'est pas un reste à faire :</p>
 <ul>
-<li><strong>Un solde de saison, point par point.</strong> La navigation multi-sites répond à <em>où en sont mes passages</em> ; elle ne répond pas à <em>qu'est-ce qu'il me reste à faire</em>. <a href="../../Maquettes/M-Saison/">M-Saison</a> restitue les règles de protocole R3 et R4, déjà vérifiées par l'application, sous forme d'un reste à faire par point (#2356).</li>
-<li><strong>Une campagne pour regrouper les passages d'un même suivi</strong>, en dimension de regroupement, de filtre et d'export. Le rattachement reste facultatif (#2355).</li>
-<li><strong>Des actions groupées sur plusieurs passages</strong> : préparer, téléverser, importer les résultats, sur une sélection plutôt qu'un par un (#2357). C'est l'attente déjà exprimée plus haut par « permettre des actions de masse ».</li>
+<li>le <strong>verdict</strong> est un jugement porté sur une nuit après l'avoir écoutée ; l'appliquer en série reviendrait à le poser sans l'avoir formé ;</li>
+<li>la <strong>suppression</strong> détruit les fichiers du disque. Elle demande une confirmation qui nomme ce qui sera perdu, nuit par nuit.</li>
 </ul>
+<p>Pour la même raison, aucune action groupée n'expose d'option <strong>destructrice</strong> : ni relancer un calcul (Vigie-Chiro efface les observations avant de recalculer, et l'audio d'un dépôt en archives n'est plus là pour être relu), ni remplacer un jeu de résultats déjà validé.</p>
 
 
 

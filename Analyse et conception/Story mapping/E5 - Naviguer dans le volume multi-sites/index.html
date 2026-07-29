@@ -2998,25 +2998,29 @@
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a>, <a href="#e5s2">E5.S2</a><br></p>
 <hr />
 <h2 id="e5s4">E5.S4 - Actions de masse sur une sélection de passages<a class="headerlink" href="#e5s4" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Non livré (cible)</p>
-<p>Il n'existe ni sélection multiple de passages, ni actions de masse (verdict ou suppression en lot, saisie de « SUPPRIMER », journal d'opérations). La seule multi-sélection du code sert la <strong>revue d'observations audio</strong> (<a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">E7</a>), pas cette story : suppression et verdict restent <strong>unitaires</strong>.</p>
+<div class="admonition success">
+<p class="admonition-title">Livré autrement que décrit (#2357)</p>
+<p>La sélection multiple et les actions groupées existent, mais elles portent sur la <strong>chaîne de production</strong> (préparer le dépôt, téléverser, importer les résultats, déclencher le calcul), pas sur le verdict ni la suppression. Ce n'est pas un demi-parcours : c'est le besoin réel, relu après coup. Ce qui coûte à Samuel n'est pas de reposer vingt verdicts, c'est de refaire vingt fois la même suite de gestes.</p>
+<p>Le <strong>verdict</strong> et la <strong>suppression</strong> restent <strong>volontairement unitaires</strong> : le premier est un jugement porté après écoute, la seconde détruit des fichiers du disque. Le <strong>journal d'opérations</strong> persistant n'existe pas non plus : le journal du lot est vivant pendant l'exécution, et le compte rendu final en garde la trace, mais rien n'est archivé pour audit.</p>
 </div>
 <p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
-<p><strong>Je veux</strong> pouvoir sélectionner plusieurs passages dans la vue tabulaire et leur appliquer une action commune (changer le verdict, supprimer, exporter)</p>
+<p><strong>Je veux</strong> pouvoir sélectionner plusieurs passages dans la vue tabulaire et leur appliquer une action commune</p>
 <p><strong>Afin de</strong> ne pas être obligé d'ouvrir chaque passage individuellement quand je veux faire le même traitement sur un lot</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La vue tabulaire (<a href="#e5s2">E5.S2</a>) permet la sélection multiple (Ctrl+clic, Maj+clic pour plage, Ctrl+A pour tout).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une barre d'actions contextuelle apparaît dès qu'au moins 2 passages sont sélectionnés : « Actions sur 5 passages : [Verdict] [Exporter] [Supprimer] ».</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Action <strong>Verdict</strong> : applique le même verdict (OK / Utilisable / Inexploitable) à tous les passages sélectionnés, avec confirmation explicite.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Action <strong>Exporter</strong> : produit un récapitulatif CSV (1 ligne par passage avec ses métadonnées) téléchargeable.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Action <strong>Supprimer</strong> : confirmation forte (fenêtre modale expliquant que les fichiers sur disque seront aussi supprimés), avec saisie de « SUPPRIMER » pour valider. Action irréversible.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Toute action de masse est tracée dans un journal d'opérations (pour audit en cas de bug ou de fausse manipulation).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Si l'action échoue partiellement (ex. 3 passages traités, 2 en erreur), un récapitulatif post-action liste les succès et les échecs avec leur raison.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> La vue tabulaire (<a href="#e5s2">E5.S2</a>) permet la sélection multiple (Ctrl+clic, Maj+clic pour plage).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les actions groupées sont proposées par le menu <strong>☰</strong>, chaque entrée disant combien de lignes sont cochées et, si elle est grisée, ce qui lui manque. <em>(Pas de barre d'actions contextuelle : le menu ☰ est déjà l'endroit où l'on cherche les actions de cet écran, et une barre qui apparaît décale le tableau au moment où l'on vient d'y cliquer.)</em></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Quatre actions de la chaîne de production : <strong>préparer le dépôt</strong>, <strong>téléverser</strong>, <strong>importer les résultats</strong>, <strong>déclencher le calcul</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Une annonce <strong>préalable</strong> dit combien de passages seront traités et <strong>nomme</strong> les écartés avec leur motif ; on peut renoncer.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Si l'action échoue partiellement, un récapitulatif post-action liste chaque passage avec son sort et sa raison.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Une interruption laisse chaque passage <strong>soit avant, soit après</strong>, jamais entre les deux ; le lot est reprenable.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les mêmes actions en ligne de commande (<code>traiter-passages</code>), mêmes règles et même compte rendu.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Action <strong>Verdict</strong> en série. <em>(Écartée : un verdict se forme en écoutant une nuit.)</em></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Action <strong>Supprimer</strong> en série. <em>(Écartée : destruction de fichiers, confirmation nuit par nuit.)</em></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Journal d'opérations <strong>persisté</strong> pour audit. <em>(Reste à faire.)</em></li>
 </ul>
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P5%20-%20Naviguer%20dans%20plusieurs%20sites%20et%20passages/">P5</a>, Notes pour Samuel<br>
-<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-MultiSite/">M-MultiSite</a> (barre d'actions contextuelle)<br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-MultiSite/">M-MultiSite</a> (actions groupées du menu ☰)<br>
 <strong>Dépendances</strong> : <a href="../E0%20-%20Fondations%20de%20persistance/#e0s3">E0.S3</a>, <a href="#e5s2">E5.S2</a><br></p>
 <hr />
 <h2 id="e5s5">E5.S5 - Import groupé de plusieurs dossiers SD à la suite<a class="headerlink" href="#e5s5" title="Permanent link">&para;</a></h2>

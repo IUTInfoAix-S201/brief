@@ -3110,8 +3110,25 @@
 <ul>
 <li><strong>Carte (à gauche)</strong> : chaque <strong>carré</strong> (maille 2 km du carroyage national, indigo) affiche son numéro dans le coin ; ses <strong>points d'écoute</strong> sont des marqueurs <strong>colorés selon le statut</strong> du dernier passage. Un point <strong>sans GPS</strong> est posé <strong>au centre de son carré</strong> (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r26">R26</a>, <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r27">R27</a>). Une <strong>légende</strong> repliée en bas à gauche et un bouton <strong>⤢</strong> (recadrer) en haut à droite complètent. La carte montre <strong>tous</strong> les sites : elle n'est <strong>pas</strong> restreinte par les filtres du tableau.</li>
 <li><strong>Tableau (à droite)</strong> : un passage par ligne (carré, point, année, n° de passage, date, statut, verdict, <strong>analyse</strong>, <strong>campagne</strong>). On <strong>trie</strong> en cliquant un en-tête (Année et N° se trient numériquement) ; un <strong>double-clic</strong> ouvre <a href="../M-Passage/">M-Passage</a>. La colonne <strong>Campagne</strong> (<a href="../../Mod%C3%A8le%20conceptuel/C16%20-%20Campagne/">C16</a>) reste vide pour un passage non rattaché : le rattachement est <strong>facultatif</strong>, ce n'est pas une anomalie.</li>
-<li><strong>Onglets de vues + filtres à puces</strong> (socle partagé, décrit une fois dans le <a href="../">pattern visuel partagé</a>) : en tête, des <strong>onglets de vues mémorisées</strong> (« Tous les passages », les vues enregistrées, <strong>＋</strong> pour en créer une) ; en dessous, un bouton <strong>＋ Filtre</strong> puis les filtres actifs sous forme de <strong>puces cumulables</strong> (statut, verdict, année, carré, analyse, campagne), plus <strong>Réinitialiser</strong>. Le menu <strong>☰</strong> ne porte que le <strong>choix des colonnes</strong> et l'<strong>export</strong> (CSV), <strong>pas</strong> les vues.</li>
-<li><strong>Replis</strong> : en bas, <strong>◀ Carte</strong> et <strong>Tableau ▶</strong> replient entièrement un panneau pour donner toute la largeur à l'autre ; on ne peut pas masquer les deux. Replier la carte est aussi la <strong>dégradation élégante hors connexion</strong> (le fond OpenStreetMap n'est alors pas joignable).</li>
+<li><strong>Onglets de vues + filtres à puces</strong> (socle partagé, décrit une fois dans le <a href="../">pattern visuel partagé</a>) : en tête, des <strong>onglets de vues mémorisées</strong> (« Tous les passages », les vues enregistrées, <strong>＋</strong> pour en créer une) ; en dessous, un bouton <strong>＋ Filtre</strong> puis les filtres actifs sous forme de <strong>puces cumulables</strong> (statut, verdict, année, carré, analyse, campagne), plus <strong>Réinitialiser</strong>. Le menu <strong>☰</strong> porte l'<strong>écoute</strong>, l'<strong>export</strong> (CSV), le <strong>choix des colonnes</strong> et les <strong>actions groupées</strong> sur les lignes cochées ; <strong>pas</strong> les vues.</li>
+<li>
+<p><strong>Actions groupées</strong> : plusieurs lignes se cochent (Ctrl+clic, Maj+clic pour une plage), et le menu
+  <strong>☰</strong> propose alors quatre gestes de la chaîne de production sur la sélection : <strong>préparer le dépôt</strong>,
+  <strong>téléverser</strong>, <strong>importer les résultats</strong>, <strong>déclencher le calcul</strong>. Une fenêtre annonce d'abord
+  <strong>combien</strong> de nuits seront traitées et <strong>lesquelles</strong> seront écartées, chacune avec son motif ; un
+  compte rendu final donne le sort de chacune.</p>
+<div class="admonition note">
+<p class="admonition-title">Pourquoi dans le menu ☰, et non dans une barre d'actions contextuelle</p>
+<p>La story <a href="../../Story%20mapping/E5%20-%20Naviguer%20dans%20le%20volume%20multi-sites/#e5s4">E5.S4</a>
+imaginait une barre apparaissant sous le tableau dès deux lignes cochées. Le menu <strong>☰</strong> existait
+déjà, il est l'endroit où l'utilisateur cherche les actions de cet écran, et une barre qui
+apparaît décale le tableau au moment où l'on vient d'y cliquer. Les entrées y sont <strong>grisées</strong>
+tant que rien n'est coché, et leur libellé dit alors ce qui leur manque.</p>
+</div>
+</li>
+<li>
+<p><strong>Replis</strong> : en bas, <strong>◀ Carte</strong> et <strong>Tableau ▶</strong> replient entièrement un panneau pour donner toute la largeur à l'autre ; on ne peut pas masquer les deux. Replier la carte est aussi la <strong>dégradation élégante hors connexion</strong> (le fond OpenStreetMap n'est alors pas joignable).</p>
+</li>
 </ul>
 <h3 id="interactions-cles">Interactions clés<a class="headerlink" href="#interactions-cles" title="Permanent link">&para;</a></h3>
 <table>
@@ -3136,7 +3153,11 @@
 </tr>
 <tr>
 <td>Menu <strong>☰</strong></td>
-<td><strong>Colonnes</strong> affichées / <strong>Exporter</strong> (CSV)</td>
+<td><strong>Écouter</strong> / <strong>Exporter</strong> (CSV) / <strong>Colonnes</strong> affichées / les quatre <strong>actions groupées</strong> sur les lignes cochées</td>
+</tr>
+<tr>
+<td><strong>Ctrl+clic</strong>, <strong>Maj+clic</strong> sur les lignes</td>
+<td>Cochent plusieurs passages ; chaque entrée groupée du menu <strong>☰</strong> dit alors combien de lignes sont cochées</td>
 </tr>
 <tr>
 <td>Double-clic sur une ligne</td>
