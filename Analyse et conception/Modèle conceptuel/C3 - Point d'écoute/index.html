@@ -3619,6 +3619,12 @@
 <td>par défaut <code>false</code></td>
 <td><code>true</code> si le point a été <strong>rapatrié</strong> de la plateforme (grille STOC), <code>false</code> s'il a été <strong>ajouté à la main</strong> (colonne <code>synchronise</code>, #1738). Un point STOC rapatrié mais inutilisé est masqué par défaut.</td>
 </tr>
+<tr>
+<td>commune</td>
+<td>texte + code INSEE</td>
+<td>dérivé, optionnel</td>
+<td>Déterminée <strong>automatiquement</strong> des coordonnées GPS (API Géo) et mémorisée (table latérale <code>point_commune</code>, #2791) ; absente tant que non résolue (point sans GPS, hors ligne). Sert aux recherches et à l'export CSV ; département et région s'en dérivent.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="regles-applicables">Règles applicables<a class="headerlink" href="#regles-applicables" title="Permanent link">&para;</a></h2>
