@@ -3578,16 +3578,22 @@
 <ol>
 <li>Pendant la validation (parcours <a href="../P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a>), Samuel marque certaines observations comme « <strong>séquence de référence</strong> » via un bouton dédié.</li>
 <li>Quand il a fini de constituer sa sélection, il ouvre le menu « <strong>Exporter</strong> » → « <strong>Bibliothèque de sons de référence</strong> ».</li>
-<li>L'application produit un dossier organisé par espèce :
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bibliotheque/
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Pippip - Pipistrellus pipistrellus/
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    Car640380-2026-Pass2-Z1-...20260422_212817_003.wav
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    Car640380-2026-Pass2-Z1-...20260423_001435_001.wav
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  Nyclei - Nyctalus leisleri/
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ...
+<li>L'application produit une <strong>archive ZIP</strong> (le récapitulatif à la racine, les sons sous <code>sons/</code>),
+   écrite avec progression annulable comme l'export « observations + sons » (P13) :
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>bibliotheque-sons.zip
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── bibliotheque-sons.csv     (taxon, séquence source, fichier, fréquence, commentaire)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└── sons/
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── Car640380-2026-Pass2-Z1-...20260422_212817_003.wav
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    └── Car640380-2026-Pass2-Z1-...20260423_001435_001.wav
 </code></pre></div></li>
-<li>Samuel peut zipper le dossier et le partager.</li>
+<li>Samuel transmet l'archive telle quelle. Un son dont le fichier a quitté le disque est <strong>compté</strong>
+   dans le bilan, sans bloquer l'export.</li>
 </ol>
+<blockquote>
+<p><strong>Reste à faire</strong> : le rangement des sons <strong>par espèce</strong> (sous-dossiers <code>sons/&lt;taxon&gt;/</code>) demandé par
+<a href="../../Story%20mapping/E8%20-%20Productivit%C3%A9%20avanc%C3%A9e%20Tadarida/#e8s2">E8.S2</a> n'est pas livré : les
+sons sont à plat sous <code>sons/</code>, le taxon vit dans le CSV.</p>
+</blockquote>
 <h2 id="variante">Variante<a class="headerlink" href="#variante" title="Permanent link">&para;</a></h2>
 <p>Au lieu d'un dossier de fichiers WAV, l'application peut produire un <strong>document récapitulatif</strong> (HTML ou PDF) avec, par espèce : nom latin, nom vernaculaire, exemples de spectrogrammes, lien vers les fichiers WAV correspondants. Plus utile pour la transmission pédagogique. À arbitrer selon la complexité.</p>
 

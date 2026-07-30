@@ -2919,6 +2919,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e8s4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E8.S4 - Exporter un sous-ensemble filtré avec ses sons, pour avis d'expert
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3580,6 +3591,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#e8s4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E8.S4 - Exporter un sous-ensemble filtré avec ses sons, pour avis d'expert
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3645,7 +3667,7 @@
 <h2 id="e8s2">E8.S2 - Marquer des séquences comme référence et exporter une bibliothèque par espèce<a class="headerlink" href="#e8s2" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Partiellement livré</p>
-<p>Le marquage « séquence de référence » et l'export existent, mais les sons sont exportés <strong>à plat</strong> dans un dossier unique, accompagnés d'un CSV récapitulatif où le taxon est une colonne. Ils ne sont <strong>pas</strong> rangés en <strong>arborescence de sous-dossiers par taxon</strong> (cf. <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r32">R32</a>).</p>
+<p>Le marquage « séquence de référence » et l'export existent, et l'export produit désormais une <strong>archive ZIP</strong> annulable au bilan chiffré (harmonisation avec l'export « observations + sons », clôture de l'EPIC #2790). Mais les sons y restent <strong>à plat</strong> sous <code>sons/</code>, accompagnés d'un CSV récapitulatif où le taxon est une colonne : ils ne sont <strong>pas</strong> rangés en <strong>arborescence de sous-dossiers par taxon</strong> (cf. <a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r32">R32</a>).</p>
 </div>
 <p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a> (qui forme un débutant)</p>
 <p><strong>Je veux</strong> pouvoir marquer certaines observations validées comme « séquence de référence » et générer un dossier organisé par espèce avec mes meilleurs exemples</p>
@@ -3665,7 +3687,7 @@
 </code></pre></div></li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les WAV exportés sont <strong>copies</strong> des séquences ralenties ×10 (lisibles directement par tout lecteur audio).</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>Variante</strong> : option « Document récapitulatif » pour produire en plus un PDF/HTML par espèce avec spectrogrammes et métadonnées (à arbitrer selon la complexité, <a href="../E6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/#e6s5">E6.S5</a> peut servir de base technique).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> L'utilisateur choisit le dossier de destination ; un bouton « Zipper le dossier » est proposé après export pour partage.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> L'utilisateur choisit l'<strong>archive</strong> de destination : elle est produite directement, sans étape de compression manuelle.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> La sélection « référence » est persistée en BD (<a href="../E0%20-%20Fondations%20de%20persistance/#e0s5">E0.S5</a>) et réutilisable d'une session à l'autre.</li>
 </ul>
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P10%20-%20Exporter%20une%20biblioth%C3%A8que%20de%20sons%20de%20r%C3%A9f%C3%A9rence/">P10</a><br>
@@ -3686,6 +3708,30 @@
 <p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P11%20-%20Inventaire%20des%20esp%C3%A8ces%20d%C3%A9tect%C3%A9es/">P11</a><br>
 <strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-Analyse/">M-Analyse</a><br>
 <strong>Dépendances</strong> : <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s1">E7.S1</a><br></p>
+<hr />
+<h2 id="e8s4">E8.S4 - Exporter un sous-ensemble filtré avec ses sons, pour avis d'expert<a class="headerlink" href="#e8s4" title="Permanent link">&para;</a></h2>
+<p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
+<p><strong>Je veux</strong> emporter les observations que j'ai à l'écran <strong>et leurs fichiers son</strong> dans une archive unique</p>
+<p><strong>Afin de</strong> faire trancher une identification douteuse par un spécialiste, qui doit pouvoir <strong>réécouter</strong></p>
+<p><strong>Critères d'acceptation</strong> :</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> La vue « Sons &amp; validation » offre un critère <strong>« Lieu »</strong> (commune, carré, point, site présents
+      dans le sous-ensemble chargé) qui se combine avec le critère <strong>Espèce</strong>, et sa recherche texte
+      couvre ces mêmes champs.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> La <strong>commune</strong> d'un point est dérivée de ses coordonnées GPS et mémorisée
+      (<a href="../../Mod%C3%A8le%20conceptuel/C3%20-%20Point%20d%27%C3%A9coute/">C3</a>) : « Aix-en-Provence » est trouvable
+      même si le site porte un autre nom.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Le menu ☰ produit une <strong>archive ZIP</strong> du sous-ensemble affiché : <code>observations.csv</code> (identique à
+      l'export CSV seul) et les sons rangés <strong>par nuit</strong>, dédupliqués.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> L'écriture est <strong>annulable</strong> et montre sa progression ; l'annulation comme l'échec ne laissent
+      <strong>aucune archive partielle</strong>.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Un son dont le fichier a quitté le disque est <strong>compté</strong> dans le compte rendu, sans bloquer
+      l'export : l'observation reste au CSV.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> La <strong>ligne de commande</strong> produit la même archive (<code>exporter-sons --passage | --espece --sortie</code>).</li>
+</ul>
+<p><strong>Parcours rattaché</strong> : <a href="../../Parcours%20utilisateurs/P13%20-%20Envoyer%20un%20sous-ensemble%20%C3%A0%20un%20expert/">P13</a><br>
+<strong>Maquettes cibles</strong> : <a href="../../Maquettes/M-SonsValidation/">M-SonsValidation</a> (menu ☰ + modale de progression)<br>
+<strong>Dépendances</strong> : <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/#e7s1">E7.S1</a>, <a href="#e8s3">E8.S3</a><br></p>
 
 
 
