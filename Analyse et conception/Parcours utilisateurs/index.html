@@ -2007,6 +2007,8 @@
       
         
       
+        
+      
     
     
     
@@ -2435,6 +2437,34 @@
     
   
     P12 - Récupérer une nuit déposée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="P13%20-%20Envoyer%20un%20sous-ensemble%20%C3%A0%20un%20expert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P13 - Envoyer un sous-ensemble à un expert
   
 
     
@@ -3497,7 +3527,7 @@
 <ul>
 <li><strong>Section A - Fil rouge</strong> : un seul parcours, <strong>P0</strong>, qui raconte l'usage de bout-en-bout vu par Marie, de la carte SD au dépôt.</li>
 <li><strong>Section B - Chaîne de production</strong> : les parcours <strong>P1 à P6</strong> qui composent et enrichissent le fil rouge - déclaration de site, import, vérification, préparation du dépôt, navigation multi-sites et diagnostic matériel -, plus <strong>P12</strong> (récupérer une nuit déjà déposée sur la plateforme, en trois coutures : synchro, reconstruire, réactiver).</li>
-<li><strong>Section C - Après le dépôt &amp; exploitation</strong> : <strong>P7</strong> (validation des résultats Tadarida) et son prolongement <strong>biodiversité</strong> - regroupement (<strong>P9</strong>), bibliothèque de sons (<strong>P10</strong>) et inventaire des espèces (<strong>P11</strong>).</li>
+<li><strong>Section C - Après le dépôt &amp; exploitation</strong> : <strong>P7</strong> (validation des résultats Tadarida) et son prolongement <strong>biodiversité</strong> - regroupement (<strong>P9</strong>), bibliothèque de sons (<strong>P10</strong>), inventaire des espèces (<strong>P11</strong>) et envoi d'un sous-ensemble à un expert (<strong>P13</strong>).</li>
 <li><strong>Transverse</strong> : <strong>P8</strong> (recherche globale) est accessible depuis <strong>n'importe quel écran</strong>.</li>
 </ul>
 <p>Tous les parcours reposent sur le vocabulaire posé dans le <a href="../Mod%C3%A8le%20conceptuel/">Modèle conceptuel</a>.</p>
@@ -3550,6 +3580,10 @@ maquettés dans <a href="../Maquettes/M-Synthese/">M-Synthese</a>,
 <td>ce que l'activité vaut, et la forme de la nuit</td>
 </tr>
 <tr>
+<td><a href="P13%20-%20Envoyer%20un%20sous-ensemble%20%C3%A0%20un%20expert/">P13</a></td>
+<td>un bilan chiffré d'archive (sons emportés, sons introuvables)</td>
+</tr>
+<tr>
 <td><a href="P12%20-%20R%C3%A9cup%C3%A9rer%20une%20nuit%20d%C3%A9pos%C3%A9e%20sur%20VigieChiro/">P12</a></td>
 <td>un compte rendu de réactivation</td>
 </tr>
@@ -3573,13 +3607,14 @@ flowchart LR
     P7 --&gt; P9[🔁 P9 - Regrouper&lt;br/&gt;les nuits par point]
     P7 --&gt; P10[🎼 P10 - Exporter&lt;br/&gt;sons de référence]
     P7 --&gt; P11[🪶 P11 - Inventaire&lt;br/&gt;des espèces]
+    P7 --&gt; P13[📤 P13 - Envoyer à&lt;br/&gt;un expert]
 
     P8[🔍 P8 - Recherche globale&lt;br/&gt;depuis tout écran]
 
     classDef livre fill:#1e8449,stroke:#0e5128,color:#fff,stroke-width:2px
     classDef transverse fill:#3f51b5,stroke:#283593,color:#fff,stroke-width:2px
     classDef nonlivre fill:#5d6d7e,stroke:#283747,color:#fff,stroke-width:2px,stroke-dasharray:5 3
-    class P1,P2,P3,P4,P5,P6,P7,P10,P11,P12 livre
+    class P1,P2,P3,P4,P5,P6,P7,P10,P11,P12,P13 livre
     class P8 transverse
     class P9 nonlivre</code></pre>
 <p>Le fil rouge <strong>P0</strong> est la concaténation P1 → P2 → P3 → P4. Les nœuds verts sont des parcours <strong>livrés</strong> ; <strong>P8</strong> (bleu) est la recherche <strong>transverse</strong>, atteignable depuis tout écran ; <strong>P9</strong> (gris pointillé) est une <strong>cible non livrée</strong> (regroupement de nuits pour validation, cf. <a href="../Story%20mapping/E8%20-%20Productivit%C3%A9%20avanc%C3%A9e%20Tadarida/#e8s1">E8.S1</a>).</p>
@@ -3666,6 +3701,12 @@ flowchart LR
 <td>« Espèces &amp; observations » (par espèce / par carré)</td>
 </tr>
 <tr>
+<td></td>
+<td><a href="P13%20-%20Envoyer%20un%20sous-ensemble%20%C3%A0%20un%20expert/">P13 - Envoyer un sous-ensemble à un expert</a></td>
+<td>Samuel</td>
+<td>espèce × lieu → archive ZIP (CSV + sons)</td>
+</tr>
+<tr>
 <td><strong>Transverse</strong></td>
 <td><a href="P8%20-%20Rechercher%20globalement/">P8 - Rechercher globalement</a></td>
 <td>tous</td>
@@ -3749,6 +3790,12 @@ flowchart LR
 <td style="text-align: center;">(non)</td>
 <td style="text-align: center;">(non)</td>
 <td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td><a href="P13%20-%20Envoyer%20un%20sous-ensemble%20%C3%A0%20un%20expert/">P13 - Envoyer à un expert</a></td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅ ⭐</td>
 </tr>
 <tr>
 <td><a href="P11%20-%20Inventaire%20des%20esp%C3%A8ces%20d%C3%A9tect%C3%A9es/">P11 - Inventaire des espèces</a></td>
