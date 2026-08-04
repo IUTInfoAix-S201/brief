@@ -3620,6 +3620,11 @@
 <td>c'est le protocole lui-même</td>
 </tr>
 <tr>
+<td><code>*.s3.amazonaws.com</code></td>
+<td>téléversement des enregistrements, téléchargement des résultats</td>
+<td>c'est le <strong>stockage</strong> du protocole : la plateforme rend une URL déjà signée, et les fichiers y transitent directement</td>
+</tr>
+<tr>
 <td><code>api.github.com</code></td>
 <td>à chaque lancement</td>
 <td>signaler qu'une version plus récente existe</td>
@@ -3631,10 +3636,16 @@
 </tr>
 </tbody>
 </table>
+<p>L'hébergement de stockage est le seul dont <strong>la plateforme fournit l'adresse</strong> au moment de
+  l'échange : c'est donc le seul point où un serveur compromis pourrait désigner un autre
+  destinataire. L'application <strong>vérifie cette adresse avant d'y envoyer quoi que ce soit</strong> - schéma
+  <code>https</code> obligatoire et hôte confronté à une liste, cf. <a href="https://companion-dev.echonuit.fr/securite/">ADR 2734</a>.
+  Une adresse inattendue est <strong>refusée sans qu'un octet parte</strong>.</p>
 <ul>
 <li><strong>Aucune télémétrie, aucune donnée personnelle ni traçante</strong> vers GitHub ou GBIF : ces deux appels n'emportent qu'un numéro de version ou un nom d'espèce. Les identifiants observateur et participation ne partent <strong>que</strong> vers la plateforme Vigie-Chiro.</li>
 <li><strong>Vérifier n'est pas mettre à jour</strong> : l'application interroge GitHub au démarrage pour <em>signaler</em> une version plus récente ; elle ne télécharge et n'installe jamais rien toute seule. C'est une vérification silencieuse, pas un auto-update silencieux.</li>
-<li><strong>Le jeton d'authentification</strong> est stocké localement (<code>connexion.json</code>, permissions restreintes au propriétaire) et n'est transmis qu'à la plateforme, jamais journalisé ni versionné (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/blob/main/SECURITY.md">SECURITY.md</a>).</li>
+<li><strong>Le jeton d'authentification</strong> est stocké localement (<code>connexion.json</code>, permissions restreintes au propriétaire <strong>dès la création du fichier</strong>, jamais posées après coup) et n'est transmis qu'à la plateforme, jamais journalisé ni versionné (cf. <a href="https://github.com/echonuit/vigiechiro-pr-companion/blob/main/SECURITY.md">SECURITY.md</a>).</li>
+<li><strong>Les sauvegardes et exports ne sont pas chiffrés</strong>, et c'est un choix : une clé dérivée d'un mot de passe ferait de la sauvegarde un piège au moment précis où elle sert. Ils emportent donc les <strong>localisations</strong> en clair, dans un fichier que l'utilisateur range où il veut. La contrepartie est que l'application <strong>annonce ce que l'archive contient</strong> au moment de l'écrire, plutôt que de décider à sa place. C'est le seul canal par lequel des données traçantes peuvent quitter le poste <strong>du fait de l'utilisateur</strong> : il doit le savoir.</li>
 <li><strong>Les journaux applicatifs restent locaux</strong> (<code>&lt;workspace&gt;/logs/</code>, rotation) et ne sont envoyés nulle part. La couche réseau ne consigne ni le jeton, ni les en-têtes, ni le corps envoyé, ni l'URL S3 signée ; le chemin d'un appel peut en revanche porter un identifiant de participation, raison de plus pour que ces journaux ne quittent pas le poste.</li>
 <li><strong>Aucun fichier sensible n'est versionné</strong> (gitignore strict, pas de jeu de données de test portant un vrai UUID observateur hors du dossier <code>data/</code> signalé comme données d'exemple).</li>
 </ul>
