@@ -3741,6 +3741,18 @@
 <p><strong>Je veux</strong> une vue alternative à l'arborescence qui liste <strong>tous mes passages</strong> sous forme de tableau triable et filtrable par chaque colonne</p>
 <p><strong>Afin de</strong> pouvoir balayer rapidement un grand volume et identifier les passages qui demandent mon attention (statut, verdict, date)</p>
 <p><strong>Critères d'acceptation</strong> :</p>
+<div class="admonition note">
+<p class="admonition-title">Livré, mais autrement que décrit ici</p>
+<p>Le <strong>tableau</strong> est livré. Ses colonnes réelles sont Carré, Nom du carré, Commune, Point, Année,
+N° passage, Date, Statut, Verdict, Analyse et Campagne : trois de plus qu'annoncé (<strong>Commune</strong>,
+<strong>Campagne</strong>, <strong>Analyse</strong>), et <strong>une</strong> colonne Date là où le critère en demandait deux (session
+d'enregistrement <strong>et</strong> dépôt).</p>
+<p>Deux écarts de dispositif, tenus par un autre moyen : il n'y a <strong>pas de bascule</strong> vers une vue
+arborescente, puisque <a href="#e5s1">E5.S1</a> n'est pas construite ; et le filtre n'est <strong>pas par colonne</strong>
+mais par <strong>puces</strong> ajoutées à la demande (#3092), sept critères qui se cumulent en ET. La
+réconciliation de cette section avec le dispositif réel est ouverte en #3330. Voir aussi la note de
+<a href="#e5s3">E5.S3</a>, qui enregistre déjà le même écart pour les filtres avancés.</p>
+</div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une bascule permet de basculer entre la vue arborescente (<a href="#e5s1">E5.S1</a>) et la vue tabulaire.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La vue tabulaire affiche une ligne par passage avec colonnes : Site (n° carré + nom), Point, Année, N° passage, Date de session d'enregistrement, Statut d'avancement, Verdict, Date de dépôt.</li>

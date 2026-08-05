@@ -3950,6 +3950,16 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition tip">
+<p class="admonition-title">Les deux tables existent aussi en ligne de commande (#3269)</p>
+<p><code>lister-especes</code> et <code>lister-carres</code> rendent les deux modes du sélecteur <strong>Regrouper</strong>, avec les
+<strong>cinq</strong> critères de la barre à puces (<code>--statut</code>, <code>--taxon-parent</code>, <code>--lieu</code>, <code>--nature</code>,
+<code>--a-enjeu</code>) et les mêmes colonnes que l'export. <strong>Deux</strong> commandes plutôt qu'une à <code>--regrouper</code> :
+leurs colonnes n'ont rien en commun, et un script ne doit pas avoir à deviner celles qu'il recevra.</p>
+<p>Un écart assumé : l'écran fait <strong>cocher</strong> dans une liste de valeurs présentes, la ligne de commande
+reçoit un <strong>fragment tapé</strong> et compare partiellement. Et le <strong>point d'écoute</strong>, filtrable à l'écran
+parce qu'il y paraît qualifié par son carré, ne l'est pas en ligne de commande.</p>
+</div>
 <h2 id="variante-mode-carte-choroplethe-de-richesse">Variante - mode carte (choroplèthe de richesse)<a class="headerlink" href="#variante-mode-carte-choroplethe-de-richesse" title="Permanent link">&para;</a></h2>
 <p>Le bouton <strong>« 🗺️ Carte »</strong> remplace la table d'inventaire par une <strong>carte de répartition</strong> : la zone maître affiche le <strong>carroyage officiel</strong>, chaque carré teinté en <strong>vert d'autant plus opaque qu'il est riche en espèces</strong> (choroplèthe de richesse). Le panneau de détail sous la carte reste inchangé.</p>
 <div markdown="0">
