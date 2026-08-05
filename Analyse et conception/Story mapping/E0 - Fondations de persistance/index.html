@@ -3935,7 +3935,8 @@
 <p><strong>Afin de</strong> pouvoir étaler la validation sur plusieurs jours sans rien perdre</p>
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le contexte de validation est persisté en BD : dernière observation vue, filtres actifs (taxon, groupe, seuil de probabilité, plage horaire), mode de validation choisi (inventaire/activité).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Le contexte de validation est persisté en BD : dernière observation vue, filtres actifs (taxon, groupe, seuil de probabilité, plage horaire), mode de validation choisi (inventaire/activité).
+    ✅ <strong>Vérifié le 2026-08-05, aucune dérive</strong> : <code>MemoireFiltres</code> se déclare mémoire <strong>de session</strong> (singleton Guice, #484 généralisé en #3098). Les filtres survivent à un changement d'écran, pas à un redémarrage. La case est donc légitimement décochée, et <a href="../E7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">E7</a> l'énonce déjà.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Au retour sur l'écran de validation pour le même passage, le contexte est restauré automatiquement.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les observations déjà validées ou corrigées sont persistées et conservent leur statut.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test d'intégration : validation partielle, fermeture, réouverture, vérification de la restauration.</li>

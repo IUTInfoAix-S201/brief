@@ -3750,14 +3750,14 @@ d'enregistrement <strong>et</strong> dépôt).</p>
 <p>Deux écarts de dispositif, tenus par un autre moyen : il n'y a <strong>pas de bascule</strong> vers une vue
 arborescente, puisque <a href="#e5s1">E5.S1</a> n'est pas construite ; et le filtre n'est <strong>pas par colonne</strong>
 mais par <strong>puces</strong> ajoutées à la demande (#3092), sept critères qui se cumulent en ET. La
-réconciliation de cette section avec le dispositif réel est ouverte en #3330. Voir aussi la note de
+réconciliation est <strong>faite</strong> (#3330) : les cases ci-dessous portent désormais l'état réel. Voir aussi la note de
 <a href="#e5s3">E5.S3</a>, qui enregistre déjà le même écart pour les filtres avancés.</p>
 </div>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Une bascule permet de basculer entre la vue arborescente (<a href="#e5s1">E5.S1</a>) et la vue tabulaire.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> La vue tabulaire affiche une ligne par passage avec colonnes : Site (n° carré + nom), Point, Année, N° passage, Date de session d'enregistrement, Statut d'avancement, Verdict, Date de dépôt.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> La vue tabulaire affiche une ligne par passage avec colonnes : Site (n° carré + nom), Point, Année, N° passage, Date de session d'enregistrement, Statut d'avancement, Verdict. <strong>La date de dépôt manque</strong> (une seule colonne Date), et trois colonnes non prévues s'y ajoutent : Commune, Campagne, Analyse.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Toutes les colonnes sont <strong>triables</strong> (clic sur l'en-tête).</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Chaque colonne propose un <strong>filtre rapide</strong> :<ul>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Filtrage livré, <strong>autrement</strong> : une barre à puces (#3092) plutôt qu'un filtre par colonne. Sept critères cumulés en ET, dont site, point, année, statut et verdict. Le libellé d'origine :<ul>
 <li>colonnes textuelles : input texte avec match partiel (Site, Point)</li>
 <li>colonnes énumérées : multi-sélection (Statut d'avancement, Verdict)</li>
 <li>colonnes dates : sélecteur de plage</li>
@@ -3782,9 +3782,9 @@ réconciliation de cette section avec le dispositif réel est ouverte en #3330. 
 <p><strong>Critères d'acceptation</strong> :</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Un bouton « Filtres avancés » ouvre un panneau de composition de filtres avec une logique ET entre les critères, OU à l'intérieur d'une même catégorie.</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Les critères disponibles couvrent : site (multi-select), point (multi-select), année, plage de n° de passage, plage de dates d'enregistrement, plage de dates de dépôt, statut d'avancement (multi-select), verdict (multi-select), enregistreur (par n° de série).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Critères couverts : site et point (par la puce <strong>Lieu</strong>), année, statut, verdict - plus deux que ce critère n'annonçait pas, <strong>campagne</strong> et <strong>état d'analyse</strong>. ⚠️ En <strong>mono</strong>-sélection, non multi. <strong>Manquent vraiment</strong> : les plages de dates (enregistrement, dépôt), la plage de n° de passage (seule l'égalité existe) et l'<strong>enregistreur</strong> par n° de série. Ces quatre-là restent des <strong>cibles</strong>, ni livrées ni abandonnées.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Un compteur en bas de panneau indique « N passages correspondent à ces critères ».</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Bouton « Appliquer » : la vue tabulaire (<a href="#e5s2">E5.S2</a>) se rafraîchit avec les résultats filtrés.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Rafraîchissement livré <strong>sans bouton</strong> : les puces s'appliquent à la volée. Un bouton « Appliquer » supposait un panneau de composition, que la barre à puces remplace.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Bouton « Sauvegarder cette vue » : permet de nommer le jeu de filtres et de le retrouver dans un menu de « Vues sauvegardées ».</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Les vues sauvegardées sont <strong>persistées</strong> en BD et restent disponibles après redémarrage.</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Possibilité de définir une vue comme « vue par défaut à l'ouverture ».</li>
