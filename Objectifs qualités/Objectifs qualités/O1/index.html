@@ -634,6 +634,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#de-maniere-identique-ne-va-pas-de-soi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        « De manière identique » ne va pas de soi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3588,6 +3599,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#de-maniere-identique-ne-va-pas-de-soi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        « De manière identique » ne va pas de soi
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3634,6 +3656,29 @@
 <li>Le <code>./mvnw javafx:run</code> produit le même comportement sur les trois OS cibles dans la CI (matrice GitHub Actions).</li>
 <li>Aucune dépendance native binaire spécifique à un OS dans le <code>pom.xml</code> (en dehors de JavaFX, qui gère son propre cross-platform).</li>
 </ul>
+<h2 id="de-maniere-identique-ne-va-pas-de-soi">« De manière identique » ne va pas de soi<a class="headerlink" href="#de-maniere-identique-ne-va-pas-de-soi" title="Permanent link">&para;</a></h2>
+<p>L'objectif dit <em>identique</em>, et il a fallu le prendre au mot. Trois façons dont le produit <strong>empruntait
+à la machine</strong> ce qu'il aurait dû énoncer :</p>
+<ul>
+<li><strong>la police.</strong> La feuille de style nommait trois familles dont aucune n'est installée sur un poste
+  Linux courant : les rendus retombaient sur <code>sans-serif</code>, que chaque système résout à sa façon. Deux
+  utilisateurs ne voyaient donc pas la même chose, et un libellé qui tenait chez l'un pouvait se
+  tronquer chez l'autre. La police est désormais <strong>embarquée dans le jar</strong> ;</li>
+<li><strong>les fenêtres qui ne la demandaient pas.</strong> Embarquer ne suffit pas : c'est la feuille de style qui
+  sélectionne la police, et seuls deux écrans sur des dizaines la déclaraient. Dix fenêtres sur onze -
+  toutes les modales - rendaient dans une autre police que celle qui les portait ;</li>
+<li><strong>les caractères qu'elle ne couvre pas.</strong> Un caractère absent de la fonte part en repli vers une
+  police du système : huit d'entre eux (<code>→ ⚠ ☰ ≥ ≤ ▸ ← −</code>) rouvraient la porte par laquelle on venait
+  de sortir. Ils ont été remplacés par des équivalents couverts.</li>
+</ul>
+<p><strong>Mesuré</strong> : à options de rendu identiques, un écran produit désormais le <strong>même fichier image, octet
+pour octet</strong>, sur un poste de développement et sur la machine d'intégration continue.</p>
+<p>Trois gardes tiennent la propriété plutôt que la vigilance : <code>ScenesHabilleesTest</code> (aucune fenêtre hors
+du socle d'habillage), <code>PoliceCouvreLIhmTest</code> (aucun caractère affiché hors de la police embarquée), et
+le contrôle de troncature des aperçus, dont le verdict cesse de dépendre de la machine qui l'a rendu.</p>
+<p>⚠️ <strong>Ce qui reste emprunté</strong> : le <strong>fuseau horaire</strong>. L'application date les nuits d'écoute dans le
+fuseau de la machine qui l'exécute. La question - le fuseau d'une nuit est-il celui du site d'écoute ou
+celui de l'observateur qui dépouille ? - touche le domaine, pas le rendu : elle est ouverte en <strong>#3406</strong>.</p>
 
 
 
