@@ -3791,7 +3791,11 @@ d'architecture</strong> qui structurent son code.</p>
 <li><strong>Tests automatisés</strong> avec <strong>JUnit 5</strong>, <strong>AssertJ</strong>, <strong>TestFX</strong> (IHM, headless), <strong>Mockito</strong> et
   <strong>ApprovalTests</strong>. Des tests <strong>end-to-end</strong> rejouent les parcours métier de bout en bout.</li>
 <li><strong>Qualité de code</strong> outillée et <strong>bloquante en CI</strong> : <strong>Spotless</strong> (Palantir Java Format, déclenché
-  en <em>pre-commit</em>), <strong>PMD</strong>, et une <strong>couverture minimale</strong> vérifiée par <strong>JaCoCo</strong>. Les valeurs de
+  en <em>pre-commit</em>), <strong>PMD</strong>, une <strong>couverture minimale</strong> vérifiée par <strong>JaCoCo</strong>, et une <strong>seconde
+  compilation</strong> par le compilateur <strong>Eclipse</strong> en plus de <code>javac</code>. Deux mises en œuvre conformes
+  n'acceptent pas exactement le même code, et ce qui ne passe que chez l'une empoisonne le
+  <code>target/classes</code> partagé avec l'IDE : l'échec survient alors à l'exécution, bien plus tard et très
+  loin de sa cause. Les valeurs de
   ces seuils, et la justification de chacune, vivent dans le <code>pom.xml</code> du dépôt applicatif : les
   répéter ici les ferait diverger au premier ajustement.</li>
 <li><strong>Intégration continue</strong> sur <strong>GitHub Actions</strong> : à chaque <em>push</em>, build + tests + portail qualité ;
