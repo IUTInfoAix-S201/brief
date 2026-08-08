@@ -3810,6 +3810,11 @@ d'architecture</strong> qui structurent son code.</p>
 <li><strong>Lancement depuis les sources</strong> : <code>./mvnw javafx:run</code> suffit dans un environnement Java 25.</li>
 <li><strong>Mode CLI</strong> (sans IHM) pour les opérations scriptables (import d'une nuit, export d'un CSV),
   utilisable en automatisation et en CI.</li>
+<li><strong>Un seul processus écrit à la fois</strong> dans un dossier de travail. Lancer l'application une seconde
+  fois sur le même dossier est <strong>refusé</strong>, avec le nom du processus qui occupe la place : deux
+  fenêtres qui écrivent la même base la corrompent, et le défaut ne se verrait que bien plus tard. Le
+  verrou est un verrou <strong>de fichier système</strong>, donc relâché si le processus meurt : une fermeture
+  brutale ne condamne pas le dossier.</li>
 </ul>
 <h2 id="composant-audio-fourni">Composant audio fourni<a class="headerlink" href="#composant-audio-fourni" title="Permanent link">&para;</a></h2>
 <p>La brique technique la plus lourde est <strong>fournie</strong> sous forme de composant réutilisable, pour
