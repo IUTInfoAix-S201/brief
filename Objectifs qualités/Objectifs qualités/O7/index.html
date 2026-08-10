@@ -3634,6 +3634,7 @@
 <li>Toute annotation est <strong>persistée immédiatement</strong> en base (pas de bouton « Enregistrer » global qui repousse l'écriture).</li>
 <li>Test : <code>kill -9</code> du processus pendant la saisie d'une annotation → au redémarrage, les annotations validées avant le kill sont toujours présentes.</li>
 <li>Test : import incomplet (interruption à mi-parcours) → l'application repart proprement, ne corrompt pas la base, et signale clairement l'état partiel.</li>
+<li>Test : <strong>restauration complète interrompue</strong> → soit l'état d'avant, soit un état partiel <strong>annoncé</strong>. L'application recopie chaque nuit à côté de sa place avant de l'y faire basculer ; quand la place manque pour toutes les préparer d'abord, elle procède une nuit à la fois <strong>et le dit</strong>, plutôt que de refuser une restauration qui était possible.</li>
 </ul>
 
 
