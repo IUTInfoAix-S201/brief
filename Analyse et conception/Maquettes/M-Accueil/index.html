@@ -3896,7 +3896,7 @@
 </tr>
 <tr>
 <td>Compteur du tableau de bord</td>
-<td>Repère visuel (non cliquable) ; reflète l'état courant de la base</td>
+<td>Repère visuel (non cliquable) ; <strong>suit la base en direct</strong>, y compris pendant qu'on reste sur l'accueil (import, synchronisation, restauration)</td>
 </tr>
 <tr>
 <td>Champ <strong>Rechercher</strong> (Ctrl+F)</td>
@@ -3906,7 +3906,7 @@
 </table>
 <h3 id="notes-pour-limplementation">Notes pour l'implémentation<a class="headerlink" href="#notes-pour-limplementation" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Inversion de dépendance</strong> : le socle (<code>commun.view</code>, <code>MainController</code>) bâtit l'accueil à partir des <code>Set&lt;ActiviteAccueil&gt;</code> et <code>Set&lt;IndicateurAccueil&gt;</code> injectés ; chaque fonctionnalité <strong>publie sa carte et ses compteurs</strong> via un <code>Multibinder</code> Guice. Ajouter une activité à l'accueil = une implémentation + une ligne de binding, <strong>sans retoucher le socle</strong> (graphe de slices acyclique, garanti par <code>ArchitectureTest</code>).</li>
+<li><strong>Inversion de dépendance</strong> : le socle bâtit l'accueil à partir des <code>Set&lt;ActiviteAccueil&gt;</code> et <code>Set&lt;IndicateurAccueil&gt;</code> injectés ; chaque fonctionnalité <strong>publie sa carte et ses compteurs</strong> via un <code>Multibinder</code> Guice. Ajouter une activité à l'accueil = une implémentation + une ligne de binding, <strong>sans retoucher le socle</strong> (graphe de slices acyclique, garanti par <code>ArchitectureTest</code>). Les <strong>cartes</strong> sont bâties par <code>MainController</code> (<code>commun.view</code>) ; les <strong>compteurs</strong> le sont par <code>AccueilViewModel</code> (<code>commun.viewmodel</code>), qui les recalcule à chaque révision des données et que la vue se contente de restituer. Le contrat <code>IndicateurAccueil</code> vit donc lui aussi en <code>commun.viewmodel</code> : son contenu (cinq accesseurs de types primitifs, aucune classe JavaFX) n'a jamais rien eu d'une vue.</li>
 <li><strong>Prismes</strong> : l'ordre des sections suit l'énumération <code>Prisme</code> (Collecte &amp; passages, puis Espèces &amp; biodiversité) ; l'ordre des cartes <strong>dans</strong> un prisme suit le rang <code>ordre()</code> déclaré par chaque carte.</li>
 <li><strong>Bandeau nocturne</strong> : <code>StackPane</code> clippé à ses bornes (le filigrane lune déborde volontairement). Le <code>FlowPane</code> des compteurs et celui des sections se réagencent selon la largeur de la fenêtre.</li>
 <li><strong>Icônes</strong> : codes <a href="https://kordamp.org/ikonli/">Ikonli</a> FontAwesome 5 fournis par chaque fonctionnalité sous forme de <strong>chaîne</strong> (le socle construit le <code>FontIcon</code>) ; les emojis de la maquette ne sont qu'un substitut basse fidélité.</li>
