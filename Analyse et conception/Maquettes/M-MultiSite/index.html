@@ -4020,7 +4020,8 @@ qu'un script de suivi veut interroger.</p>
 <li><strong>Carte</strong> : composant réutilisable (dépendance Gluon Maps) ; les carrés et points sont reprojetés depuis leur emprise du carroyage national (référentiel <code>carrenat</code> embarqué), avec <strong>repli</strong> autour des points géolocalisés si le carré est hors référentiel (<a href="../../Mod%C3%A8le%20conceptuel/R%C3%A8gles%20m%C3%A9tier/#r26">R26</a>).</li>
 <li><strong>Tableau</strong> : <code>TableView</code> triée par un <code>SortedList</code> ; le tri par clic d'en-tête s'applique par-dessus l'ordre du service ; l'export reprend l'ordre réellement affiché.</li>
 <li><strong>Vues sauvegardées</strong> : une vue persiste un <strong>nom</strong> et la combinaison de <strong>filtres</strong> (sérialisée).</li>
-<li><strong>Carte non filtrée</strong> : la carte affiche <strong>tous</strong> les sites (vision d'ensemble) indépendamment des filtres du tableau ; un rafraîchissement dédié la met à jour au chargement et au retour.</li>
+<li><strong>Carte non filtrée</strong> : la carte affiche <strong>tous</strong> les sites (vision d'ensemble) indépendamment des filtres du tableau ; un rafraîchissement dédié la met à jour au chargement, au retour, et sur le <strong>signal de mutation</strong> du socle - une nuit importée pendant qu'on regarde la carte n'attend pas qu'on en sorte.</li>
+<li><strong>Le compte rendu de relevé survit au rafraîchissement</strong> : l'écran peut se recharger sous les yeux de l'utilisateur, y compris pendant qu'il lit le compte rendu d'un relevé. La reprojection le <strong>réapplique</strong> au lieu de l'effacer, faute de quoi le rafraîchissement automatique reprendrait d'une main ce que le relevé venait de donner.</li>
 </ul>
 
 
