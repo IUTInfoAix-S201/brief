@@ -2220,10 +2220,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enrichissements-prevus" class="md-nav__link">
+  <a href="#ce-que-la-fin-dimport-est-devenue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enrichissements prévus
+        Ce que la fin d'import est devenue
       
     </span>
   </a>
@@ -3578,10 +3578,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enrichissements-prevus" class="md-nav__link">
+  <a href="#ce-que-la-fin-dimport-est-devenue" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enrichissements prévus
+        Ce que la fin d'import est devenue
       
     </span>
   </a>
@@ -3663,13 +3663,11 @@
 <li>Si l'utilisateur lance un import alors qu'un autre est en cours, l'application le met en file d'attente plutôt que de refuser ou de paralléliser (préservation des perfs).</li>
 <li>Les <strong>identifiants observateur et participation</strong> présents dans les noms de fichiers ou les CSV sont conservés en local mais ne sont jamais transmis à un service distant (R8 implicite, <a href="../../../Objectifs%20qualit%C3%A9s/Sc%C3%A9nario/SC2/">SC2</a>).</li>
 </ul>
-<h2 id="enrichissements-prevus">Enrichissements prévus<a class="headerlink" href="#enrichissements-prevus" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Ces évolutions sont <strong>décidées et maquettées, pas encore livrées</strong>. Elles prolongent ce parcours sans en modifier les étapes actuelles.</p>
-</blockquote>
+<h2 id="ce-que-la-fin-dimport-est-devenue">Ce que la fin d'import est devenue<a class="headerlink" href="#ce-que-la-fin-dimport-est-devenue" title="Permanent link">&para;</a></h2>
+<p>L'enrichissement annoncé ici est <strong>livré</strong> (#2358, EPIC #2350).</p>
 <ul>
 <li>
-<p><strong>La fin d'import rend des comptes en chiffres</strong> <em>(livré, #2358)</em>. Le <a href="../../Maquettes/M-CompteRendu/">compte rendu chiffré</a> a remplacé les trois surfaces qui se succédaient : la phrase de succès, le compte rendu textuel et la liste des rejets. Il restitue la ventilation des fichiers de la source, compare le volume <strong>lu sur la carte</strong> au volume <strong>écrit sur le disque</strong>, rappelle les réserves d'inspection <strong>encore vraies</strong> (#1488) et se termine par « Ouvrir le passage » plutôt que par un acquittement.</p>
+<p><strong>La fin d'import rend des comptes en chiffres</strong>. Le <a href="../../Maquettes/M-CompteRendu/">compte rendu chiffré</a> a remplacé les trois surfaces qui se succédaient : la phrase de succès, le compte rendu textuel et la liste des rejets. Il restitue la ventilation des fichiers de la source, compare le volume <strong>lu sur la carte</strong> au volume <strong>écrit sur le disque</strong>, rappelle les réserves d'inspection <strong>encore vraies</strong> (#1488) et se termine par « Ouvrir le passage » plutôt que par un acquittement.</p>
 <p>Le remplacement n'a été <strong>complet</strong> qu'à #2654 : jusque-là le ViewModel alimentait encore les deux canaux d'autrefois - le compte rendu textuel et la liste des rejets - que plus aucune surface ne lisait. Ils mentaient sur l'état du code, et leur retrait a demandé de vérifier, cas par cas, que la substance de leurs sept tests avait bien déménagé.</p>
 </li>
 </ul>
