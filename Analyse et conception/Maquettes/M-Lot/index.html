@@ -4341,7 +4341,7 @@
 <ul>
 <li><strong>Contrôles de cohérence</strong> : rejoués à l'ouverture (pas mémorisés en base). Bloquants : verdict, transformation, nommage, journal ; non bloquant : relevé climatique.</li>
 <li><strong>Forme du dépôt</strong> : réglage global (<em>Réglages ▸ Dépôt</em>), ZIP par défaut. En ZIP, la plateforme ne conserve pas les sons et la participation n'est pas relançable : la conséquence est rappelée à l'écran.</li>
-<li><strong>Dépôt reprenable</strong> : le plan est persisté unité par unité (<code>depot_plan</code>, <code>depot_unite</code>), statut <code>Dépôt en cours</code> ; un dépôt interrompu se <strong>reprend</strong> (« Retenter les échecs »), il ne se rejoue pas.</li>
+<li><strong>Dépôt reprenable</strong> : le plan est persisté unité par unité (<code>depot_plan</code>, <code>depot_unite</code>), statut <code>Dépôt en cours</code> ; un dépôt interrompu se <strong>reprend</strong> (« Reprendre le dépôt »), il ne se rejoue pas. Une unité refusée <strong>définitivement</strong> fait exception : elle porte <code>echec_definitif</code>, la reprise ne la reprend plus, et le bouton cesse de la promettre.</li>
 <li><strong>Lancement du traitement</strong> : <code>▶ Lancer la participation</code> déclenche le calcul serveur ; l'état est <strong>relevé à la demande</strong> (pas de sondage automatique).</li>
 <li><strong>Ouverture du dossier</strong> : <code>java.awt.Desktop.open(File)</code> sur <code>depot/</code> ; désactivée proprement en environnement sans bureau graphique (chemin copiable en repli).</li>
 <li><strong>Icônes</strong> : <code>FontIcon</code> Ikonli, pas d'emoji (règle #700) ; les emojis de la maquette ne sont qu'un substitut basse fidélité.</li>
