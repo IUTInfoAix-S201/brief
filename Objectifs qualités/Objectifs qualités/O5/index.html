@@ -744,6 +744,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Mesure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-ce-protocole-disait-de-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Ce que ce protocole disait de faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-la-topologie-est-une-dimension-a-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi la topologie est une dimension à part
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3826,6 +3854,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Mesure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-ce-protocole-disait-de-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Ce que ce protocole disait de faux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-la-topologie-est-une-dimension-a-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi la topologie est une dimension à part
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3862,11 +3918,12 @@
 
 
 <h1 id="o5-capacite-a-manipuler-de-grands-volumes-observations-et-passages">O5 - Capacité à manipuler de grands volumes (observations et passages)<a class="headerlink" href="#o5-capacite-a-manipuler-de-grands-volumes-observations-et-passages" title="Permanent link">&para;</a></h1>
-<p>L'application doit rester fluide sur deux dimensions de volume :</p>
+<p>L'application doit rester fluide sur trois dimensions de volume :</p>
 <ol>
 <li><strong>CSV Tadarida de plusieurs milliers d'observations</strong> : tri, filtrage par taxon ou par probabilité, sélection d'une ligne quasi instantanés (cas validation <a href="../../../Analyse%20et%20conception/Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a>).</li>
+<li><strong>Vue tabulaire multi-sites de plusieurs centaines à un millier de passages</strong> : tri par colonne, filtres composés, multi-sélection (cas Karim/Samuel, <a href="../../../Analyse%20et%20conception/Parcours%20utilisateurs/P5%20-%20Naviguer%20dans%20plusieurs%20sites%20et%20passages/">P5</a> et <a href="../../../Analyse%20et%20conception/Maquettes/M-MultiSite/">M-MultiSite</a>).</li>
 <li>
-<p><strong>Vue tabulaire multi-sites de plusieurs centaines à un millier de passages</strong> : tri par colonne, filtres composés, multi-sélection (cas Karim/Samuel, <a href="../../../Analyse%20et%20conception/Parcours%20utilisateurs/P5%20-%20Naviguer%20dans%20plusieurs%20sites%20et%20passages/">P5</a> et <a href="../../../Analyse%20et%20conception/Maquettes/M-MultiSite/">M-MultiSite</a>).</p>
+<p><strong>Topologie de plusieurs dizaines à quelques centaines de carrés</strong>, chacun portant ses points d'écoute : ouverture des écrans qui composent une ligne par site ou par point (« Mes sites », « Carte &amp; passages », « Ma saison », fiche d'un site). Un carré Point Fixe rapatrie <strong>toute la grille STOC</strong>, des dizaines de points (<a href="../../../Analyse%20et%20conception/Parcours%20utilisateurs/P12%20-%20R%C3%A9cup%C3%A9rer%20une%20nuit%20d%C3%A9pos%C3%A9e%20sur%20VigieChiro/">P12</a>).</p>
 </li>
 <li>
 <p><strong>Catégorie</strong> : <a href="../../Cat%C3%A9gorie%20de%20qualit%C3%A9/Efficience%20des%20performances/">Efficience des performances</a></p>
@@ -3883,8 +3940,28 @@
 <ul>
 <li><strong>Côté observations</strong> : sur le jeu de données fourni (4031 observations) - tri et filtrage en quelques dizaines à quelques centaines de millisecondes, sélection de ligne quasi instantanée (&lt; 100 ms).</li>
 <li><strong>Côté passages</strong> : sur une simulation de 1000 passages - le tri par colonne et l'application d'un filtre se font en moins de 200 ms, le rendu de la table reste fluide (virtualisation TableView).</li>
-<li>Mesures réalisées sur une machine standard, première utilisation du jour (pas de cache JIT chaud).</li>
+<li><strong>Côté topologie</strong> : sur cent cinquante carrés de deux points, l'ouverture de chacun des écrans ci-dessus reste sous 50 ms, et surtout <strong>ne croît pas</strong> avec le nombre de carrés.</li>
+<li>Mesures réalisées sur une machine standard.</li>
 </ul>
+<h3 id="ce-que-ce-protocole-disait-de-faux">⚠️ Ce que ce protocole disait de faux<a class="headerlink" href="#ce-que-ce-protocole-disait-de-faux" title="Permanent link">&para;</a></h3>
+<p>Cette page a longtemps demandé de mesurer « <strong>première utilisation du jour (pas de cache JIT chaud)</strong> ».
+L'intention était bonne - ne pas flatter le produit avec un cache complaisant - mais la mesure obtenue
+ne dit pas ce qu'on croit : <strong>la première mesure d'un processus Java coûte ~300 ms quelle que soit la
+taille des données</strong>. Constaté en mesurant plusieurs échelles dans une même boucle, où 60 carrés
+donnaient 310 ms et 1500 carrés 24 ms.</p>
+<p>Une mesure à froid <strong>mesure le démarrage de la JVM</strong>, pas la capacité de l'application. Le protocole
+juste est : un appel jeté pour chauffer, puis <strong>trois relevés</strong> dont on publie les trois valeurs.</p>
+<p>Et l'attente que ressent l'utilisateur au premier écran du jour reste réelle : elle se traite en la
+<strong>nommant</strong> (<a href="https://dev.echonuit.fr/decisions/0027-une-attente-porte-toujours-un-nom/">ADR 0027</a>),
+pas en la faisant entrer dans un chiffre de capacité qu'elle rend illisible.</p>
+<h3 id="pourquoi-la-topologie-est-une-dimension-a-part">Pourquoi la topologie est une dimension à part<a class="headerlink" href="#pourquoi-la-topologie-est-une-dimension-a-part" title="Permanent link">&para;</a></h3>
+<p>Elle a été ajoutée après coup, et le motif mérite d'être écrit. Les deux premières dimensions comptent
+des <strong>lignes</strong> ; la troisième compte des <strong>entités qui portent des lignes</strong>. Un banc qui monte à mille
+passages sur <strong>un seul carré</strong> vérifie la première et <strong>ne voit rien</strong> de la troisième : c'est
+exactement ce qui est arrivé, et des écrans mettaient 400 ms là où le relevé annonçait 18 ms sous une
+cible de 200.</p>
+<p>Le coût qui croît avec la topologie est <strong>absent des jeux d'essai</strong> et <strong>maximal chez l'observateur qui
+a le plus de données</strong> - c'est-à-dire précisément chez Samuel, le persona que cet objectif protège.</p>
 
 
 
