@@ -3967,7 +3967,7 @@
 <strong>Persona principal</strong> : tous. C'est l'écran pivot qui agrège les fonctionnalités liées à une nuit d'enregistrement spécifique.
 <strong>Parcours couverts</strong> : transverse - point d'entrée vers <a href="../../Parcours%20utilisateurs/P3%20-%20V%C3%A9rifier%20l%27enregistrement%20par%20%C3%A9chantillonnage/">P3</a>, <a href="../../Parcours%20utilisateurs/P4%20-%20Pr%C3%A9parer%20un%20lot%20pr%C3%AAt%20%C3%A0%20d%C3%A9poser/">P4</a>, <a href="../../Parcours%20utilisateurs/P6%20-%20Diagnostiquer%20le%20mat%C3%A9riel/">P6</a>, <a href="../../Parcours%20utilisateurs/P7%20-%20Valider%20les%20r%C3%A9sultats%20Tadarida/">P7</a>.</p>
 </blockquote>
-<p>C'est l'<strong>écran pivot</strong> d'un passage, présenté comme un <strong>hub à plat</strong> (une seule page, sans onglets). Il agrège, de haut en bas : l'en-tête (titre identifiant + actions sur le passage), un <strong>bandeau d'identité</strong> (date/plage, enregistreur, statut, verdict), le <strong>indicateur d’étapes de statut d'avancement</strong>, un <strong>résumé de la nuit</strong> (statistiques) et un jeu de <strong>cartes d'actions « avancer »</strong> vers les écrans spécialisés : <a href="../M-Qualification/">M-Qualification</a> (vérifier), <a href="../M-Diagnostic/">M-Diagnostic</a> (diagnostiquer), <a href="../M-Lot/">M-Lot</a> (préparer le dépôt) et <a href="../M-SonsValidation/">M-SonsValidation</a> (valider, verrouillée tant que le passage n'est pas déposé).</p>
+<p>C'est l'<strong>écran pivot</strong> d'un passage, présenté comme un <strong>hub à plat</strong> (une seule page, sans onglets). Il agrège, de haut en bas : l'en-tête (titre identifiant + actions sur le passage), un <strong>bandeau d'identité</strong> (date/plage, enregistreur, statut, verdict), le <strong>indicateur d'étapes de statut d'avancement</strong>, un <strong>résumé de la nuit</strong> (statistiques) et un jeu de <strong>cartes d'actions « avancer »</strong> vers les écrans spécialisés : <a href="../M-Qualification/">M-Qualification</a> (vérifier), <a href="../M-Diagnostic/">M-Diagnostic</a> (diagnostiquer), <a href="../M-Lot/">M-Lot</a> (préparer le dépôt) et <a href="../M-SonsValidation/">M-SonsValidation</a> (valider, verrouillée tant que le passage n'est pas déposé).</p>
 <blockquote>
 <p><strong>Navigation</strong> : le <strong>retour</strong> (← écran précédent) et le <strong>fil d'Ariane</strong> (emplacement hiérarchique cliquable <code>🏠 Accueil › Mes sites › Carré N › Détails du passage N° X</code>) sont portés par le <strong>chrome</strong> de l'application (cadre commun), pas par cet écran. M-Passage ne porte donc plus de fil d'Ariane interne ni d'onglets : il déclare seulement son emplacement, que le chrome rend dans la barre de navigation.</p>
 </blockquote>
@@ -4050,7 +4050,7 @@
   <text x="900" y="174" class="info-label">VERDICT</text>
   <text x="900" y="195" class="info-value">OK</text>
 
-  <!-- Indicateur d’étapes de statut (5 étapes) -->
+  <!-- Indicateur d'étapes de statut (5 étapes) -->
   <text x="40" y="244" class="section">Statut du workflow</text>
   <line x1="130" y1="276" x2="350" y2="276" class="sl-done"/>
   <line x1="370" y1="276" x2="590" y2="276" class="sl-done"/>
@@ -4096,7 +4096,7 @@
 </ul>
 <p>L'écran ci-dessus montre l'état <strong>Vérifié</strong> (pas encore déposé) : seules les <strong>trois actions permanentes</strong> s'y affichent.
 - <strong>Bandeau d'identité</strong> : 4 cellules condensées (date/plage horaire, enregistreur en monospace, statut d'avancement, verdict de vérification).
-- <strong>Indicateur d’étapes du statut</strong> : 5 étapes <code>Importé › Transformé › Vérifié › Prêt à déposer › Déposé</code>. Vert = franchi, bleu = étape courante, gris = à venir.
+- <strong>Indicateur d'étapes du statut</strong> : 5 étapes <code>Importé › Transformé › Vérifié › Prêt à déposer › Déposé</code>. Vert = franchi, bleu = étape courante, gris = à venir.
 - <strong>Résumé de la nuit</strong> : 4 statistiques clés (volume bruts, volume transformé, durée enregistrée, nombre de séquences). La <strong>durée enregistrée</strong> est la durée réelle captée par l'enregistreur (somme des durées des séquences), pas la durée d'écoute : les séquences étant ralenties ×10, les réécouter intégralement prend dix fois plus longtemps.
 - <strong>Actions</strong> : 4 <strong>cartes</strong> « avancer ». Une seule porte le <strong>liseré « recommandée »</strong> (prochaine étape du cycle), qui <strong>se déplace au fil de l'avancement</strong> : Vérifier (à <code>Transformé</code>) → Préparer le dépôt (à <code>Vérifié</code> / <code>Prêt à déposer</code>, état montré ici) → Validation Tadarida (à <code>Déposé</code>). <code>Diagnostic matériel</code> est une action transverse, toujours disponible mais jamais « recommandée ». <code>Validation Tadarida</code> est <strong>verrouillée</strong> (carte grisée, non cliquable) tant que le passage n'est pas <code>Déposé</code>. Un <strong>indice contextuel</strong> sous les cartes explique l'action attendue / les conditions de déverrouillage.</p>
 </li>
@@ -4177,7 +4177,7 @@
 <ul>
 <li><strong>Pivot à plat</strong> : une seule page (<code>BorderPane</code> → <code>top</code> en-tête/bandeau/indicateur d'étapes, <code>center</code> résumé + cartes), sans <code>TabPane</code>. Le retrait des onglets supprime la redondance « onglet-lanceur ↔ carte d'action » : chaque facette du passage (vérification, diagnostic, dépôt, validation) est un <strong>écran spécialisé</strong> ouvert par une carte via un contrat socle (<code>Ouvrir*</code>), avec retour assuré par le chrome.</li>
 <li><strong>Navigation portée par le chrome</strong> : M-Passage implémente le contrat <code>EmplacementNavigation</code> pour déclarer son chemin (<code>Mes sites › Carré N › Détails du passage N° X</code>) ; le chrome en dérive le fil d'Ariane et conserve l'historique pour le bouton Retour. Aucun fil ni retour interne à l'écran.</li>
-<li><strong>Indicateur d’étapes de statut</strong> : 5 étapes, statut courant calculé depuis l'attribut d'avancement du passage.</li>
+<li><strong>Indicateur d'étapes de statut</strong> : 5 étapes, statut courant calculé depuis l'attribut d'avancement du passage.</li>
 <li><strong>États des cartes</strong> : <code>Vérifier</code> activée dès <code>Transformé</code> ; <code>Préparer le dépôt</code> activée à <code>Vérifié</code>/<code>Prêt à déposer</code> ; <code>Validation Tadarida</code> verrouillée tant que ≠ <code>Déposé</code>. Les états sont liés aux propriétés du ViewModel (<code>verificationDisponible</code>, <code>depotDisponible</code>, <code>validationVerrouillee</code>).</li>
 <li><strong>Mise en avant dynamique</strong> : la carte de la prochaine étape porte une pseudo-classe CSS <code>recommandee</code> (liseré bleu), pilotée par <code>actionRecommandee</code> (dérivée du statut). La mise en avant se déplace donc avec l'avancement, au lieu de rester figée sur la première action.</li>
 <li><strong>Icônes</strong> : <code>FontIcon</code> (Ikonli FontAwesome5) pour un rendu net, y compris en capture headless.</li>
