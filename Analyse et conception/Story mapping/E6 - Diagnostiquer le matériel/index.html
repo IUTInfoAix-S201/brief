@@ -4001,7 +4001,7 @@
 <h2 id="e6s3">E6.S3 - Vérifier la cohérence des horaires d'enregistrement vs astronomie locale<a class="headerlink" href="#e6s3" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Partiellement livré</p>
-<p>Le <strong>calcul astronomique local</strong> (coucher / lever) et sa précondition GPS sont livrés et testés. Mais l'encart affiché <strong>n'a pas</strong> la <strong>plage théorique</strong> (coucher -30 min → lever +30 min), la <strong>plage effective enregistrée</strong>, ni l'<strong>écart à trois niveaux</strong> (✅ / ⚠ / ❌) ; l'absence de GPS n'offre pas de lien direct vers la fiche site.</p>
+<p>Livré. L'encart porte la <strong>plage exigée</strong> par le protocole (coucher -30 min → lever +30 min), la <strong>plage effective enregistrée</strong>, et le verdict de couverture (#4987, #4988). L'écart à trois niveaux envisagé ici n'a pas été retenu : le protocole est un <strong>plancher</strong>, donc la fenêtre est couverte ou ne l'est pas, et les seuils de 5 et 30 minutes mesuraient un écart à une cible qui n'existe pas. Un troisième niveau signalant une nuit <strong>interrompue</strong> reste à faire, la complétude d'une nuit n'étant persistée nulle part (#5030). L'absence de GPS n'offre toujours pas de lien direct vers la fiche site.</p>
 </div>
 <p><strong>En tant que</strong> <a href="../../Personas/Samuel/">Samuel</a></p>
 <p><strong>Je veux</strong> que l'application calcule les heures réelles de coucher/lever de soleil pour la date et le lieu d'enregistrement, et compare ces horaires avec la plage effective enregistrée par le PR</p>
